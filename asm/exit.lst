@@ -1,0 +1,16 @@
+     1                                 %line 1+1 exit.asm
+     2                                 
+     3                                 
+     4                                 
+     5                                 
+     6                                 
+     7                                 
+     8                                 [segment .text]
+     9                                 [global _main]
+    10                                 _main:
+    11 00000000 B801000002              mov eax, 0x2000001
+    12 00000005 BF05000000              mov edi, 5
+    13 0000000A 0F05                    syscall
+    14                                  end
+    15                                 
+    16                                 
