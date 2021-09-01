@@ -91,7 +91,6 @@ class LinkedList {
         return this;
     }
 
-
     /**
      * Removes node at position index
      * 
@@ -120,6 +119,7 @@ class LinkedList {
     printList() {
         let i = this.length;
         let node = this.head;
+        console.log("\n\n");
         do {
             console.log(node.value);
             node = node.next;
@@ -146,28 +146,53 @@ class LinkedList {
         return node;
     }
 
+    /**
+     * Reverse LinkedList
+     */
+    reverse() {
+        if (!this.head.next) {
+            return this;
+        }
+        let first = this.head;
+        this.tail = this.head;
+        let second = first.next;
+
+        while (second) {
+            const temp = second.next;
+            second.next = first;
+            first = second;
+            second = temp;
+        }
+        this.head.next = null;
+        this.head = first;
+
+        this.printList();
+        return this;
+    }
 }
 
 
-const myLinkedList = new LinkedList(0)
-    .append(1)
-    .append(2)
-    .append(3)
-    .append(4)
-    .append(5)
-    .append(6)
-    .append(7)
-    .append(8);
+const myLinkedList = new LinkedList(0);
+myLinkedList.append(1);
+myLinkedList.append(2);
+myLinkedList.append(3);
+myLinkedList.append(4);
+myLinkedList.append(5);
+myLinkedList.append(6);
+myLinkedList.append(7);
+myLinkedList.append(8);
 
 // myLinkedList.insert(5, 7567);
 
-myLinkedList.remove(3);
-myLinkedList.remove(3);
-myLinkedList.remove(3);
-myLinkedList.remove(7);
+// myLinkedList.remove(3);
+// myLinkedList.remove(3);
+// myLinkedList.remove(3);
+// myLinkedList.remove(7);
 
 
 myLinkedList.printList();
+
+myLinkedList.reverse();
 
 
 
