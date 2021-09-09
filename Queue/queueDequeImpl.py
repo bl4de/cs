@@ -24,18 +24,24 @@ class Queue:
         '''
         return self._queue.popleft()
 
-    def len(self):
+    def contains(self, item):
+        '''
+            Checks if item exists in queue
+        '''
+        return item in self._queue
+
+    def __len__(self):
         '''
             Returns length of the queue
         '''
         return len(self._queue)
 
-    def show(self):
+    def __repr__(self):
         '''
             Returns list representation of the
             items in queue
         '''
-        return list(self._queue)
+        return ','.join(list(self._queue))
 
 
 myQueue = Queue()
@@ -46,10 +52,16 @@ myQueue.enqueue('Echo')
 myQueue.enqueue('Hevy')
 myQueue.enqueue('Cody')
 
-print(myQueue.show())
+print(myQueue)  # Rex,Fives,Echo,Hevy,Cody
 
-print(myQueue.dequeue()) # Rex
-print(myQueue.dequeue()) # Fives
-print(myQueue.dequeue()) # Echo
-print(myQueue.dequeue()) # Hevy
+print(len(myQueue))  # 5
 
+print(myQueue.contains('Hevy'))  # True
+print(myQueue.contains('Wrecker'))  # False
+
+print(myQueue.dequeue())  # Rex
+print(myQueue.dequeue())  # Fives
+print(myQueue.dequeue())  # Echo
+print(myQueue.dequeue())  # Hevy
+
+print(myQueue)  # Cody
