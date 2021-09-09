@@ -122,3 +122,79 @@ console.log(tree.lookup(9));
 console.log(tree.lookup(8)); // Not Found
 console.log(tree.lookup(15));
 console.log(tree.lookup(9));
+
+/*
+Expected output:
+
+{
+    "value": 9,
+    "left": {
+        "value": 4,
+        "left": {
+            "value": 1,
+            "left": null,
+            "right": null
+        },
+        "right": {
+            "value": 6,
+            "left": null,
+            "right": null
+        }
+    },
+    "right": {
+        "value": 20,
+        "left": {
+            "value": 15,
+            "left": null,
+            "right": null
+        },
+        "right": {
+            "value": 170,
+            "left": null,
+            "right": null
+        }
+    }
+}
+
+
+Node {
+  value: 4,
+  left: Node { value: 1, left: null, right: null },
+  right: Node { value: 6, left: null, right: null }
+}
+
+Not Found
+
+Node {
+  value: 9,
+  left: Node {
+    value: 4,
+    left: Node { value: 1, left: null, right: null },
+    right: Node { value: 6, left: null, right: null }
+  },
+  right: Node {
+    value: 20,
+    left: Node { value: 15, left: null, right: null },
+    right: Node { value: 170, left: null, right: null }
+  }
+}
+
+
+Not Found
+
+Node { value: 15, left: null, right: null }
+
+Node {
+  value: 9,
+  left: Node {
+    value: 4,
+    left: Node { value: 1, left: null, right: null },
+    right: Node { value: 6, left: null, right: null }
+  },
+  right: Node {
+    value: 20,
+    left: Node { value: 15, left: null, right: null },
+    right: Node { value: 170, left: null, right: null }
+  }
+}
+*/
