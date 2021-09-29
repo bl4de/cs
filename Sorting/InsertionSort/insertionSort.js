@@ -1,5 +1,7 @@
-const numbers = [99, 44, 6, 88, 2, 1, 5, 92, 87];
-const numbers2 = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+const numbers = [99, 44, 6, 88, 2, 1, 5, 92, 87]; // random
+const numbers2 = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0]; // random
+const numbers3 = [2, 1, 3, 4, 6, 5, 7, 8, 9]; // almost sorted
+const numbers4 = [1, 2, 3, 4, 5, 6, 7, 8, 9]; // sorted
 
 function insertionSort(arr) {
     let l = arr.length;
@@ -16,6 +18,7 @@ function insertionSort(arr) {
                 i++;
             } else {
                 i++;
+                continue;
             }
             numberOfIterations++;
         }
@@ -24,6 +27,13 @@ function insertionSort(arr) {
 }
 
 insertionSort(numbers);
-insertionSort(numbers2);
 console.log(numbers);
+
+insertionSort(numbers2);
 console.log(numbers2);
+
+insertionSort(numbers3);
+console.log(numbers3);
+
+insertionSort(numbers4);
+console.log(numbers4);
