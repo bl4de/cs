@@ -1,5 +1,5 @@
 const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
-
+const numbers3 = [2, 1, 3, 4, 6, 5, 7, 8, 9]; // almost sorted
 /**
  * Bubble Sort very naive implementation
  * time complexity - O(n^2)
@@ -22,8 +22,13 @@ function bubbleSort(array) {
         }
     }
 
-    console.log('total iterations: ', numberOfIterations);
+    // console.log('total iterations: ', numberOfIterations);
 }
 
-bubbleSort(numbers);
+
+console.time('bubbleSort');
+for (let i = 0; i < 1000000; i++) {
+    bubbleSort(numbers); // -> 32 iterations
+}
 console.log(numbers);
+console.timeEnd('bubbleSort');
