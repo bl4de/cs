@@ -4,9 +4,19 @@ import random
 import re
 import sys
 
-# Complete the solve function below.
 def solve(s):
-    return ' '.join(w[0].upper() + w[1:] for w in s.split(' '))
+    # first character is always upper:
+    uppercased = s[0].upper()
+    
+    # every character precede by spase is also uppercased:
+    for iterator in range(1, len(s) + 1):
+        if s[iterator - 1] == ' ':
+            uppercased += s[iterator].upper()
+        else:
+            uppercased += uppercased[iterator]
+        iterator += 1
+
+    return uppercased 
 
 if __name__ == '__main__':
     s = input()
