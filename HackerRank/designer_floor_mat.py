@@ -24,6 +24,7 @@
 # ------------.|..|..|.------------
 # ---------------.|.---------------
 
+
 def create_mat(mat_high):
     mat_width = mat_high * 3
     welcome = 'WELCOME'
