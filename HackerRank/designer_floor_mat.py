@@ -28,11 +28,16 @@
 def create_mat(mat_high):
     mat_width = mat_high * 3
     welcome = 'WELCOME'
+    print(welcome)
     pass
 
 
 if __name__ == '__main__':
-    mat_high = int(input())
+    # mat_high = int(input())
+
+    mat_high = 11
 
     if mat_high > 0:
         create_mat(mat_high)
+
+    exit(0)
