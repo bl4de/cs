@@ -32,8 +32,11 @@ def create_mat(mat_high):
     mat = []
 
     for iter in range(0, mat_high//2):
-        line = '-' * (center - iter) + '.' * (iter + 1) + '|' + \
-            '.' * (iter + 1) + '-' * (center - iter)
+        line = '-' * (center - iter) + \
+            '.' * (iter + 1) + \
+            '|' + \
+            '.' * (iter + 1) + \
+            '-' * (center - iter)
         mat.append(line)
 
     line = '-' * ((mat_width - len(welcome)) // 2
@@ -48,15 +51,13 @@ def create_mat(mat_high):
             '.' * (iter + 1) + '-' * (center - iter)
         mat.append(line)
 
-    # print(welcome)
     print('\n'.join(mat))
-    pass
 
 
 if __name__ == '__main__':
     # mat_high = int(input())
 
-    mat_high = 4
+    mat_high = 7
     if mat_high > 0:
         create_mat(mat_high)
 
