@@ -30,13 +30,21 @@ def create_mat(mat_high):
     mat_width = mat_high * 3
     center = mat_width//2
     mat = []
+    dots = 1
+    next_char = '.'
 
     for iter in range(0, mat_high//2):
         line = '-' * (center - iter) + \
             '.' * (iter + 1) + \
-            '|' + \
+            next_char + \
             '.' * (iter + 1) + \
             '-' * (center - iter)
+        dots += 1
+        if dots == 2:
+            next_char = '|'
+            dots = 0
+        else:
+            next_char = '.'
         mat.append(line)
 
     line = '-' * ((mat_width - len(welcome)) // 2
