@@ -64,8 +64,6 @@ def create_mat(mat_high):
 if __name__ == '__main__':
     # mat_high = int(input())
 
-    mat_high = 11
-    if mat_high > 0:
-        create_mat(mat_high)
-
-    exit(0)
+    mat_high, mat_width = input().split()
+    if int(mat_high) > 0:
+        create_mat(int(mat_high))
