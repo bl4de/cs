@@ -47,7 +47,7 @@ import string
 
 def print_rangoli(size):
     alphabet = string.ascii_lowercase
-    rows = [i for i in range(0, (size * 2))]
+    rows = ['a' for i in range(0, (size * 2) - 1)]
     number_of_rows = size * 2 - 1
     # create middle row
     row = ''
@@ -56,20 +56,23 @@ def print_rangoli(size):
         row += (alphabet[c] + '-')
     for c in range(0, size):
         row += (alphabet[c] + '-')
-    rows[int(number_of_rows // 2)] = row[:-1]
+    rows[current_row] = row[:-1]
+    print(rows)
 
-    while current_row >= 0:
+    iter = 1
+    while iter < current_row:
         middle_section = row[(len(row) // 2) - 3 : (len(row) // 2) + 2 ]
         middle_section_replacement = middle_section[0]
-        print(middle_section, middle_section_replacement)
-        row = '--' + middle_section_replacement + '--'
-        current_row -= 1
+        row = middle_section_replacement
+        rows[current_row + iter] = row
+        rows[current_row - iter] = row
+        iter += 1
 
-    return(''.join(rows))
+    return('\n'.join(rows))
 
 if __name__ == '__main__':
 
     # size = int(input())
-    size = 5
+    size = 3
 
-    print_rangoli(size)
+    print(print_rangoli(size))
