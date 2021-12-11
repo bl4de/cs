@@ -64,7 +64,7 @@ def print_rangoli(size):
         middle_section = row[(len(row) // 2) - 3 : (len(row) // 2) + 2 ]
         
         middle_section_replacement = middle_section[0]
-        row = left_section + middle_section_replacement + right_section
+        # row = left_section + middle_section_replacement + right_section
         rows[current_row + iter] = row
         rows[current_row - iter] = row
         iter += 1
