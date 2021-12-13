@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import List, Optional
 
 # Definition for singly-linked list.
 
@@ -11,30 +11,28 @@ class ListNode:
 
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        pass
+        l1 = list1
+        l2 = list2
+        sorted = ListNode()
 
+        while l1 != None and l2 != None:
+            if l1.val <= l2.val:
+                sorted.next = ListNode(l1.val)
+                sorted = sorted.next
+                l1 = l1.next
+            else:
+                sorted.next = ListNode(l2.val)
+                sorted = sorted.next
+                l2 = l2.next
 
-s = Solution()
+        while(l2):
+            sorted.next = ListNode(l2.val)
+            sorted = sorted.next
+            l2 = l2.next
 
-list1 = []
-list2 = []
+        while(l1):
+            sorted.next = ListNode(l1.val)
+            sorted = sorted.next
+            l1 = l1.next
 
-s.mergeTwoLists(list1, list2)  # []
-
-
-list1 = [1, 2, 4]
-list2 = [1, 3, 4]
-
-s.mergeTwoLists(list1, list2)  # [1,1,2,3,4,4]
-
-
-list1 = []
-list2 = [0]
-
-s.mergeTwoLists(list1, list2)  # [0]
-
-
-list1 = [2, 5, 7, 9]
-list2 = [-1, 12, 34]
-
-s.mergeTwoLists(list1, list2)  # [-1,2,5,7,9,12,34]
+        return sorted.next
