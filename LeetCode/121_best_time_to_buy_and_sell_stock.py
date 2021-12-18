@@ -1,7 +1,7 @@
 from typing import List
 
 
-def max_profit(prices: List[int]) -> int:
+def maxProfit(prices: List[int]) -> int:
     temp_diff = 0
     for day in range(1, len(prices)):
         for prev_day in range(0, day):
@@ -10,5 +10,5 @@ def max_profit(prices: List[int]) -> int:
     return temp_diff
 
 
-print(max_profit([7, 1, 5, 3, 6, 4]) == 5)
-print(max_profit([7, 6, 4, 3, 1]) == 0)
+print(maxProfit([7, 1, 5, 3, 6, 4]))
+print(maxProfit([7, 6, 4, 3, 1]))
