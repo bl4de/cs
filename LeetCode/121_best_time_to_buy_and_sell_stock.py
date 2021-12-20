@@ -10,10 +10,14 @@ from typing import List
 
 
 def maxProfit(prices: List[int]) -> int:
-    min_price = min(prices)
+    min_price = min(prices[0:len(prices)-1]) if len(prices) > 1 else prices[0]
     max_price = max(prices[prices.index(min_price):])
     return max_price - min_price
 
 
 print(maxProfit([7, 1, 5, 3, 6, 4]))
 print(maxProfit([7, 6, 4, 3, 1]))
+print(maxProfit([2, 4, 1]))
+print(maxProfit([1]))
+print(maxProfit([2, 1, 4]))
+print(maxProfit([3, 2, 6, 5, 0, 3]))
