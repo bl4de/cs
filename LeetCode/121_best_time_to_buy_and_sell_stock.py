@@ -15,9 +15,10 @@ def maxProfit(prices: List[int]) -> int:
     return max_price - min_price
 
 
-print(maxProfit([7, 1, 5, 3, 6, 4]))
-print(maxProfit([7, 6, 4, 3, 1]))
-print(maxProfit([2, 4, 1]))
-print(maxProfit([1]))
-print(maxProfit([2, 1, 4]))
-print(maxProfit([3, 2, 6, 5, 0, 3]))
+print(maxProfit([7, 1, 5, 3, 6, 4]) == 5)
+print(maxProfit([7, 6, 4, 3, 1]) == 0)
+print(maxProfit([2, 4, 1]) == 2)
+print(maxProfit([1]) == 0)
+print(maxProfit([2, 1, 4]) == 3)
+print(maxProfit([2, 1, 2, 1, 0, 1, 2]) == 2)
+print(maxProfit([3, 2, 6, 5, 0, 3]) == 4)
