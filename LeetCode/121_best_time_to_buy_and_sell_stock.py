@@ -1,13 +1,5 @@
 from typing import List
 
-# def maxProfit(prices: List[int]) -> int:
-#     temp_diff = 0
-#     for day in range(1, len(prices)):
-#         for prev_day in range(0, day):
-#             if (prices[day] - prices[prev_day]) > temp_diff:
-#                 temp_diff = prices[day] - prices[prev_day]
-#     return temp_diff
-
 
 def maxProfit(prices: List[int]) -> int:
     min_price = min(prices[0:len(prices)-1]) if len(prices) > 1 else prices[0]
