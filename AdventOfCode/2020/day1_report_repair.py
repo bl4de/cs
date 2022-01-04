@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
-
-def main():
-    pass
-
-
-main()
+# https://adventofcode.com/2020/day/1
 
 vals = [1686,
         1337,
@@ -208,12 +203,22 @@ vals = [1686,
         1862
         ]
 
-res = []
 
-# iterates over each element to find two which sums up to 2020:
+# Part 1. find two elements which sums up to 2020:
+res = []
 for val in vals:
     if (2020 - val) in vals:
         res.append(val)
-
-print(sum(res))  # 2020
 print(res[0] * res[1])
+
+
+# Part 2. find three elements which sums up to 2020:
+res = []
+for val in vals:
+    tmp = val
+    for v in vals:
+        if (2020 - tmp - v) in vals:
+            v not in res and res.append(v)
+
+print(res)
+print(len(res) == 3 and res[0] * res[1] * res[2])
