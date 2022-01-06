@@ -206,6 +206,7 @@ vals = [1686,
 
 # Part 1. find two elements which sums up to 2020:
 res = []
+# time complexity: O(n)
 for val in vals:
     if (2020 - val) in vals:
         res.append(val)
@@ -214,6 +215,7 @@ print(res[0] * res[1])
 
 # Part 2. find three elements which sums up to 2020:
 res = []
+# time complexity: O(n^2)
 for val in vals:
     tmp = val
     for v in vals:
