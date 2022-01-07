@@ -6,12 +6,11 @@ import pathlib
 
 def main(data):
     correct_passwords = 0
-    criteria = [(p.split(' ')) for p in data.split('\n')]
-    for pwd in criteria:
+    for pwd in [(p.split(' ')) for p in data.split('\n')]:
         min_occurences, max_occurences = pwd[0].split('-')
         character = pwd[1][0:1]
-        if int(min_occurences) <= pwd[2].count(character) <= int(max_occurences):
-            correct_passwords += 1
+        correct_passwords = (correct_passwords + 1) if (int(min_occurences) <=
+                                                        pwd[2].count(character) <= int(max_occurences)) else correct_passwords
 
     return correct_passwords
 
