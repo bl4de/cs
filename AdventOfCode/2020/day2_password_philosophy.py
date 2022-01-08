@@ -4,7 +4,7 @@
 import pathlib
 
 
-def main(data):
+def part_one(data) -> int:
     correct_passwords = 0
     for pwd in [(p.split(' ')) for p in data.split('\n')]:
         min_occurences, max_occurences = pwd[0].split('-')
@@ -15,6 +15,12 @@ def main(data):
     return correct_passwords
 
 
+def part_two(data) -> int:
+    result = 0
+    # process data here...
+    return result
+
+
 data = pathlib.Path("./input.txt").read_text().strip()
-correct_passwords = main(data)
-print(correct_passwords)
+print(part_one(data))  # Part 1. solution
+print(part_two(data))  # Part 2. solution
