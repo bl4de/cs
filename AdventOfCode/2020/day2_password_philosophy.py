@@ -20,12 +20,13 @@ def part_two(data) -> int:
     for pwd in [(p.split(' ')) for p in data.split('\n')]:
         pos_1, pos_2 = pwd[0].split('-')
         character = pwd[1][0:1]
-        if (pwd[2][int(pos_1) - 1] == character and pwd[2][int(pos_2) - 1] != character) or (pwd[2][int(pos_1) - 1] != character and pwd[2][int(pos_2) - 1] == character):
+        if (pwd[2][int(pos_1) - 1] == character and pwd[2][int(pos_2) - 1] != character)\
+                or (pwd[2][int(pos_1) - 1] != character and pwd[2][int(pos_2) - 1] == character):
             correct_passwords = correct_passwords + 1
-            print(pwd[2])
     return correct_passwords
 
 
-data = pathlib.Path("./input.txt").read_text().strip()
+data = pathlib.Path(
+    "/Users/bl4de/playground/cs/AdventOfCode/2020/input.txt").read_text().strip()
 # print(part_one(data))  # Part 1. solution
 print(part_two(data))  # Part 2. solution
