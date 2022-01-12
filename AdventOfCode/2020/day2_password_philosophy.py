@@ -28,5 +28,5 @@ def part_two(data) -> int:
 
 data = pathlib.Path(
     "/Users/bl4de/playground/cs/AdventOfCode/2020/input.txt").read_text().strip()
-# print(part_one(data))  # Part 1. solution
+print(part_one(data))  # Part 1. solution
 print(part_two(data))  # Part 2. solution
