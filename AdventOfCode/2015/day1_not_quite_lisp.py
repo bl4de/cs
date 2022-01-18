@@ -8,14 +8,18 @@ def part_one(data) -> int:
     result = 0
     for direction in data:
         result = result + 1 if direction == '(' else result - 1
-
-    # process data here...
     return result
 
 
 def part_two(data) -> int:
     result = 0
-    # process data here...
+    iterator = 1
+    for direction in data:
+        result = result + 1 if direction == '(' else result - 1
+        if result == -1:
+            return iterator
+        iterator += 1
+
     return result
 
 
