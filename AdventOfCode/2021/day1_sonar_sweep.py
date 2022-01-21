@@ -31,9 +31,27 @@ def part_two_solution(data) -> int:
     '''
         Solution for Part 2.
     '''
-    result = 0
+    decreased = 0
+    increased = 0
+    current_window = 0
+    prev_window = 0
+
+    measurements = list(data.split('\n'))
+    position = 0
     # process data here...
-    return result
+    for position in range(0, len(measurements) - 2):
+        current_window = int(measurements[position]) + int(
+            measurements[position + 1]) + int(measurements[position + 2])
+        position += 1
+        if prev_window > 0 and current_window > prev_window:
+            increased += 1
+        elif prev_window == current_window:
+            pass  # no change
+        else:
+            decreased += 1
+        prev_window = current_window
+
+    return increased
 
 
 # challenge input data
