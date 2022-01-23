@@ -4,6 +4,7 @@
 # https://adventofcode.com/events
 #
 
+from math import floor
 import pathlib
 
 
@@ -11,9 +12,13 @@ def part_one_solution(data) -> int:
     '''
         Solution for Part 1.
     '''
-    result = 0
+    fuels = list(data.split('\n'))
+    fsum = 0
+    for fuel in fuels:
+        fuel = (floor(int(fuel)/3)) - 2
+        fsum += fuel
     # process data here...
-    return result
+    return fsum
 
 
 def part_two_solution(data) -> int:
