@@ -18,12 +18,30 @@ def part_one_solution(data) -> int:
     return result
 
 
+def check_frequency(data, freq: int, existing) -> int:
+    '''
+        helper for Part 2
+    '''
+    print(f'starts new iteration from: {freq}')
+    for frequency in data.split('\n'):
+        freq += int(frequency)
+        if freq in existing:
+            return (True, freq, existing)
+        existing.append(freq)
+    return (False, freq, existing)
+
+
 def part_two_solution(data) -> int:
     '''
         Solution for Part 2.
     '''
-    result = 0
-    # process data here...
+    existing = []
+    found, result, existing = check_frequency(data, 0, existing)
+    while found is not True:
+        found, result, existing = check_frequency(
+            data, result, existing)
+        print(found, result)
+
     return result
 
 
