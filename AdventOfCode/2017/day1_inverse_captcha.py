@@ -29,6 +29,14 @@ def part_two_solution(data) -> int:
     '''
     result = 0
     # process data here...
+    iterator = 0
+    list_len = len(data)/2
+    while iterator < len(data):
+        position = int(iterator + list_len if iterator <
+                       list_len else iterator - list_len)
+        if int(data[iterator]) == int(data[position]):
+            result += int(data[iterator])
+        iterator += 1
     return result
 
 
