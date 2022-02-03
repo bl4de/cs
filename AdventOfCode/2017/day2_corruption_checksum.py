@@ -25,6 +25,13 @@ def part_two_solution(data) -> int:
     '''
     result = 0
     # process data here...
+    for row in data.split('\n'):
+        vals = list(int(v) for v in row.split("\t"))
+        for v1 in vals:
+            for v2 in vals:
+                if v1 != v2:
+                    if v1 % v2 == 0:
+                        result += v1 // v2
     return result
 
 
