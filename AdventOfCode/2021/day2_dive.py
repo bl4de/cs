@@ -11,9 +11,18 @@ def part_one_solution(data) -> int:
     '''
         Solution for Part 1.
     '''
-    result = 0
-    # process data here...
-    return result
+    horizontal_position = 0
+    depth = 0
+    for move in data.split('\n'):
+        (direction, distance) = move.split(' ')
+        if direction == 'forward':
+            horizontal_position += int(distance)
+        elif direction == 'up':
+            depth -= int(distance)
+        else:
+            depth += int(distance)
+
+    return horizontal_position * depth
 
 
 def part_two_solution(data) -> int:
