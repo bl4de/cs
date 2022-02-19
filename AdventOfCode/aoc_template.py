@@ -26,10 +26,10 @@ def part_two_solution(data) -> int:
 
 
 # challenge input data
-data = pathlib.Path("./input.txt").read_text().strip()
+daily_input = pathlib.Path("./input.txt").read_text('utf_8').strip()
 
 # Part 1. solution
-print(part_one_solution(data))
+print(part_one_solution(daily_input))
 
 # Part 2. solution
-print(part_two_solution(data))
+print(part_two_solution(daily_input))
