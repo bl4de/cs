@@ -29,16 +29,28 @@ def part_two_solution(data) -> int:
     '''
         Solution for Part 2.
     '''
-    result = 0
     # process data here...
-    return result
+    horizontal_position = 0
+    depth = 0
+    aim = 0
+    for move in data.split('\n'):
+        (direction, distance) = move.split(' ')
+        if direction == 'down':
+            aim += int(distance)
+        elif direction == 'up':
+            aim -= int(distance)
+        else:
+            horizontal_position += int(distance)
+            depth += aim * int(distance)
+
+    return horizontal_position * depth
 
 
 # challenge input data
-data = pathlib.Path("./input.txt").read_text().strip()
+daily_input = pathlib.Path("./input.txt").read_text('utf-8').strip()
 
 # Part 1. solution
-print(part_one_solution(data))
+print(part_one_solution(daily_input))
 
 # Part 2. solution
-print(part_two_solution(data))
+print(part_two_solution(daily_input))
