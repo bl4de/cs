@@ -12,7 +12,14 @@ def part_one_solution(data) -> int:
         Solution for Part 1.
     '''
     result = 0
+    gamma_rate = ''
+    epsilon_rate = ''
     # process data here...
+    data = data.split('\n')
+    bits_len = len(data[0])
+    for pos in range(0, bits_len):
+        for bits in data.split('\n'):
+
     return result
 
 
