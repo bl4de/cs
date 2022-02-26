@@ -33,7 +33,6 @@ def part_one_solution(data) -> int:
                 ones += 1
             else:
                 zeros += 1
-        print(zeros, ones)
         if zeros > ones:
             gamma_rate.append('0')
             epsilon_rate.append('1')
@@ -51,12 +50,20 @@ def part_two_solution(data) -> int:
         Solution for Part 2.
     '''
     result = 0
+    life_support_rating = 0
+    oxygen_generator_rating = 0
+    c02_scrubber_rating = 0
     # process data here...
     return result
 
 
+DEBUG = True  # False
+
 # challenge input data
-daily_input = pathlib.Path("./input.txt").read_text('utf_8').strip()
+if DEBUG:
+    daily_input = pathlib.Path("./test_input.txt").read_text('utf_8').strip()
+else:
+    daily_input = pathlib.Path("./input.txt").read_text('utf_8').strip()
 
 # Part 1. solution
 print(part_one_solution(daily_input))

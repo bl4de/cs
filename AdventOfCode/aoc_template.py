@@ -25,8 +25,13 @@ def part_two_solution(data) -> int:
     return result
 
 
-# challenge input data
-daily_input = pathlib.Path("./input.txt").read_text('utf_8').strip()
+DEBUG = True  # False
+
+# read challenge input data
+if DEBUG:
+    daily_input = pathlib.Path("./test_input.txt").read_text('utf_8').strip()
+else:
+    daily_input = pathlib.Path("./input.txt").read_text('utf_8').strip()
 
 # Part 1. solution
 print(part_one_solution(daily_input))
