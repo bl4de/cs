@@ -15,12 +15,10 @@ def part_one_solution(data) -> int:
     # process data here...
     for data_item in data.split('\n'):
         present = data_item.split('x')
-        print(present, min(present))
         l = int(present[0])
         h = int(present[1])
         w = int(present[2])
         current = (2*l*h) + (2*w*h) + (2*l*w) + min([w*h, l*h, l*w])
-        print(min([w*h, l*h, l*w]), current)
         result += current
     return result
 
