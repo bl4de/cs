@@ -29,9 +29,11 @@ DEBUG = True  # False
 
 # read challenge input data
 if DEBUG:
-    daily_input = pathlib.Path("./test_input.txt").read_text('utf_8').strip()
+    INPUT_PATH = "test_input.txt"
 else:
-    daily_input = pathlib.Path("./input.txt").read_text('utf_8').strip()
+    INPUT_PATH = "input.txt"
+
+daily_input = pathlib.Path(INPUT_PATH).read_text('utf_8').strip()
 
 # Part 1. solution
 print(part_one_solution(daily_input))
