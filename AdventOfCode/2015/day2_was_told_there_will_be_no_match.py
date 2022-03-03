@@ -29,6 +29,21 @@ def part_two_solution(data) -> int:
     '''
     result = 0
     # process data here...
+    for data_item in data.split('\n'):
+        ribbon = 0
+        present = data_item.split('x')
+        l = int(present[0])
+        h = int(present[1])
+        w = int(present[2])
+        maxval = int(max(present))
+        if l == maxval:
+            ribbon = (2*h) + (2*w) + (l*h*w)
+        if h == maxval:
+            ribbon = (2*l) + (2*w) + (l*h*w)
+        if w == maxval:
+            ribbon = (2*h) + (2*l) + (l*h*w)
+        result += ribbon
+
     return result
 
 
