@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# AdventOfCode Challenge Template
-#
-# https://adventofcode.com/events
-#
+'''
+AdventOfCode Challenge Template
+https://adventofcode.com/events
+'''
 
 import pathlib
 
@@ -11,8 +11,11 @@ def part_one_solution(data) -> int:
     '''
         Solution for Part 1.
     '''
+    data = data.split('\n')
     result = 0
+
     # process data here...
+
     return result
 
 
@@ -20,8 +23,11 @@ def part_two_solution(data) -> int:
     '''
         Solution for Part 2.
     '''
+    data = data.split('\n')
     result = 0
+
     # process data here...
+
     return result
 
 
