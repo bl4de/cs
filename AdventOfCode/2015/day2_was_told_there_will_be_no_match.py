@@ -15,10 +15,11 @@ def part_one_solution(data) -> int:
     # process data here...
     for data_item in data.split('\n'):
         present = data_item.split('x')
-        l = int(present[0])
-        h = int(present[1])
-        w = int(present[2])
-        current = (2*l*h) + (2*w*h) + (2*l*w) + min([w*h, l*h, l*w])
+        box_length = int(present[0])
+        box_height = int(present[1])
+        box_width = int(present[2])
+        current = (2*box_length*box_height) + (2*box_width*box_height) + (2*box_length *
+                                                                          box_width) + min([box_width*box_height, box_length*box_height, box_length*box_width])
         result += current
     return result
 
@@ -32,16 +33,19 @@ def part_two_solution(data) -> int:
     for data_item in data.split('\n'):
         ribbon = 0
         present = data_item.split('x')
-        l = int(present[0])
-        h = int(present[1])
-        w = int(present[2])
+        box_length = int(present[0])
+        box_height = int(present[1])
+        box_width = int(present[2])
         maxval = int(max(present))
-        if l == maxval:
-            ribbon = (2*h) + (2*w) + (l*h*w)
-        if h == maxval:
-            ribbon = (2*l) + (2*w) + (l*h*w)
-        if w == maxval:
-            ribbon = (2*h) + (2*l) + (l*h*w)
+        if box_length == maxval:
+            ribbon = (2*box_height) + (2*box_width) + \
+                (box_length*box_height*box_width)
+        if box_height == maxval:
+            ribbon = (2*box_length) + (2*box_width) + \
+                (box_length*box_height*box_width)
+        if box_width == maxval:
+            ribbon = (2*box_height) + (2*box_length) + \
+                (box_length*box_height*box_width)
         result += ribbon
 
     return result
