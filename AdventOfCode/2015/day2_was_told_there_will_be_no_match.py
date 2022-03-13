@@ -51,7 +51,7 @@ def part_two_solution(data) -> int:
     return result
 
 
-DEBUG = False  # False
+DEBUG = True  # False
 
 # read challenge input data
 if DEBUG:
