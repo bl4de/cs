@@ -33,25 +33,25 @@ def part_two_solution(data) -> int:
     for data_item in data.split('\n'):
         ribbon = 0
         present = data_item.split('x')
+        print(present)
         box_length = int(present[0])
         box_height = int(present[1])
         box_width = int(present[2])
         maxval = int(max(present))
+        added = (box_length*box_height*box_width)
         if box_length == maxval:
-            ribbon = (2*box_height) + (2*box_width) + \
-                (box_length*box_height*box_width)
+            ribbon = (2*box_height) + (2*box_width) + added
         if box_height == maxval:
-            ribbon = (2*box_length) + (2*box_width) + \
-                (box_length*box_height*box_width)
+            ribbon = (2*box_length) + (2*box_width) + added
         if box_width == maxval:
-            ribbon = (2*box_height) + (2*box_length) + \
-                (box_length*box_height*box_width)
+            ribbon = (2*box_height) + (2*box_length) + added
+        print(ribbon, added)
         result += ribbon
 
     return result
 
 
-DEBUG = True  # False
+DEBUG = False  # False
 
 # read challenge input data
 if DEBUG:
