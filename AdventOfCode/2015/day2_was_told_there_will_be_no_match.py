@@ -46,12 +46,11 @@ def part_two_solution(data) -> int:
         ribbon = ribbon + box_size
         print(ribbon)
         result = result + ribbon
-
     return result
 
 
-DEBUG = True
-# DEBUG = False
+# DEBUG = True
+DEBUG = False
 
 # read challenge input data
 if DEBUG:
