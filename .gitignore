@@ -4,3 +4,6 @@ tempCodeRunnerFile.js
 input.txt
 temp.txt
 test_input.txt
+input*.txt
+test_input*.txt
+

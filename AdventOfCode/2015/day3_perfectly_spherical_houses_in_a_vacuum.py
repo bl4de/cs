@@ -31,14 +31,11 @@ def part_two_solution(data) -> int:
     return result
 
 
-DAY = 1
+DAY = 3
 DEBUG = True  # False
 
 # read challenge input data
 INPUT_PATH = f"test_input{DAY}.txt" if DEBUG is True else f"input{DAY}.txt"
-daily_input = pathlib.Path(INPUT_PATH).read_text('utf_8').strip()
-
-
 daily_input = pathlib.Path(INPUT_PATH).read_text('utf_8').strip()
 
 # Part 1. solution
