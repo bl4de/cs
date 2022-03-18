@@ -11,7 +11,6 @@ def part_one_solution(data) -> int:
     '''
         Solution for Part 1.
     '''
-    result = 1  # first house
     pos_x = 0  # starting point X
     pos_y = 0  # starting point Y
     visited = [(pos_x, pos_y)]
@@ -27,8 +26,7 @@ def part_one_solution(data) -> int:
         # process data here...
         if (pos_x, pos_y) not in visited:
             visited.append((pos_x, pos_y))
-            result += 1
-    return result
+    return len(visited)
 
 
 def part_two_solution(data) -> int:
