@@ -33,12 +33,23 @@ def part_two_solution(data) -> int:
     '''
         Solution for Part 2.
     '''
-    data = data.split('\n')
-    result = 0
-
+    pos_x = 0  # starting point X
+    pos_y = 0  # starting point Y
+    visited_by_santa = [(pos_x, pos_y)]
+    visited_by_robot = [(pos_x, pos_y)]
+    combined = []
+    for direction in data:
+        if direction == '^':
+            pos_x -= 1
+        if direction == '>':
+            pos_y += 1
+        if direction == '<':
+            pos_y -= 1
+        if direction == 'v':
+            pos_x += 1
     # process data here...
 
-    return result
+    return len(combined)
 
 
 DAY = 3
