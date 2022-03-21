@@ -54,7 +54,7 @@ def part_two_solution(data) -> int:
             if (pos_x, pos_y) not in visited_by_robot:
                 visited_by_robot.append((pos_x, pos_y))
         iterator += 1
-
+        breakpoint()
     for house in visited_by_santa:
         if house not in visited_by_robot:
             combined += 1
