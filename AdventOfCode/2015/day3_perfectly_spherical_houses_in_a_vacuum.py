@@ -51,7 +51,8 @@ def part_two_solution(data) -> int:
                 pos_y_santa -= 1
             if direction == "v":
                 pos_x_santa += 1
-            visited_by_santa.append((pos_x_santa, pos_y_santa))
+            if (pos_x_santa, pos_y_santa) not in visited_by_santa:
+                visited_by_santa.append((pos_x_santa, pos_y_santa))
         else:
             if direction == "^":
                 pos_x_robot -= 1
@@ -61,11 +62,10 @@ def part_two_solution(data) -> int:
                 pos_y_robot -= 1
             if direction == "v":
                 pos_x_robot += 1
-            visited_by_robot.append((pos_x_robot, pos_y_robot))
+            if (pos_x_robot, pos_y_robot) not in visited_by_robot:
+                visited_by_robot.append((pos_x_robot, pos_y_robot))
 
         iterator += 1
-        print(visited_by_santa)
-        print(visited_by_robot)
 
     for house in visited_by_santa:
         if house not in visited_by_robot:
@@ -77,7 +77,7 @@ def part_two_solution(data) -> int:
 
 
 DAY = 3
-DEBUG = True  # False
+DEBUG = False  # False
 
 # read challenge input data
 INPUT_PATH = f"test_input{DAY}.txt" if DEBUG is True else f"input{DAY}.txt"
