@@ -15,6 +15,25 @@ def part_one_solution(data) -> int:
     result = 0
 
     # process data here...
+    for naughty_string in data:
+        is_naughty = False
+        # does not contain the strings ab, cd, pq, or xy,
+        # even if they are part of one of the other requirements:
+        for not_contain in ['ab', 'cd', 'pq', 'xy']:
+            if not_contain in naughty_string:
+                is_naughty = True
+        # contains at least one letter that appears twice in a row OR
+        # contains at least three vowels (aeiou only)
+        vowels_counter = 0
+        for (i, character) in enumerate(naughty_string):
+            if naughty_string[i] == naughty_string[i - 1]:
+                break
+            if character in 'aeiou':
+                vowels_counter += 1
+                if vowels_counter == 3:
+                    break
+
+        result = result + 1 if not is_naughty else result
 
     return result
 
@@ -32,7 +51,7 @@ def part_two_solution(data) -> int:
 
 
 DAY = 5
-DEBUG = True  # False
+DEBUG = False  # False
 
 # read challenge input data
 INPUT_PATH = f"test_input{DAY}.txt" if DEBUG is True else f"input{DAY}.txt"
