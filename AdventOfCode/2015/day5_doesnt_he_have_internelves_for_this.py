@@ -26,12 +26,12 @@ def part_one_solution(data) -> int:
         # contains at least three vowels (aeiou only)
         vowels_counter = 0
         for (i, character) in enumerate(naughty_string):
-            if naughty_string[i] == naughty_string[i - 1]:
-                break
             if character in 'aeiou':
                 vowels_counter += 1
                 if vowels_counter == 3:
                     break
+            if naughty_string[i] == naughty_string[i - 1]:
+                break
 
         result = result + 1 if not is_naughty else result
 
