@@ -17,10 +17,12 @@ def part_one_solution(data) -> int:
     # process data here...
     for naughty_string in data:
         is_naughty = False
+        print(f"{naughty_string}")
         # does not contain the strings ab, cd, pq, or xy,
         # even if they are part of one of the other requirements:
         for not_contain in ['ab', 'cd', 'pq', 'xy']:
             if not_contain in naughty_string:
+                print(f"[-] contains {not_contain}")
                 is_naughty = True
         # contains at least one letter that appears twice in a row OR
         # contains at least three vowels (aeiou only)
@@ -29,12 +31,22 @@ def part_one_solution(data) -> int:
             if character in 'aeiou':
                 vowels_counter += 1
                 if vowels_counter == 3:
+                    print(f"vowels counter: {vowels_counter}")
+                    is_naughty = True
                     break
+        for (i, character) in enumerate(naughty_string):
             if naughty_string[i] == naughty_string[i - 1]:
+                print(
+                    f"two characters in a row: {naughty_string[i]}{ naughty_string[i - 1]}")
+                is_naughty = False
                 break
+        print("-"*40)
 
-        result = result + 1 if not is_naughty else result
-
+        if is_naughty:
+            pass
+        else:
+            print("IS NICE!")
+            result = result + 1 if not is_naughty else result
     return result
 
 
