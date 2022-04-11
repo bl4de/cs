@@ -5,8 +5,26 @@ https://adventofcode.com/events
 '''
 
 import pathlib
+import functools
+import time
 
 
+def timer(func):
+    '''
+        @timer decorator to measure execution time
+        of solution functions
+    '''
+    @functools.wraps(func)
+    def _wrapper(*args, **kwargs):
+        start = time.perf_counter()
+        result = func(*args, **kwargs)
+        runtime = time.perf_counter() - start
+        print(f"{func.__name__} took {runtime:.4f} secs")
+        return result
+    return _wrapper
+
+
+@timer
 def part_one_solution(data) -> int:
     '''
         Solution for Part 1.
@@ -49,6 +67,7 @@ def part_one_solution(data) -> int:
     return result
 
 
+@timer
 def part_two_solution(data) -> int:
     '''
         Solution for Part 2.
