@@ -34,36 +34,40 @@ def part_one_solution(data) -> int:
 
     # process data here...
     for naughty_string in data:
-        is_nice = 0
+        is_nice = True
         print(f"{naughty_string}")
         # does not contain the strings ab, cd, pq, or xy,
         # even if they are part of one of the other requirements:
         for not_contain in ['ab', 'cd', 'pq', 'xy']:
             if not_contain in naughty_string:
                 print(f"[-] contains {not_contain}")
-                continue
+                is_nice = False
+        print(f"{naughty_string}: {is_nice}")
         # contains at least one letter that appears twice in a row OR
         # contains at least three vowels (aeiou only)
         vowels_counter = 0
         for (i, character) in enumerate(naughty_string):
+            is_nice = False
             if character in list('aeiou'):
                 vowels_counter += 1
                 if vowels_counter > 2:
                     print(f"vowels counter: {vowels_counter}")
-                    is_nice += 1
-        for (i, character) in enumerate(naughty_string):
-            if naughty_string[i] == naughty_string[i - 1]:
-                print(
-                    f"two characters in a row: {naughty_string[i]}{ naughty_string[i - 1]}")
-                is_nice += 1
+                    is_nice = True
+        print(f"{naughty_string}: {is_nice}")
+
+        if is_nice is True:
+            is_nice = False
+            for (i, character) in enumerate(naughty_string):
+                if naughty_string[i] == naughty_string[i - 1]:
+                    print(
+                        f"two characters in a row: {naughty_string[i]}{ naughty_string[i - 1]}")
+                    is_nice = True
+        print(f"{naughty_string}: {is_nice}")
         print("-"*40)
 
-        if not is_nice:
-            pass
-        else:
-            if is_nice == 3:
-                print("IS NICE!")
-                result = result + 1 if is_nice == 3 else result
+        if is_nice is True:
+            print("IS NICE!")
+            result = result + 1
     return result
 
 
@@ -81,7 +85,8 @@ def part_two_solution(data) -> int:
 
 
 DAY = 5
-DEBUG = False  # False
+# DEBUG = True
+DEBUG = False
 
 # read challenge input data
 INPUT_PATH = f"test_input{DAY}.txt" if DEBUG is True else f"input{DAY}.txt"

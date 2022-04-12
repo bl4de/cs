@@ -51,7 +51,8 @@ def part_two_solution(data) -> int:
 
 
 DAY = 1
-DEBUG = True  # False
+DEBUG = True  # UNCOMMENT FOR DEBUG
+# DEBUG = False # UNCOMMENT FOR PRODUCTION
 
 # read challenge input data
 INPUT_PATH = f"test_input{DAY}.txt" if DEBUG is True else f"input{DAY}.txt"
