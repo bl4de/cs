@@ -7,6 +7,7 @@ https://adventofcode.com/events
 import pathlib
 import functools
 import time
+from xmlrpc.client import boolean
 
 
 def timer(func):
@@ -24,6 +25,33 @@ def timer(func):
     return _wrapper
 
 
+def enough_vowels(naughty_string) -> boolean:
+    '''
+        Checks if there are enough vowels in string
+    '''
+    enough = 3
+    counter = 0
+    vowels = list('aeiou')
+    for (i, character) in enumerate(naughty_string):
+        if character in vowels:
+            counter += 1
+    return counter >= enough
+
+
+def two_in_a_row(naughty_string) -> boolean:
+    '''
+        Checks if there are two the same characters in a row
+    '''
+    return True
+
+
+def not_contain(naughty_string) -> boolean:
+    '''
+        Checks if string does not contain ['ab', 'cd', 'pq', 'xy']:
+    '''
+    return True
+
+
 @timer
 def part_one_solution(data) -> int:
     '''
@@ -34,40 +62,33 @@ def part_one_solution(data) -> int:
 
     # process data here...
     for naughty_string in data:
-        is_nice = True
-        print(f"{naughty_string}")
-        # does not contain the strings ab, cd, pq, or xy,
-        # even if they are part of one of the other requirements:
-        for not_contain in ['ab', 'cd', 'pq', 'xy']:
-            if not_contain in naughty_string:
-                print(f"[-] contains {not_contain}")
-                is_nice = False
-        print(f"{naughty_string}: {is_nice}")
-        # contains at least one letter that appears twice in a row OR
-        # contains at least three vowels (aeiou only)
-        vowels_counter = 0
-        for (i, character) in enumerate(naughty_string):
-            is_nice = False
-            if character in list('aeiou'):
-                vowels_counter += 1
-                if vowels_counter > 2:
-                    print(f"vowels counter: {vowels_counter}")
-                    is_nice = True
-        print(f"{naughty_string}: {is_nice}")
+        if enough_vowels(naughty_string) and two_in_a_row(naughty_string) and not_contain(naughty_string):
+            result += 1
+        # is_nice = True
+        # print(f"{naughty_string}")
+        # # does not contain the strings ab, cd, pq, or xy,
+        # # even if they are part of one of the other requirements:
+        # for not_contain in ['ab', 'cd', 'pq', 'xy']:
+        #     if not_contain in naughty_string:
+        #         print(f"[-] contains {not_contain}")
+        #         is_nice = False
+        # print(f"{naughty_string}: {is_nice}")
+        # # contains at least one letter that appears twice in a row OR
+        # # contains at least three vowels (aeiou only)
 
-        if is_nice is True:
-            is_nice = False
-            for (i, character) in enumerate(naughty_string):
-                if naughty_string[i] == naughty_string[i - 1]:
-                    print(
-                        f"two characters in a row: {naughty_string[i]}{ naughty_string[i - 1]}")
-                    is_nice = True
-        print(f"{naughty_string}: {is_nice}")
-        print("-"*40)
+        # if is_nice is True:
+        #     is_nice = False
+        #     for (i, character) in enumerate(naughty_string):
+        #         if naughty_string[i] == naughty_string[i - 1]:
+        #             print(
+        #                 f"two characters in a row: {naughty_string[i]}{ naughty_string[i - 1]}")
+        #             is_nice = True
+        # print(f"{naughty_string}: {is_nice}")
+        # print("-"*40)
 
-        if is_nice is True:
-            print("IS NICE!")
-            result = result + 1
+        # if is_nice is True:
+        #     print("IS NICE!")
+        #     result = result + 1
     return result
 
 
@@ -96,7 +117,8 @@ daily_input = pathlib.Path(INPUT_PATH).read_text('utf_8').strip()
 daily_input = pathlib.Path(INPUT_PATH).read_text('utf_8').strip()
 
 # Part 1. solution
-print(part_one_solution(daily_input))
+# print(part_one_solution(daily_input))
 
 # Part 2. solution
-print(part_two_solution(daily_input))
+# print(part_two_solution(daily_input))
+print(enough_vowels('sdfaaiooodsf') is False)
