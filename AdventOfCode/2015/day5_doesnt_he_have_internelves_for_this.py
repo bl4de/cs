@@ -42,13 +42,19 @@ def two_in_a_row(naughty_string) -> boolean:
     '''
         Checks if there are two the same characters in a row
     '''
-    return True
+    for (i, character) in enumerate(naughty_string):
+        if naughty_string[i] == naughty_string[i - 1]:
+            return True
+    return False
 
 
 def not_contain(naughty_string) -> boolean:
     '''
         Checks if string does not contain ['ab', 'cd', 'pq', 'xy']:
     '''
+    for not_allowed in ['ab', 'cd', 'pq', 'xy']:
+        if not_allowed in naughty_string:
+            return False
     return True
 
 
@@ -64,31 +70,6 @@ def part_one_solution(data) -> int:
     for naughty_string in data:
         if enough_vowels(naughty_string) and two_in_a_row(naughty_string) and not_contain(naughty_string):
             result += 1
-        # is_nice = True
-        # print(f"{naughty_string}")
-        # # does not contain the strings ab, cd, pq, or xy,
-        # # even if they are part of one of the other requirements:
-        # for not_contain in ['ab', 'cd', 'pq', 'xy']:
-        #     if not_contain in naughty_string:
-        #         print(f"[-] contains {not_contain}")
-        #         is_nice = False
-        # print(f"{naughty_string}: {is_nice}")
-        # # contains at least one letter that appears twice in a row OR
-        # # contains at least three vowels (aeiou only)
-
-        # if is_nice is True:
-        #     is_nice = False
-        #     for (i, character) in enumerate(naughty_string):
-        #         if naughty_string[i] == naughty_string[i - 1]:
-        #             print(
-        #                 f"two characters in a row: {naughty_string[i]}{ naughty_string[i - 1]}")
-        #             is_nice = True
-        # print(f"{naughty_string}: {is_nice}")
-        # print("-"*40)
-
-        # if is_nice is True:
-        #     print("IS NICE!")
-        #     result = result + 1
     return result
 
 
@@ -117,8 +98,7 @@ daily_input = pathlib.Path(INPUT_PATH).read_text('utf_8').strip()
 daily_input = pathlib.Path(INPUT_PATH).read_text('utf_8').strip()
 
 # Part 1. solution
-# print(part_one_solution(daily_input))
+print(part_one_solution(daily_input))
 
 # Part 2. solution
 # print(part_two_solution(daily_input))
-print(enough_vowels('sdfaaiooodsf') is False)
