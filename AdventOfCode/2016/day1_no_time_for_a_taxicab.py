@@ -29,11 +29,29 @@ def part_one_solution(data) -> int:
     '''
         Solution for Part 1.
     '''
-    data = data.split('\n')
+    data = data.split(',')
     result = 0
+    orientations = ['N', 'E', 'S', 'W']
+    orientation_index = 0
+    orientation = orientations[orientation_index]
+    print(orientation_index, orientations[orientation_index])
 
-    # process data here...
+    for move in data:
+        move = move.strip()
+        direction = move[0]
+        distance = int(move[1])
 
+        if direction == 'L':
+            orientation_index = 0 if orientation_index - 1 < 0 else orientation_index - 1
+            orientation = orientations[orientation_index]
+        if direction == 'R':
+            orientation_index = 0 if orientation_index + 1 > 3 else orientation_index + 1
+            orientation = orientations[orientation_index]
+
+        if orientation == 'N' or orientation == 'L':
+            result += distance
+        else:
+            result -= distance
     return result
 
 
