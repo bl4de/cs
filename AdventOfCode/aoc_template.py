@@ -7,6 +7,7 @@ https://adventofcode.com/events
 import pathlib
 import functools
 import time
+import sys
 
 
 def timer(func):
@@ -51,8 +52,7 @@ def part_two_solution(data) -> int:
 
 
 DAY = 1
-DEBUG = True  # UNCOMMENT FOR DEBUG
-# DEBUG = False # UNCOMMENT FOR PRODUCTION
+DEBUG = True if len(sys.argv) > 1 and sys.argv[1] else False
 
 # read challenge input data
 INPUT_PATH = f"test_input{DAY}.txt" if DEBUG is True else f"input{DAY}.txt"
