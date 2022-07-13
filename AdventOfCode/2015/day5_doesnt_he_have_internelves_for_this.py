@@ -27,7 +27,7 @@ def timer(func):
     return _wrapper
 
 
-def enough_vowels(naughty_string) -> boolean:
+def at_least_three_vowels(naughty_string) -> boolean:
     '''
         Checks if there are enough vowels in string
     '''
@@ -44,8 +44,8 @@ def two_in_a_row(naughty_string) -> boolean:
     '''
         Checks if there are two the same characters in a row
     '''
-    for (i, character) in enumerate(naughty_string):
-        if naughty_string[i] == naughty_string[i - 1]:
+    for (i, _) in enumerate(naughty_string):
+        if i < len(naughty_string) - 1 and (naughty_string[i + 1] == naughty_string[i]):
             return True
     return False
 
@@ -70,8 +70,8 @@ def part_one_solution(data) -> int:
 
     # process data here...
     for naughty_string in data:
-        if enough_vowels(naughty_string) and two_in_a_row(naughty_string) and not_contain(naughty_string):
-            result += 1
+        if at_least_three_vowels(naughty_string) and two_in_a_row(naughty_string) and not_contain(naughty_string):
+            result = result + 1
     return result
 
 
