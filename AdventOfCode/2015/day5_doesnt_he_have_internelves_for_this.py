@@ -34,7 +34,7 @@ def at_least_three_vowels(naughty_string) -> boolean:
     enough = 3
     counter = 0
     vowels = list('aeiou')
-    for (i, character) in enumerate(naughty_string):
+    for (_, character) in enumerate(naughty_string):
         if character in vowels:
             counter += 1
     return counter >= enough
