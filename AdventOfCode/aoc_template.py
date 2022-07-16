@@ -12,8 +12,8 @@ import sys
 
 def timer(func):
     '''
-        @timer decorator to measure execution time
-        of solution functions
+    @timer decorator to measure execution time
+    of solution functions
     '''
     @functools.wraps(func)
     def _wrapper(*args, **kwargs):
@@ -28,7 +28,7 @@ def timer(func):
 @timer
 def part_one_solution(data) -> int:
     '''
-        Solution for Part 1.
+    Solution for Part 1.
     '''
     data = data.split('\n')
     result = 0
@@ -41,7 +41,7 @@ def part_one_solution(data) -> int:
 @timer
 def part_two_solution(data) -> int:
     '''
-        Solution for Part 2.
+    Solution for Part 2.
     '''
     data = data.split('\n')
     result = 0

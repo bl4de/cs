@@ -14,8 +14,8 @@ from xmlrpc.client import boolean
 
 def timer(func):
     '''
-        @timer decorator to measure execution time
-        of solution functions
+    @timer decorator to measure execution time
+    of solution functions
     '''
     @functools.wraps(func)
     def _wrapper(*args, **kwargs):
@@ -29,7 +29,7 @@ def timer(func):
 
 def at_least_three_vowels(naughty_string) -> boolean:
     '''
-        Checks if there are enough vowels in string
+    Checks if there are enough vowels in string
     '''
     enough = 3
     counter = 0
@@ -42,7 +42,7 @@ def at_least_three_vowels(naughty_string) -> boolean:
 
 def two_in_a_row(naughty_string) -> boolean:
     '''
-        Checks if there are two the same characters in a row
+    Checks if there are two the same characters in a row
     '''
     for (i, _) in enumerate(naughty_string):
         if i < len(naughty_string) - 1 and (naughty_string[i + 1] == naughty_string[i]):
@@ -52,7 +52,7 @@ def two_in_a_row(naughty_string) -> boolean:
 
 def not_contain(naughty_string) -> boolean:
     '''
-        Checks if string does not contain ['ab', 'cd', 'pq', 'xy']:
+    Checks if string does not contain ['ab', 'cd', 'pq', 'xy']:
     '''
     for not_allowed in ['ab', 'cd', 'pq', 'xy']:
         if not_allowed in naughty_string:
@@ -60,10 +60,24 @@ def not_contain(naughty_string) -> boolean:
     return True
 
 
+def pair_twice_no_verlap(naughty_string) -> boolean:
+    '''
+    It contains a pair of any two letters that appears at least twice in the string without overlapping
+    '''
+    return True
+
+
+def repats_with_one_letter_between(naughty_string) -> boolean:
+    '''
+    wIt contains at least one letter which repeats with exactly one letter between them
+    '''
+    return True
+
+
 @timer
 def part_one_solution(data) -> int:
     '''
-        Solution for Part 1.
+    Solution for Part 1.
     '''
     data = data.split('\n')
     result = 0
@@ -78,7 +92,7 @@ def part_one_solution(data) -> int:
 @timer
 def part_two_solution(data) -> int:
     '''
-        Solution for Part 2.
+    Solution for Part 2.
     '''
     data = data.split('\n')
     result = 0
