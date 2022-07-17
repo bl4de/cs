@@ -60,7 +60,7 @@ def not_contain(naughty_string) -> boolean:
     return True
 
 
-def pair_twice_no_verlap(naughty_string) -> boolean:
+def pair_twice_no_overlap(naughty_string) -> boolean:
     '''
     It contains a pair of any two letters that appears at least twice in the string without overlapping
     '''
@@ -98,7 +98,9 @@ def part_two_solution(data) -> int:
     result = 0
 
     # process data here...
-
+    for naughty_string in data:
+        if pair_twice_no_overlap(naughty_string) and repats_with_one_letter_between(naughty_string):
+            result = result + 1
     return result
 
 
@@ -113,7 +115,7 @@ daily_input = pathlib.Path(INPUT_PATH).read_text('utf_8').strip()
 daily_input = pathlib.Path(INPUT_PATH).read_text('utf_8').strip()
 
 # Part 1. solution
-print(part_one_solution(daily_input))
+# print(part_one_solution(daily_input))
 
 # Part 2. solution
-# print(part_two_solution(daily_input))
+print(part_two_solution(daily_input))
