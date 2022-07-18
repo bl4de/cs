@@ -64,14 +64,37 @@ def pair_twice_no_overlap(naughty_string) -> boolean:
     '''
     It contains a pair of any two letters that appears at least twice in the string without overlapping
     '''
-    return True
+    characters = {}
+    at_least_twice = False
+
+    for (i, c) in enumerate(naughty_string):
+        if i > 1:
+            if (naughty_string[i] == naughty_string[i - 1]) and (naughty_string[i - 1] == naughty_string[i - 2]):
+                return False
+        if c not in characters:
+            characters[c] = 1
+        else:
+            characters[c] += 1
+        if characters[c] > 1:
+            at_least_twice = c
+
+    return bool(at_least_twice)
 
 
 def repats_with_one_letter_between(naughty_string) -> boolean:
     '''
     wIt contains at least one letter which repeats with exactly one letter between them
     '''
-    return True
+    for (i, _) in enumerate(naughty_string):
+        if i > 1:
+            if (naughty_string[i] == naughty_string[i - 1]) and (naughty_string[i - 1] == naughty_string[i - 2]):
+                return False
+            if i < len(naughty_string):
+                print(
+                    f"{naughty_string[i - 1]} {naughty_string[i]} {naughty_string[i + 1]}")
+                if naughty_string[i - 1] == naughty_string[i + 1]:
+                    return True
+    return False
 
 
 @timer
