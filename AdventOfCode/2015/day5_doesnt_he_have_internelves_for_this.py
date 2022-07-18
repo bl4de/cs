@@ -64,36 +64,28 @@ def pair_twice_no_overlap(naughty_string) -> boolean:
     '''
     It contains a pair of any two letters that appears at least twice in the string without overlapping
     '''
-    characters = {}
-    at_least_twice = False
+    pairs = {}
+    for i in range(2, len(naughty_string), 1):
+        if (naughty_string[i] == naughty_string[i - 1]) and (naughty_string[i - 1] == naughty_string[i - 2]):
+            return False
 
-    for (i, c) in enumerate(naughty_string):
-        if i > 1:
-            if (naughty_string[i] == naughty_string[i - 1]) and (naughty_string[i - 1] == naughty_string[i - 2]):
-                return False
-        if c not in characters:
-            characters[c] = 1
+    for i in range(0, len(naughty_string) - 1, 1):
+        pair = f"{naughty_string[i]}{naughty_string[i + 1]}"
+        if pair not in pairs:
+            pairs[pair] = 1
         else:
-            characters[c] += 1
-        if characters[c] > 1:
-            at_least_twice = c
-
-    return bool(at_least_twice)
+            return True
+    return False
 
 
 def repats_with_one_letter_between(naughty_string) -> boolean:
     '''
-    wIt contains at least one letter which repeats with exactly one letter between them
+    It contains at least one letter which repeats with exactly one letter between them
     '''
-    for (i, _) in enumerate(naughty_string):
-        if i > 1:
-            if (naughty_string[i] == naughty_string[i - 1]) and (naughty_string[i - 1] == naughty_string[i - 2]):
-                return False
-            if i < len(naughty_string):
-                print(
-                    f"{naughty_string[i - 1]} {naughty_string[i]} {naughty_string[i + 1]}")
-                if naughty_string[i - 1] == naughty_string[i + 1]:
-                    return True
+    for i in range(1, len(naughty_string)):
+        if len(naughty_string) - 1 > i > 1:
+            if naughty_string[i - 1] == naughty_string[i + 1]:
+                return True
     return False
 
 
@@ -133,10 +125,6 @@ DEBUG = True if len(sys.argv) > 1 and sys.argv[1] else False
 # read challenge input data
 INPUT_PATH = f"test_input{DAY}.txt" if DEBUG is True else f"input{DAY}.txt"
 daily_input = pathlib.Path(INPUT_PATH).read_text('utf_8').strip()
-
-
-daily_input = pathlib.Path(INPUT_PATH).read_text('utf_8').strip()
-
 # Part 1. solution
 # print(part_one_solution(daily_input))
 
