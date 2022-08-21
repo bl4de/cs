@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 '''
 AdventOfCode Challenge Template
+
 https://adventofcode.com/events
+
+https://www.reddit.com/r/adventofcode/wiki/solution_megathreads/
 '''
 
 import pathlib
