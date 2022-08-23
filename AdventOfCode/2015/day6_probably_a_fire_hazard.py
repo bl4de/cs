@@ -9,6 +9,7 @@ https://www.reddit.com/r/adventofcode/wiki/solution_megathreads/
 
 import pathlib
 import functools
+from re import split
 import time
 import sys
 
@@ -32,11 +33,14 @@ def process_command(command):
     '''
     parses command and returns what needs to be done, start and end coords
     '''
-    coords = {'from': [0, 0], 'to': [0, 0]}
-    cmd = 'ON' if 'turn on' in command else 'OFF'
-    if 'toggle' in command:
-        cmd = 'TOGGLE'
-
+    cmd = 'TOGGLE'
+    parts = split(' ', command)
+    coords = {
+        'from': [int(c) for c in split(',', parts[-3])],
+        'to':  [int(c) for c in split(',', parts[-1])]
+    }
+    if 'toggle' not in command:
+        cmd = 'ON' if 'turn on' in command else 'OFF'
     return [cmd, coords]
 
 
