@@ -28,6 +28,18 @@ def timer(func):
     return _wrapper
 
 
+def process_command(command):
+    '''
+    parses command and returns what needs to be done, start and end coords
+    '''
+    coords = {'from': [0, 0], 'to': [0, 0]}
+    cmd = 'ON' if 'turn on' in command else 'OFF'
+    if 'toggle' in command:
+        cmd = 'TOGGLE'
+
+    return [cmd, coords]
+
+
 @timer
 def part_one_solution(data) -> int:
     '''
@@ -36,7 +48,9 @@ def part_one_solution(data) -> int:
     data = data.split('\n')
     result = 0
 
-    # process data here...
+    for command in data:
+        [cmd, coords] = process_command(command)
+        print(cmd, coords)
 
     return result
 
