@@ -49,6 +49,7 @@ def calculate_lights(coords) -> int:
     Calculates how many lights changed status (from on to off and vice versa)
     '''
     result = 0
+
     return result
 
 @timer
