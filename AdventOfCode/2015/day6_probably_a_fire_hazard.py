@@ -93,9 +93,6 @@ DEBUG = True if len(sys.argv) > 1 and sys.argv[1] else False
 INPUT_PATH = f"test_input{DAY}.txt" if DEBUG is True else f"input{DAY}.txt"
 daily_input = pathlib.Path(INPUT_PATH).read_text('utf_8').strip()
 
-
-daily_input = pathlib.Path(INPUT_PATH).read_text('utf_8').strip()
-
 # Part 1. solution
 print(part_one_solution(daily_input))
 
