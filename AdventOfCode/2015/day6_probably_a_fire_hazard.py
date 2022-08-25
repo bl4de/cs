@@ -7,6 +7,8 @@ https://adventofcode.com/events
 https://www.reddit.com/r/adventofcode/wiki/solution_megathreads/
 '''
 
+from array import array
+from ast import Delete
 import pathlib
 import functools
 from re import split
@@ -44,25 +46,30 @@ def process_command(command):
     return [cmd, coords]
 
 
-def calculate_lights(coords) -> int:
-    '''
-    Calculates how many lights changed status (from on to off and vice versa)
-    '''
-    result = 0
-    return result
-
 @timer
 def part_one_solution(data) -> int:
     '''
     Solution for Part 1.
     '''
+    MATRIX = []
     data = data.split('\n')
     result = 0
 
     for command in data:
         [cmd, coords] = process_command(command)
-        print(cmd, coords)
-
+        for x in range(coords['from'][0], coords['to'][0]):
+            for y in range(coords['from'][1], coords['to'][1]):
+                pos = (x, y)
+                if cmd == 'ON' and pos not in MATRIX:
+                    MATRIX.append(pos)
+                if cmd == 'OFF' and pos in MATRIX:
+                    MATRIX.remove(pos)
+                if cmd == 'TOGGLE':
+                    if pos in MATRIX:
+                        MATRIX.remove(pos)
+                    else:
+                        MATRIX.append(pos)
+        print(len(MATRIX))
     return result
 
 
