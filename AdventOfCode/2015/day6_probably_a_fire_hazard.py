@@ -57,8 +57,8 @@ def part_one_solution(data) -> int:
 
     for command in data:
         [cmd, coords] = process_command(command)
-        for x in range(coords['from'][0], coords['to'][0]):
-            for y in range(coords['from'][1], coords['to'][1]):
+        for x in range(coords['from'][0], coords['to'][0] + 1):
+            for y in range(coords['from'][1], coords['to'][1] + 1):
                 pos = (x, y)
                 if cmd == 'ON' and pos not in MATRIX:
                     MATRIX.append(pos)
