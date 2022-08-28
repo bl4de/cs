@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# pylint: disable=invalid-name, too-few-public-methods, no-self-use
 '''
     LeetCode solution class
 '''
@@ -12,9 +14,11 @@ class Solution:
         '''
         Returns lenght of the last word in str
         '''
-        words = s.split(' ')
+        words = s.strip().split(' ')
         return len(words[len(words) - 1])
 
 
 solution = Solution()
 print(solution.lengthOfLastWord("Hello World!"))
+print(solution.lengthOfLastWord("   fly me   to   the moon  "))
+print(solution.lengthOfLastWord("luffy is still joyboy"))

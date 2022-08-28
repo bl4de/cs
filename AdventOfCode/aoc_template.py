@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# pylint: disable=invalid-name, too-few-public-methods, no-self-use
 '''
 AdventOfCode Challenge Template
 
