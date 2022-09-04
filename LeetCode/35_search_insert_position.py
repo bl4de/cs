@@ -12,24 +12,11 @@ class Solution:
     '''
 
     def searchInsert(self, nums: List[int], target: int) -> int:
-        i = 0
-
-        if len(nums) == 1:
-            return 0 if target <= nums[0] else 1
-
-        if target < nums[0]:
-            return 0
-
-        if target > nums[-1]:
-            return len(nums)
-
-        for _index, num in enumerate(nums):
-            if num == target:
-                return _index
-            if num > target and num < nums[_index + 1]:
-                return _index
-            i = _index
-        return i + 1
+        for i in range(len(nums), 0, -1):
+            n = nums.pop()
+            if target > n:
+                return i
+        return 0
 
 
 solution = Solution()
