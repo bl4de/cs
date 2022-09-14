@@ -12,19 +12,10 @@ class Solution:
     '''
 
     def missingNumber(self, nums: List[int]) -> int:
-        if len(nums) == 1:
-            if nums[0] - 1 > -1:
-                return nums[0] - 1
-            else:
-                return nums[0] + 1
-        missing_number = 0
-        nums = sorted(nums)
-        nums.append(1000000)  # fill last element
-        for i, _ in enumerate(nums):
-            if (nums[i] + 1) != nums[i+1]:
-                missing_number = nums[i] + 1
-                return missing_number
-        return missing_number
+        for i in range(0, len(nums) + 1):
+            if i not in nums:
+                return i
+        return 0
 
 
 solution = Solution()
