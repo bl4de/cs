@@ -4,20 +4,34 @@
     LeetCode solution class
 '''
 from typing import List, Optional
-
+import string
 
 class Solution:
     '''
     LeetCode solution class
     '''
 
-    def convertToTitle(self, columnNumber: int) -> str:
+    UPPERCASES = list(string.ascii_uppercase)
+
+    def convertToTitle(self, column_number: int) -> str:
         column_name = ''
+        number_of_characters = len(self.UPPERCASES)
+
+        r = column_number // number_of_characters
+        c = (column_number % number_of_characters) - 1
+        column_name += self.UPPERCASES[c]
+
+        while r > 0:
+            c = (column_number % number_of_characters) - 1
+            r = column_number // number_of_characters
+            column_number -= number_of_characters
+            column_name += self.UPPERCASES[c]
 
         return column_name
 
 
 solution = Solution()
 print(solution.convertToTitle(1))  # 'A'
-print(solution.convertToTitle(28))  # 'AB'
-print(solution.convertToTitle(701))  # 'ZY'
+print(solution.convertToTitle(52))  # 'AZ'
+# print(solution.convertToTitle(28))  # 'AB'
+# print(solution.convertToTitle(701))  # 'ZY'
