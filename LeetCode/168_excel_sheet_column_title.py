@@ -19,21 +19,19 @@ class Solution:
         number_of_characters = len(self.UPPERCASES)
         r = number_of_characters
 
-        c = (column_number % number_of_characters) - 1
-        r = column_number // number_of_characters
-        column_name += self.UPPERCASES[c]
-
-        if r > number_of_characters:
-            c = (column_number % number_of_characters) - 1
+        while r > 0:
             r = column_number // number_of_characters
+            c = (column_number % number_of_characters) - 1
+            column_number = column_number - (r * number_of_characters)
             column_name += self.UPPERCASES[c]
+
         return column_name
 
 
 solution = Solution()
 print(solution.convertToTitle(1))  # 'A'
 print(solution.convertToTitle(26))  # 'Z'
-print(solution.convertToTitle(52))  # AZ'
-print(solution.convertToTitle(53))  # BA'
+print(solution.convertToTitle(52))  # 'AZ'
+# print(solution.convertToTitle(53))  # BA'
 # print(solution.convertToTitle(28))  # 'AB'
 # print(solution.convertToTitle(701))  # 'ZY'
