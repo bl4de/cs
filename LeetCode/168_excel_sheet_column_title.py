@@ -14,6 +14,12 @@ class Solution:
 
     UPPERCASES = list(string.ascii_uppercase)
 
+    def get_letter_by_column(self, column_number: int) -> str:
+        '''
+        returns column letter
+        '''
+        return self.UPPERCASES[column_number]
+
     def convertToTitle(self, column_number: int) -> str:
         column_name = ''
         number_of_characters = len(self.UPPERCASES)
@@ -23,7 +29,7 @@ class Solution:
             r = column_number // number_of_characters
             c = (column_number % number_of_characters) - 1
             column_number = column_number - (r * number_of_characters)
-            column_name += self.UPPERCASES[c]
+            column_name += self.get_letter_by_column(c)
 
         return column_name
 
