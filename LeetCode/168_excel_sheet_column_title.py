@@ -12,24 +12,18 @@ class Solution:
     LeetCode solution class
     '''
 
-    UPPERCASES = list(string.ascii_uppercase)
+    def __init__(self) -> None:
+        self.uppercases = string.ascii_uppercase
+        self.number_of_characters = len(self.uppercases)
 
     def get_letter_by_column(self, column_number: int) -> str:
         '''
         returns column letter
         '''
-        return self.UPPERCASES[column_number]
+        return self.uppercases[column_number]
 
     def convertToTitle(self, column_number: int) -> str:
         column_name = ''
-        number_of_characters = len(self.UPPERCASES)
-        r = number_of_characters
-
-        while r > 0:
-            r = column_number // number_of_characters
-            c = (column_number % number_of_characters) - 1
-            column_number = column_number - (r * number_of_characters)
-            column_name += self.get_letter_by_column(c)
 
         return column_name
 
