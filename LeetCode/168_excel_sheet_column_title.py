@@ -3,8 +3,14 @@
 '''
     LeetCode solution class
 '''
+from cmath import sqrt
 from typing import List, Optional
 import string
+
+# 26      1
+# 676     2
+# 17576   3
+# 456976  4
 
 
 class Solution:
@@ -24,14 +30,22 @@ class Solution:
 
     def convertToTitle(self, column_number: int) -> str:
         column_name = ''
+        column_number -= 1
 
+        while column_number // self.number_of_characters > 0:
+            r = column_number % self.number_of_characters
+            column_name += self.get_letter_by_column(r)
+            column_number = column_number // 26
+
+        column_name = self.get_letter_by_column(column_number) + column_name
         return column_name
 
 
 solution = Solution()
+
 print(solution.convertToTitle(1))  # 'A'
 print(solution.convertToTitle(26))  # 'Z'
 print(solution.convertToTitle(52))  # 'AZ'
-# print(solution.convertToTitle(53))  # BA'
-# print(solution.convertToTitle(28))  # 'AB'
-# print(solution.convertToTitle(701))  # 'ZY'
+print(solution.convertToTitle(53))  # BA'
+print(solution.convertToTitle(28))  # 'AB'
+print(solution.convertToTitle(701))  # 'ZY'
