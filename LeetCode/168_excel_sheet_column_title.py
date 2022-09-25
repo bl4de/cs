@@ -37,15 +37,18 @@ class Solution:
             column_name += self.get_letter_by_column(r)
             column_number = column_number // 26
 
-        column_name = self.get_letter_by_column(column_number) + column_name
+        column_name = self.get_letter_by_column(
+            column_number - 1) + column_name
         return column_name
 
 
 solution = Solution()
 
 # print(solution.convertToTitle(1))  # 'A'
-print(solution.convertToTitle(26))  # 'Z'
+# print(solution.convertToTitle(26))  # 'Z'
+
 # print(solution.convertToTitle(52))  # 'AZ'
 # print(solution.convertToTitle(53))  # BA'
 # print(solution.convertToTitle(28))  # 'AB'
-# print(solution.convertToTitle(701))  # 'ZY'
+
+print(solution.convertToTitle(701))  # 'ZY'
