@@ -21,6 +21,7 @@ class Solution:
     def __init__(self) -> None:
         self.uppercases = string.ascii_uppercase
         self.number_of_characters = len(self.uppercases)
+        self.column_name = ''
 
     def get_letter_by_column(self, column_number: int) -> str:
         '''
@@ -29,26 +30,24 @@ class Solution:
         return self.uppercases[column_number]
 
     def convertToTitle(self, column_number: int) -> str:
-        column_name = ''
-        column_number -= 1
+        if column_number <= 26:
+            return self.get_letter_by_column(column_number - 1) + self.column_name
 
         while column_number // self.number_of_characters > 0:
             r = column_number % self.number_of_characters
-            column_name += self.get_letter_by_column(r)
+            self.column_name = self.get_letter_by_column(r) + self.column_name
             column_number = column_number // 26
 
-        column_name = self.get_letter_by_column(
-            column_number - 1) + column_name
-        return column_name
+        return self.column_name
 
 
 solution = Solution()
 
-# print(solution.convertToTitle(1))  # 'A'
-# print(solution.convertToTitle(26))  # 'Z'
+print(solution.convertToTitle(1))  # 'A'
+print(solution.convertToTitle(26))  # 'Z'
 
-# print(solution.convertToTitle(52))  # 'AZ'
-# print(solution.convertToTitle(53))  # BA'
+print(solution.convertToTitle(52))  # 'AZ'
+print(solution.convertToTitle(53))  # BA'
 # print(solution.convertToTitle(28))  # 'AB'
 
-print(solution.convertToTitle(701))  # 'ZY'
+# print(solution.convertToTitle(701))  # 'ZY'
