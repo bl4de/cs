@@ -45,9 +45,9 @@ solution = Solution()
 
 print(solution.convertToTitle(1))  # 'A'
 print(solution.convertToTitle(26))  # 'Z'
+print(solution.convertToTitle(28))  # 'AB'
 
 print(solution.convertToTitle(52))  # 'AZ'
 print(solution.convertToTitle(53))  # BA'
-# print(solution.convertToTitle(28))  # 'AB'
 
-# print(solution.convertToTitle(701))  # 'ZY'
+print(solution.convertToTitle(701))  # 'ZY'
