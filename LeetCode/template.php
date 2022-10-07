@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Solution as GlobalSolution;
+
 /**
  * Template Soultion class for LeetCode problems
  * 
@@ -9,10 +11,8 @@ declare(strict_types=1);
 class Solution
 {
     /**
-     * @param Integer $n
-     * @return Integer
+     * solution method goes here
      */
-    function hammingWeight($n)
-    {
-    }
 }
+// test suite
+$solution = new GlobalSolution();
