@@ -12,11 +12,10 @@ class Solution:
     '''
 
     def reverseBits(self, n: int) -> int:
-        n_bin = bin(n)
-        for p in range(0, 32):
-            n_bin = ~pow(2, p)
-            print(n_bin)
-        return int(n_bin)
+        b_repr = str(bin(n))
+        return int(''.join(['0' if b_repr[i] == '1' else '1' for i in range(0, len(b_repr))]), 2)
+
+
 
 
 solution = Solution()
