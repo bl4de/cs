@@ -19,7 +19,7 @@ class Solution
      * @param int $n
      * @return int
      */
-    public function hammingWeight(int $n)
+    public function hammingWeight(int $n): int
     {
         $this->hw = 0;
         for ($i = 0; $i < 32; $i++) {

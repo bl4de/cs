@@ -12,8 +12,11 @@ class Solution:
     '''
 
     def reverseBits(self, n: int) -> int:
-
-        return 0
+        n_bin = bin(n)
+        for p in range(0, 32):
+            n_bin = ~pow(2, p)
+            print(n_bin)
+        return int(n_bin)
 
 
 solution = Solution()
