@@ -12,7 +12,7 @@ class Solution:
     '''
 
     def reverseBits(self, n: int) -> int:
-        b_repr = str(bin(n))
+        b_repr = str(bin(n)).replace('0b', '').zfill(32)
         return int(''.join(['0' if b_repr[i] == '1' else '1' for i in range(0, len(b_repr))]), 2)
 
 
