@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# pylint: disable=invalid-name, too-few-public-methods, no-self-use,missing-function-docstring, unused-wildcart-import
+# pylint: disable=invalid-name, too-few-public-methods, no-self-use,missing-function-docstring, unused-wildcart-import, pylint(consider-using-enumerate)
 '''
     LeetCode solution class
 '''
@@ -13,8 +13,14 @@ class Solution:
 
     def runningSum(self, nums: List[int]) -> List[int]:
         running_sum = []
+        mid_sum = 0
+        for i in range(0, len(nums)):
+            mid_sum = mid_sum + nums[i]
+            running_sum.append(mid_sum)
         return running_sum
 
 
 solution = Solution()
 print(solution.runningSum([1, 2, 3, 4]))  # [1,3,6,10]
+print(solution.runningSum([1, 1, 1, 1, 1]))  # [1,2,3,4,5]
+print(solution.runningSum([3, 1, 2, 10, 1]))  # [3,4,6,16,17]
