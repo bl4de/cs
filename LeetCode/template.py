@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# pylint: disable=invalid-name, too-few-public-methods, no-self-use,missing-function-docstring, unused-wildcart-import,pylint(consider-using-enumerate)
+# pylint: disable=invalid-name, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate
 '''
     LeetCode solution class
 '''
