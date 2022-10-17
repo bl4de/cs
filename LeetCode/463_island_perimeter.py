@@ -13,7 +13,9 @@ class Solution:
 
     def islandPerimeter(self, grid: List[List[int]]) -> int:
         island_perimeter = 0
-
+        for land in grid:
+            for border in land:
+                island_perimeter = island_perimeter + 1 if border == 0 else island_perimeter
         return island_perimeter
 
 
