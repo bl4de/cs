@@ -15,12 +15,17 @@ class Solution:
         island_perimeter = 0
         for land in grid:
             for border in land:
-                island_perimeter = island_perimeter + 1 if border == 0 else island_perimeter
+                print(land, border)
         return island_perimeter
 
 
 solution = Solution()
 print(solution.islandPerimeter(
-    [[0, 1, 0, 0], [1, 1, 1, 0], [0, 1, 0, 0], [1, 1, 0, 0]]))  # 16
+    [
+        [0, 1, 0, 0],
+        [1, 1, 1, 0],
+        [0, 1, 0, 0],
+        [1, 1, 0, 0]
+    ]))  # 16
 print(solution.islandPerimeter([[1]]))  # 4
 print(solution.islandPerimeter([[[1, 0]]]))  # 4
