@@ -13,9 +13,15 @@ class Solution:
 
     def islandPerimeter(self, grid: List[List[int]]) -> int:
         island_perimeter = 0
-        for land in grid:
-            for border in land:
-                print(land, border)
+        terrain_width = len(grid[0])
+        terrain_height = len(grid)
+
+        for width in range(0, terrain_width):
+            for height in range(0, terrain_height):
+                if grid[width][height] == 1:
+                    print("terrain")
+                else:
+                    print("water")
         return island_perimeter
 
 
