@@ -19,7 +19,7 @@ class Solution:
         for width in range(0, terrain_width):
             for height in range(0, terrain_height):
                 if grid[width][height] == 1:
-                    print("terrain")
+                    pass
                 else:
                     print("water")
         return island_perimeter
