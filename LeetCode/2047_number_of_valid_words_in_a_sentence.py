@@ -7,22 +7,31 @@ from typing import List, Optional
 import re
 import string
 
+
 class Solution:
     '''
     LeetCode solution class
     '''
 
+    def check_for_hypen(self, word: str) -> bool:
+        '''
+        There is at most one hyphen '-'. If present, it must be surrounded by 
+        lowercase characters ("a-b" is valid, but "-ab" and "ab-" are not valid).
+        '''
+        hyphen_index = word.rfind('-')
+        print(hyphen_index)
+        if hyphen_index == -1 or hyphen_index == 1 or hyphen_index == len(word - 1):
+            return False
+        return word[hyphen_index - 1] == 'a' and word[hyphen_index + 1] == 'b'
+
     def check_if_word_is_valid(self, word: str) -> bool:
-        valid_characters = string.ascii_lowercase + "0123456789" + "!,. "
-
-        return True
-
+        return False if re.match('[^-!,. abcdefghijklmnopqrstuwvxyz]', word) else True
 
     def countValidWords(self, sentence: str) -> int:
         valid_words = 0
         words = sentence.split(' ')
         for word in words:
-            if self.check_if_word_is_valid(word):
+            if self.check_if_word_is_valid(word) and self.check_for_hypen(word):
                 valid_words += 1
         return valid_words
 
