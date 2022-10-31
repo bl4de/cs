@@ -28,7 +28,8 @@ class Solution:
         return word[hyphen_index - 1] == 'a' and word[hyphen_index + 1] == 'b'
 
     def check_if_word_is_valid(self, word: str) -> bool:
-        return False if re.match('[^-!,. abcdefghijklmnopqrstuwvxyz]', word) else True
+        valid = re.match('[^-!,. abcdefghijklmnopqrstuwvxyz]', word)
+        return bool(valid) is False
 
     def countValidWords(self, sentence: str) -> int:
         valid_words = 0
@@ -42,5 +43,5 @@ class Solution:
 
 solution = Solution()
 print(solution.countValidWords("cat and  dog"))  # 3
-# print(solution.countValidWords("!this  1-s b8d!"))  # 0
+print(solution.countValidWords("!this  1-s b8d!"))  # 0
 # print(solution.countValidWords("alice and  bob are playing stone-game10"))  # 5
