@@ -13,6 +13,12 @@ class Solution:
     LeetCode solution class
     '''
 
+    def check_punctuation_mark(self, word: str) -> bool:
+        valid = re.match('^[abcdefghijklmnopqrstuwvxyz]+[-!,.]$', word)
+        if valid is not None:
+            return True
+        return False
+
     def check_for_hypen(self, word: str) -> bool:
         '''
         There is at most one hyphen '-'. If present, it must be surrounded by 
@@ -29,14 +35,16 @@ class Solution:
 
     def check_if_word_is_valid(self, word: str) -> bool:
         valid = re.match('[^-!,. abcdefghijklmnopqrstuwvxyz]', word)
-        return bool(valid) is False
+        if valid is None:
+            return True
+        return False
 
     def countValidWords(self, sentence: str) -> int:
         valid_words = 0
         words = sentence.split(' ')
         for word in words:
             if len(word) > 1:
-                if self.check_if_word_is_valid(word) and self.check_for_hypen(word):
+                if self.check_if_word_is_valid(word) and self.check_for_hypen(word) and self.check_punctuation_mark(word):
                     valid_words += 1
         return valid_words
 
@@ -44,4 +52,4 @@ class Solution:
 solution = Solution()
 print(solution.countValidWords("cat and  dog"))  # 3
 print(solution.countValidWords("!this  1-s b8d!"))  # 0
-# print(solution.countValidWords("alice and  bob are playing stone-game10"))  # 5
+print(solution.countValidWords("alice and  bob are playing stone-game10"))  # 5
