@@ -14,8 +14,9 @@ class Solution:
     def numIdenticalPairs(self, nums: List[int]) -> int:
         good_pairs = 0
         for i_index, i in enumerate(nums):
-            for j_index, j in enumerate(nums):
-                if i == j and i_index < j_index:
+            for j_index in range(i_index + 1, len(nums)):
+                j = nums[j_index]
+                if i == j:
                     good_pairs += 1
         return good_pairs
 
