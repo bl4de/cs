@@ -13,7 +13,10 @@ class Solution:
 
     def numIdenticalPairs(self, nums: List[int]) -> int:
         good_pairs = 0
-
+        for i_index, i in enumerate(nums):
+            for j_index, j in enumerate(nums):
+                if i == j and i_index < j_index:
+                    good_pairs += 1
         return good_pairs
 
 
@@ -21,3 +24,4 @@ solution = Solution()
 # 4 ->  (0,3), (0,4), (3,4), (2,5)
 print(solution.numIdenticalPairs([1, 2, 3, 1, 1, 3]))
 print(solution.numIdenticalPairs([1, 1, 1, 1]))  # 6 -> all pairs
+print(solution.numIdenticalPairs([1, 2, 3]))  # 0 - no pairs
