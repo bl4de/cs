@@ -36,5 +36,12 @@ class Solution:
         print(f" {self.PASS if provided == expected else self.FAIL}")
         return provided == expected
 
+    def interpret(self, command: str) -> str:
+        interpreted = ''
+        return interpreted
+
 
 solution = Solution()
+solution.debug(solution.interpret("G()(al)"), "Goal")
+solution.debug(solution.interpret("G()()()()(al)"), "Gooooal")
+solution.debug(solution.interpret("(al)G(al)()()G"), "alGalooG")
