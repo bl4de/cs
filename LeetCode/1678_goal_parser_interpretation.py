@@ -37,8 +37,7 @@ class Solution:
         return provided == expected
 
     def interpret(self, command: str) -> str:
-        interpreted = ''
-        return interpreted
+        return command.replace("()", "o").replace("(al)", "al")
 
 
 solution = Solution()
