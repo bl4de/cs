@@ -30,10 +30,17 @@ class Solution
 
     /**
      * solution method goes here
+     * @param string $command
+     * @return string
      */
-    public function solution()
+    public function interpret(string $command): string
     {
+        return str_replace(["()", "(al)"], ["o", "al"], $command);
     }
 }
+
 // test suite
 $solution = new GlobalSolution();
+$solution->solutionTest($solution->interpret("G()(al)"),  "Goal");
+$solution->solutionTest($solution->interpret("G()()()()(al)"), "Gooooal");
+$solution->solutionTest($solution->interpret("(al)G(al)()()G"), "alGalooG");
