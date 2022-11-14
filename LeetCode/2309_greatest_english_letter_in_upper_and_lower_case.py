@@ -35,11 +35,13 @@ class Solution:
         print(f" {self.PASS if provided == expected else self.FAIL}")
         return provided == expected
 
-    def solutionFunction(self):
-        '''
-        Solution function goes here
-        '''
-        pass
+    def greatestLetter(self, s: str) -> str:
+        letter = ''
+
+        return letter
 
 
 solution = Solution()
+solution.debug(solution.greatestLetter("lEeTcOdE"), 'E')
+solution.debug(solution.greatestLetter("arRAzFif"), 'R')
+solution.debug(solution.greatestLetter("AbCdEfGhIjK"), '')
