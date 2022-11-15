@@ -36,12 +36,22 @@ class Solution:
         return provided == expected
 
     def greatestLetter(self, s: str) -> str:
-        letter = ''
-
-        return letter
+        greatest_letter = 0
+        for l in s:
+            if int(ord(l)) >= 97:
+                if chr(int(ord(l)) - 32) in s:
+                    if greatest_letter < int(ord(l)) - 32:
+                        greatest_letter = int(ord(l)) - 32
+            if int(ord(l)) <= 90:
+                if chr(int(ord(l)) + 32) in s:
+                    if greatest_letter < int(ord(l) + 32):
+                        greatest_letter = int(ord(l) + 32)
+        return '' if greatest_letter == 0 else chr(greatest_letter).upper()
 
 
 solution = Solution()
 solution.debug(solution.greatestLetter("lEeTcOdE"), 'E')
 solution.debug(solution.greatestLetter("arRAzFif"), 'R')
 solution.debug(solution.greatestLetter("AbCdEfGhIjK"), '')
+solution.debug(solution.greatestLetter(
+    "nzmguNAEtJHkQaWDVSKxRCUivXpGLBcsjeobYPFwTZqrhlyOIfdM"), 'Z')
