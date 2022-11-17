@@ -36,17 +36,26 @@ class Solution:
         return provided == expected
 
     def maxPower(self, s: str) -> int:
-        max_power = 0
-        current_power = 0
-        for i in range(1, len(s)):
-            if s[i - 1] == s[i]:
+        i = 1
+        iterations = 0
+        max_power = 1
+        current_power = 1
+
+        while i < len(s):
+            # we do need to go over entire string when there is less characters
+            # left than max_power:
+            if s[i] == s[i-1]:
                 current_power += 1
-                max_power = current_power if current_power > max_power else max_power
+                max_power = current_power if current_power >= max_power else max_power
             else:
-                current_power = 0
+                current_power = 1
+            i += 1
+            iterations += 1
         return max_power
 
 
 solution = Solution()
 solution.debug(solution.maxPower("leetcode"), 2)
+solution.debug(solution.maxPower("tourist"), 1)
 solution.debug(solution.maxPower("abbcccddddeeeeedcba"), 5)
+solution.debug(solution.maxPower("triplepillooooow"), 5)
