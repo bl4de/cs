@@ -36,13 +36,24 @@ class Solution:
         return provided == expected
 
     def checkZeroOnes(self, s: str) -> bool:
-        is_longer = False
+        longest_zeroes = 0
+        current_zeroes = 0
+        longest_ones = 0
+        current_ones = 0
         for n in s:
-            print(n)
-        return is_longer
+            if n == '1':
+                current_ones += 1
+                current_zeroes = 0
+            else:
+                current_zeroes += 1
+                current_ones = 0
+            longest_ones = current_ones if current_ones > longest_ones else longest_ones
+            longest_zeroes = current_zeroes if current_zeroes > longest_zeroes else longest_zeroes
+        return True if longest_ones > longest_zeroes else False
 
 
 solution = Solution()
 solution.debug(solution.checkZeroOnes("1101"), True)
 solution.debug(solution.checkZeroOnes("111000"), False)
 solution.debug(solution.checkZeroOnes("110100010"), False)
+solution.debug(solution.checkZeroOnes("01111110"), True)
