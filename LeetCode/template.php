@@ -11,7 +11,8 @@ use Solution as GlobalSolution;
 class Solution
 {
     /**
-     * test cases
+     * Test cases
+     * 
      * @param mixed $input
      * @param mixed $expectedOutput
      */
@@ -29,7 +30,7 @@ class Solution
     }
 
     /**
-     * solution method goes here
+     * 
      */
     public function solution()
     {
