@@ -36,14 +36,18 @@ class Solution:
         return provided == expected
 
     def checkOnesSegment(self, s: str) -> bool:
-        if len(s) < 2:
-            return True if s[0] == '1' else False
-        if s == "10" or s == "01":
+        if not '0' in s:
             return True
+
+        no_previous_ones = False
         for i in range(1, len(s)):
-            if s[i] == '1' and s[i-1] == '1':
-                return True
-        return False
+            if s[i - 1] == '1' and s[i] == '0' and no_previous_ones is False:
+                no_previous_ones = True
+
+            if no_previous_ones is True:
+                if s[i - 1] == '0' and s[i] == '1':
+                    return False
+        return True
 
 
 solution = Solution()
@@ -51,3 +55,6 @@ solution.debug(solution.checkOnesSegment("1"), True)
 solution.debug(solution.checkOnesSegment("1001"), False)
 solution.debug(solution.checkOnesSegment("110"), True)
 solution.debug(solution.checkOnesSegment("10"), True)
+solution.debug(solution.checkOnesSegment("11"), True)
+solution.debug(solution.checkOnesSegment("1000"), True)
+solution.debug(solution.checkOnesSegment("10110000"), False)
