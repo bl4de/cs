@@ -35,22 +35,11 @@ class Solution:
         print(f" {self.PASS if provided == expected else self.FAIL}")
         return provided == expected
 
-    def createTargetArray(self, nums: List[int], index: List[int]) -> List[int]:
-        result = []
-        for _index in index:
-            if _index < len(result):
-                tmp = result[_index:]
-                result[_index] = nums[_index]
-                result += tmp
-            else:
-                result.append(nums[_index])
-
-        return result
+    def restoreString(self, s: str, indices: List[int]) -> str:
+        return ''.join([s[i] for i in indices])
 
 
 solution = Solution()
-solution.test(solution.createTargetArray(
-    [0, 1, 2, 3, 4], [0, 1, 2, 2, 1]), [0, 4, 1, 3, 2])
-
-solution.test(solution.createTargetArray(
-    [1, 2, 3, 4, 0], [0, 1, 2, 3, 0]), [0, 1, 2, 3, 4])
+solution.test(solution.restoreString(
+    "codeleet", [4, 5, 6, 7, 0, 1, 2, 3]), "leetcode")
+solution.test(solution.restoreString("abc", [0, 1, 2]), "abc")
