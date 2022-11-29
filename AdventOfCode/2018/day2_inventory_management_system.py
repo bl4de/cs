@@ -29,16 +29,31 @@ def timer(func):
     return _wrapper
 
 
+def contains_two(code: str) -> bool:
+
+    return False
+
+
+def contains_three(code: str) -> bool:
+
+    return False
+
+
+
 @timer
 def part_one_solution(data) -> int:
     '''
     Solution for Part 1.
     '''
     data = data.split('\n')
-    result = 0
+    result = [0, 0]
 
     # process data here...
-
+    for p in data:
+        if contains_two(p):
+            result[0] += 1
+        if contains_three(p):
+            result[1] += 1
     return result
 
 
