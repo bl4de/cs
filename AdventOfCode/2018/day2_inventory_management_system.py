@@ -29,15 +29,20 @@ def timer(func):
     return _wrapper
 
 
-def contains_two(code: str) -> bool:
+def contains(code: str, num: int) -> bool:
+    '''
+    Checks if code contains two letters 
+    '''
+    cont = {}
+    for c in range(1, len(code)):
+        if code[c] not in cont.keys():
+            cont[code[c]] = 1
+        cont[code[c]] = cont[code[c]] + 1
 
+    for _, c in enumerate(cont):
+        if int(cont[c]) == num:
+            return True
     return False
-
-
-def contains_three(code: str) -> bool:
-
-    return False
-
 
 
 @timer
@@ -50,9 +55,9 @@ def part_one_solution(data) -> int:
 
     # process data here...
     for p in data:
-        if contains_two(p):
+        if contains(p, 2) is True:
             result[0] += 1
-        if contains_three(p):
+        if contains(p, 3) is True:
             result[1] += 1
     return result
 
@@ -78,7 +83,9 @@ INPUT_PATH = f"test_input{DAY}.txt" if DEBUG is True else f"input{DAY}.txt"
 daily_input = pathlib.Path(INPUT_PATH).read_text('utf_8').strip()
 
 # Part 1. solution
-print(part_one_solution(daily_input))
+part1 = part_one_solution(daily_input)
+print(part1, part1[0] * part1[1])
+
 
 # Part 2. solution
 print(part_two_solution(daily_input))
