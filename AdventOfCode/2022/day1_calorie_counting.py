@@ -30,17 +30,28 @@ def timer(func):
     return _wrapper
 
 
+def process_elves(data) -> List[int]:
+    '''
+    Process elves
+    '''
+    data = data.split('\n')
+    elves = []
+    current_elf = 0
+    for calories_count in data:
+        if calories_count != '':
+            current_elf += int(calories_count)
+        else:
+            elves.append(current_elf)
+            current_elf = 0
+    return elves
+
+
 @timer
 def part_one_solution(data) -> int:
     '''
     Solution for Part 1.
     '''
-    data = data.split('\n')
-    result = 0
-
-    # process data here...
-
-    return result
+    return max(process_elves(data))
 
 
 @timer
@@ -48,12 +59,11 @@ def part_two_solution(data) -> int:
     '''
     Solution for Part 2.
     '''
-    data = data.split('\n')
-    result = 0
-
-    # process data here...
-
-    return result
+    elves = process_elves(data)
+    top_three = 0
+    for _i in range(0, 3):
+        top_three += elves.pop(elves.index(max(elves)))
+    return top_three
 
 
 DAY = 1
