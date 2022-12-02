@@ -35,11 +35,15 @@ class Solution:
         print(f" {self.PASS if provided == expected else self.FAIL}")
         return provided == expected
 
-    def solutionFunction(self):
-        '''
-        Solution function goes here
-        '''
-        pass
+    def decodeMessage(self, key: str, message: str) -> str:
+        decoded = ''
+
+        return decoded
 
 
 solution = Solution()
+solution.test(solution.decodeMessage(
+    "the quick brown fox jumps over the lazy dog", "vkbs bs t suepuv"), "this is a secret")
+
+solution.test(solution.decodeMessage("eljuxhpwnyrdgtqkviszcfmabo",
+              "zwx hnfx lqantp mnoeius ycgk vcnjrdb"), "the five boxing wizards jump quickly")
