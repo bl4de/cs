@@ -41,9 +41,6 @@ def timer(func):
         return result
     return _wrapper
 
-# A for Rock, B for Paper, and C for Scissors
-# X for Rock, Y for Paper, and Z for Scissors
-
 
 @timer
 def part_one_solution(data) -> int:
@@ -53,7 +50,6 @@ def part_one_solution(data) -> int:
     data = data.split('\n')
     result = 0
     for game in data:
-        print(game)
         move = game.split(' ')
         if (move[0] == 'A' and move[1]) == 'X' or (move[0] == 'B' and move[1]) == 'Y' or (move[0] == 'C' and move[1] == 'Z'):
             print(f"draw: {move[0]} {move[1]}")
@@ -65,9 +61,11 @@ def part_one_solution(data) -> int:
             else:
                 print(f"lose: {move[0]} {move[1]}")
                 result += MOVES[move[1]]
-
-        print(result)
     return result
+
+# A for Rock, B for Paper, and C for Scissors
+# X for lose, Y for draw, and Z for win
+# X for Rock, Y for Paper, and Z for Scissors
 
 
 @timer
@@ -78,8 +76,34 @@ def part_two_solution(data) -> int:
     data = data.split('\n')
     result = 0
 
-    # process data here...
-
+    for game in data:
+        move = game.split(' ')
+        # lose
+        if move[1] == 'X':
+            if move[0] == 'A':
+                result += MOVES['Z']
+            if move[0] == 'B':
+                result += MOVES['X']
+            if move[0] == 'C':
+                result += MOVES['Y']
+        # draw
+        if move[1] == 'Y':
+            result += GAMES['draw']
+            if move[0] == 'A':
+                result += MOVES['X']
+            if move[0] == 'B':
+                result += MOVES['Y']
+            if move[0] == 'C':
+                result += MOVES['Z']
+        # win
+        if move[1] == 'Z':
+            result += GAMES['win']
+            if move[0] == 'A':
+                result += MOVES['Y']
+            if move[0] == 'B':
+                result += MOVES['Z']
+            if move[0] == 'C':
+                result += MOVES['X']
     return result
 
 
