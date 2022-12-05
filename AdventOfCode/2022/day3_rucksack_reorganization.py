@@ -42,16 +42,15 @@ def part_one_solution(data) -> int:
     data = data.split('\n')
     result = 0
     for rucksacks in data:
-        both = ''
         first = rucksacks[:len(rucksacks)//2]
         second = rucksacks[len(rucksacks)//2:]
         for c in first:
-            if c in second and c != both:
+            if c in second:
                 if ord(c) > 96:
                     result += int(ord(c) - 96)
                 else:
                     result += int(ord(c) - 38)
-                both = c
+                break
     return result
 
 
@@ -62,9 +61,25 @@ def part_two_solution(data) -> int:
     '''
     data = data.split('\n')
     result = 0
+    counter = 0
+    trinity = []
+    for rucksacks in data:
+        if counter == 3:
+            counter = 0
+            trinity.clear()
+            trinity.append(rucksacks)
+        else:
+            trinity.append(rucksacks)
+            counter += 1
 
-    # process data here...
-
+        if len(trinity) == 3:
+            for c in trinity[0]:
+                if c in trinity[1] and c in trinity[2]:
+                    if ord(c) > 96:
+                        result += int(ord(c) - 96)
+                    else:
+                        result += int(ord(c) - 38)
+                    break
     return result
 
 
