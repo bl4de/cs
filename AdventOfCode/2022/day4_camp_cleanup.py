@@ -47,7 +47,6 @@ def part_one_solution(data) -> int:
 
         if int(range1) < int(range2) or int(range2) < int(range1):
             result += 1
-
     return result
 
 
