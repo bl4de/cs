@@ -34,10 +34,12 @@ def check_pairs(pairs) -> bool:
     '''
     Check if ranges contains each other
     '''
+    pairs[0] = pairs[0].split('-')
+    pairs[1] = pairs[1].split('-')
     first_in_second = int(pairs[0][0]) <= int(
-        pairs[1][0]) and int(pairs[0][2]) >= int(pairs[1][2])
+        pairs[1][0]) and int(pairs[0][1]) >= int(pairs[1][1])
     second_in_first = int(pairs[1][0]) <= int(
-        pairs[0][0]) and int(pairs[1][2]) >= int(pairs[0][2])
+        pairs[0][0]) and int(pairs[1][1]) >= int(pairs[0][1])
     return True if (first_in_second is True or second_in_first is True) else False
 
 
@@ -62,7 +64,6 @@ def part_two_solution(data) -> int:
     Solution for Part 2.
     '''
     data = data.split('\n')
-    print(data)
     result = 0
 
     # process data here...
