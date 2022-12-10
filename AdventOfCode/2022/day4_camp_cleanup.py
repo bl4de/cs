@@ -30,6 +30,17 @@ def timer(func):
     return _wrapper
 
 
+def check_pairs(pairs) -> bool:
+    '''
+    Check if ranges contains each other
+    '''
+    first_in_second = int(pairs[0][0]) <= int(
+        pairs[1][0]) and int(pairs[0][2]) >= int(pairs[1][2])
+    second_in_first = int(pairs[1][0]) <= int(
+        pairs[0][0]) and int(pairs[1][2]) >= int(pairs[0][2])
+    return True if (first_in_second is True or second_in_first is True) else False
+
+
 @timer
 def part_one_solution(data) -> int:
     '''
@@ -40,12 +51,7 @@ def part_one_solution(data) -> int:
 
     for d in data:
         pairs = d.split(',')
-        range1 = "".join([str(c) for c in range(
-            int(pairs[0].split('-')[0]), int(pairs[0].split('-')[1]) + 1)])
-        range2 = "".join([str(c) for c in range(
-            int(pairs[1].split('-')[0]), int(pairs[1].split('-')[1]) + 1)])
-
-        if int(range1) < int(range2) or int(range2) < int(range1):
+        if check_pairs(pairs) is True:
             result += 1
     return result
 
@@ -56,6 +62,7 @@ def part_two_solution(data) -> int:
     Solution for Part 2.
     '''
     data = data.split('\n')
+    print(data)
     result = 0
 
     # process data here...
