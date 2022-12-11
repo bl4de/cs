@@ -30,33 +30,6 @@ def timer(func):
     return _wrapper
 
 
-def check_pairs(pairs) -> bool:
-    '''
-    Check if ranges contains each other
-    '''
-    pairs[0] = pairs[0].split('-')
-    pairs[1] = pairs[1].split('-')
-    first_in_second = int(pairs[0][0]) <= int(
-        pairs[1][0]) and int(pairs[0][1]) >= int(pairs[1][1])
-    second_in_first = int(pairs[1][0]) <= int(
-        pairs[0][0]) and int(pairs[1][1]) >= int(pairs[0][1])
-    return True if (first_in_second is True or second_in_first is True) else False
-
-
-def check_overlaps(pairs) -> bool:
-    '''
-    Check if ranges contains each other
-    '''
-    first = [i for i in range(
-        int(pairs[0].split('-')[0]), int(pairs[0].split('-')[1]) + 1)]
-    second = [i for i in range(
-        int(pairs[1].split('-')[0]), int(pairs[1].split('-')[1]) + 1)]
-    for i in first:
-        if i in second:
-            return True
-    return False
-
-
 @timer
 def part_one_solution(data) -> int:
     '''
@@ -65,10 +38,8 @@ def part_one_solution(data) -> int:
     data = data.split('\n')
     result = 0
 
-    for d in data:
-        pairs = d.split(',')
-        if check_pairs(pairs) is True:
-            result += 1
+    # process data here...
+
     return result
 
 
@@ -80,14 +51,12 @@ def part_two_solution(data) -> int:
     data = data.split('\n')
     result = 0
 
-    for d in data:
-        pairs = d.split(',')
-        if check_overlaps(pairs) is True:
-            result += 1
+    # process data here...
+
     return result
 
 
-DAY = 4
+DAY = 1
 DEBUG = True if len(sys.argv) > 1 and sys.argv[1] else False
 
 # read challenge input data
