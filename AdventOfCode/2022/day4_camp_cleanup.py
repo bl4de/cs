@@ -43,6 +43,20 @@ def check_pairs(pairs) -> bool:
     return True if (first_in_second is True or second_in_first is True) else False
 
 
+def check_overlaps(pairs) -> bool:
+    '''
+    Check if ranges contains each other
+    '''
+    first = pairs[0].split('-')
+    second = pairs[1].split('-')
+    # first = [i for i in range((int)first[0], (int)first[1] + 1)]
+    first = [i for i in range(int(first[0]), int(first[1]) + 1)]
+    second = [i for i in range(int(second[0]), int(second[1]) + 1)]
+    for i in first:
+        if i in second:
+            return True
+    return False
+
 @timer
 def part_one_solution(data) -> int:
     '''
@@ -66,8 +80,10 @@ def part_two_solution(data) -> int:
     data = data.split('\n')
     result = 0
 
-    # process data here...
-
+    for d in data:
+        pairs = d.split(',')
+        if check_overlaps(pairs) is True:
+            result += 1
     return result
 
 
