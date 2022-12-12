@@ -43,19 +43,28 @@ def create_starting_point(initial_crates_layout):
     _stacks.pop()
     for s in _stacks:
         s.reverse()
+    print(_stacks)
     return _stacks
 
 
 @timer
-def part_one_solution(data) -> int:
+def part_one_solution(data: List, stacks: List) -> str:
     '''
     Solution for Part 1.
     '''
     data = data.split('\n')
     result = 0
+    for move in data:
+        move = move.split(' ')
+        how_many = int(move[1])
+        move_from = int(move[3]) - 1
+        move_to = int(move[5]) - 1
 
-    # process data here...
+        while how_many > 0:
+            stacks[move_to].append(stacks[move_from].pop())
+            how_many -= 1
 
+        print(stacks)
     return result
 
 
@@ -77,11 +86,12 @@ DEBUG = True if len(sys.argv) > 1 and sys.argv[1] else False
 
 # read challenge input data
 INPUT_PATH = f"test_input{DAY}.txt" if DEBUG is True else f"input{DAY}.txt"
-daily_input = pathlib.Path(INPUT_PATH).read_text('utf_8').strip()
+daily_input = pathlib.Path(
+    f"/Users/bl4de/playground/cs/AdventOfCode/2022/{INPUT_PATH}").read_text('utf_8').strip()
 stacks = create_starting_point(daily_input.split("\n\n")[0])
-print(stacks)
+
 # Part 1. solution
-print(part_one_solution(daily_input))
+# print(part_one_solution(daily_input.split("\n\n")[1], stacks))
 
 # Part 2. solution
-print(part_two_solution(daily_input))
+# print(part_two_solution(daily_input))
