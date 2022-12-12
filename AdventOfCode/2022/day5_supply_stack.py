@@ -30,6 +30,22 @@ def timer(func):
     return _wrapper
 
 
+def create_starting_point(initial_crates_layout):
+    '''
+    Creates stacks of crates from challenge input
+    '''
+    _stacks = []
+    for line in initial_crates_layout.split("\n"):
+        _stacks.append([])
+        for stack, crate in enumerate(line.split(" ")):
+            if crate not in "1234567890":
+                _stacks[stack].append(crate)
+    _stacks.pop()
+    for s in _stacks:
+        s.reverse()
+    return _stacks
+
+
 @timer
 def part_one_solution(data) -> int:
     '''
@@ -56,13 +72,14 @@ def part_two_solution(data) -> int:
     return result
 
 
-DAY = 1
+DAY = 5
 DEBUG = True if len(sys.argv) > 1 and sys.argv[1] else False
 
 # read challenge input data
 INPUT_PATH = f"test_input{DAY}.txt" if DEBUG is True else f"input{DAY}.txt"
 daily_input = pathlib.Path(INPUT_PATH).read_text('utf_8').strip()
-
+stacks = create_starting_point(daily_input.split("\n\n")[0])
+print(stacks)
 # Part 1. solution
 print(part_one_solution(daily_input))
 
