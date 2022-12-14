@@ -36,6 +36,7 @@ def create_starting_point(initial_crates_layout):
     '''
     _stacks = []
     for line in initial_crates_layout.split("\n"):
+        print(line)
         _stacks.append([])
         for stack, crate in enumerate(line.split(" ")):
             if crate not in "1234567890":
