@@ -34,11 +34,22 @@ def find_the_marker(signal: str) -> int:
     '''
     Identifies marker position
     '''
-    marker = 0
-    return marker
+    marker_position = 0
+    marker = []
+    for c, position in enumerate(signal):
+        marker_position += 1
+        print(c, position)
+        if c not in marker:
+            marker.append(c)
+            if len(marker) == 4:
+                return marker_position
+        else:
+            marker = marker[1:]
+            print(marker)
+        return marker_position
 
 
-@timer
+@ timer
 def part_one_solution(data) -> int:
     '''
     Solution for Part 1.
@@ -52,7 +63,7 @@ def part_one_solution(data) -> int:
     return result
 
 
-@timer
+@ timer
 def part_two_solution(data) -> int:
     '''
     Solution for Part 2.
