@@ -36,17 +36,15 @@ def find_the_marker(signal: str) -> int:
     '''
     marker_position = 0
     marker = []
-    for c, position in enumerate(signal):
-        marker_position += 1
-        print(c, position)
+    for position, c in enumerate(signal):
         if c not in marker:
             marker.append(c)
             if len(marker) == 4:
                 return marker_position
         else:
             marker = marker[1:]
-            print(marker)
-        return marker_position
+        marker_position += 1
+    return marker_position
 
 
 @ timer
