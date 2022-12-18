@@ -37,13 +37,14 @@ def find_the_marker(signal: str) -> int:
     marker_position = 0
     marker = []
     for position, c in enumerate(signal):
+        marker_position = position
         if c not in marker:
-            marker.append(c)
             if len(marker) == 4:
                 return marker_position
         else:
-            marker = marker[1:]
-        marker_position += 1
+            while c in marker:
+                marker = marker[1:4]
+        marker.append(c)
     return marker_position
 
 
