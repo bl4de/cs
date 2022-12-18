@@ -34,18 +34,16 @@ def find_the_marker(signal: str, how_many_characters: int) -> int:
     '''
     Identifies marker position
     '''
-    marker_position = 0
     marker = []
     for position, c in enumerate(signal):
-        marker_position = position
         if c not in marker:
             if len(marker) == how_many_characters:
-                return marker_position
+                return position
         else:
             while c in marker:
-                marker = marker[1:14]
+                marker = marker[1:how_many_characters]
         marker.append(c)
-    return marker_position
+    return 0  # not found
 
 
 @ timer
