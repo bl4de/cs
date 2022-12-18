@@ -30,7 +30,7 @@ def timer(func):
     return _wrapper
 
 
-def find_the_marker(signal: str) -> int:
+def find_the_marker(signal: str, how_many_characters: int) -> int:
     '''
     Identifies marker position
     '''
@@ -39,11 +39,11 @@ def find_the_marker(signal: str) -> int:
     for position, c in enumerate(signal):
         marker_position = position
         if c not in marker:
-            if len(marker) == 4:
+            if len(marker) == how_many_characters:
                 return marker_position
         else:
             while c in marker:
-                marker = marker[1:4]
+                marker = marker[1:14]
         marker.append(c)
     return marker_position
 
@@ -56,8 +56,7 @@ def part_one_solution(data) -> int:
     data = data.split('\n')
     result = 0
     for signal in data:
-        print(find_the_marker(signal=signal))
-    # process data here...
+        print(find_the_marker(signal=signal, how_many_characters=4))
 
     return result
 
@@ -69,8 +68,8 @@ def part_two_solution(data) -> int:
     '''
     data = data.split('\n')
     result = 0
-
-    # process data here...
+    for signal in data:
+        print(find_the_marker(signal=signal, how_many_characters=14))
 
     return result
 
