@@ -30,6 +30,24 @@ def timer(func):
     return _wrapper
 
 
+TREE = {'/': {}}  # contains full directory tree
+POINTER = '/'  # current location after executig latest command
+
+
+def execute_command(command: str):
+    '''
+    Executes command and updates TREE
+    '''
+    pass
+
+
+def parse_directory_listing():
+    '''
+    Parses lines after ls command and updates TREE
+    '''
+    pass
+
+
 @timer
 def part_one_solution(data) -> int:
     '''
@@ -38,7 +56,9 @@ def part_one_solution(data) -> int:
     data = data.split('\n')
     result = 0
 
-    # process data here...
+    for command in data:
+        if command.startswith('$'):
+            execute_command(command=command)
 
     return result
 
@@ -56,7 +76,7 @@ def part_two_solution(data) -> int:
     return result
 
 
-DAY = 1
+DAY = 7
 DEBUG = True if len(sys.argv) > 1 and sys.argv[1] else False
 
 # read challenge input data
