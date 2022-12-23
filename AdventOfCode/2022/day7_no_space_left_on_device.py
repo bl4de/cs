@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# pylint: disable=invalid-name, too-few-public-methods, no-self-use
+# pylint: disable=invalid-name, too-few-public-methods, no-self-use, global-statement
 '''
 AdventOfCode Challenge Template
 
@@ -13,6 +13,11 @@ import functools
 import time
 import sys
 from typing import List
+
+
+TREE = {'/': {}}  # contains full directory tree
+POINTER = '/'  # current location after executig latest command
+PREV_LOCATION = '/'
 
 
 def timer(func):
@@ -30,14 +35,33 @@ def timer(func):
     return _wrapper
 
 
-TREE = {'/': {}}  # contains full directory tree
-POINTER = '/'  # current location after executig latest command
+def cmd_cd(path: str):
+    '''
+    Moves pointer across directory tree
+    '''
+    global POINTER, PREV_LOCATION
+    if path == '/':
+        POINTER = '/'
+    if path == '..':
+        tmp = POINTER
+        POINTER = PREV_LOCATION
+        PREV_LOCATION = tmp
 
 
-def execute_command(command: str):
+def cmd_ls():
+    '''
+    Parses current directory listing
+    '''
+
+
+def execute_command(command: str, arg=None):
     '''
     Executes command and updates TREE
     '''
+    if command == 'cd':
+        cmd_cd(path=arg)
+    if command == 'ls':
+        cmd_ls()
     pass
 
 
@@ -58,7 +82,11 @@ def part_one_solution(data) -> int:
 
     for command in data:
         if command.startswith('$'):
-            execute_command(command=command)
+            cmd_args = command.split(' ')
+            if len(cmd_args) > 2:
+                execute_command(command=cmd_args[1], arg=cmd_args[2])
+            else:
+                execute_command(command=cmd_args[1])
 
     return result
 
