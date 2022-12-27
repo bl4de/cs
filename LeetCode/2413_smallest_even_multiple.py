@@ -39,9 +39,11 @@ class Solution:
         '''
         Solution function goes here
         '''
-        smallest_even_multiple = 2
-
-        return smallest_even_multiple
+        if n % 2 == 0:
+            return n
+        while (n * 2) % 2 != 0:
+            n += 1
+        return n * 2
 
 
 solution = Solution()
