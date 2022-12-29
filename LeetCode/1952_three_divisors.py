@@ -39,9 +39,11 @@ class Solution:
         '''
         Solution function goes here
         '''
-        has_three = True
-
-        return has_three
+        has_three = 0
+        for i in range(1, n + 1):
+            if n % i == 0:
+                has_three += 1
+        return has_three == 3
 
 
 solution = Solution()
