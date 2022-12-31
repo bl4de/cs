@@ -39,8 +39,10 @@ class Solution:
         '''
         Solution function goes here
         '''
-        square = 1
-        return square
+        s = x / 2
+        while s * s > x:
+            s -= 1
+        return int(s)
 
 
 solution = Solution()
