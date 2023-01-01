@@ -39,7 +39,7 @@ class Solution:
         '''
         Solution function goes here
         '''
-        return address.replace('.', '[.]')
+        return '[.]'.join(address.split('.'))
 
 
 solution = Solution()
