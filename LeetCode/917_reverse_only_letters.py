@@ -4,7 +4,7 @@
     LeetCode solution class
 '''
 from typing import List, Optional
-
+import string
 
 class Solution:
     '''
@@ -40,6 +40,13 @@ class Solution:
         Solution function goes here
         '''
         rev = ""
+        counter = 0
+        for c in range(len(s) - 1, -1, -1):
+            if s[c] in string.ascii_letters:
+                rev += s[c]
+            else:
+                rev += s[counter]
+            counter += 1
         return rev
 
 
