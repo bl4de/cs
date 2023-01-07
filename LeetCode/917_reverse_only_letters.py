@@ -53,5 +53,4 @@ class Solution:
 solution = Solution()
 solution.test(solution.reverseOnlyLetters("ab-cd"), "dc-ba")
 solution.test(solution.reverseOnlyLetters("a-bC-dEf-ghIj"), "j-Ih-gfE-dCba")
-solution.test(solution.reverseOnlyLetters(
-    "Test1ng-Leet=code-Q!"), "Qedo1ct-eeLg=ntse-T!")
+solution.test(solution.reverseOnlyLetters("Test1ng-Leet=code-Q!"), "Qedo1ct-eeLg=ntse-T!")
