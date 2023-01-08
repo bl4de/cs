@@ -55,9 +55,13 @@ class Solution:
             triangle.append(nextRow)
         return triangle
 
+    def getRow(self, rowIndex: int) -> List[int]:
+        if rowIndex > 0:
+            return self.generate(rowIndex + 1)[rowIndex]
+        return [1]
+
 
 solution = Solution()
-solution.test(solution.generate(5), [[1], [1, 1], [
-              1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]])
-solution.test(solution.generate(1), [[1]])
-print(solution.generate(8))
+solution.test(solution.getRow(3), [1, 3, 3, 1])
+solution.test(solution.getRow(0), [1])
+solution.test(solution.getRow(1), [1, 1])
