@@ -40,7 +40,19 @@ class Solution:
         Solution function goes here
         '''
         triangle = [[1]]
+        if numRows == 1:
+            return triangle
+        triangle.append([1, 1])
+        if numRows == 2:
+            return triangle
 
+        for row in range(2, numRows):
+            nextRow = [1]
+            for elem in range(1, len(triangle[row - 1])):
+                nextRow.append(triangle[row - 1][elem - 1] +
+                               triangle[row - 1][elem])
+            nextRow.append(1)
+            triangle.append(nextRow)
         return triangle
 
 
