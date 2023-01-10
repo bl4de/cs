@@ -39,9 +39,15 @@ class Solution:
         '''
         Solution function goes here
         '''
-        return False
+        while n > 1:
+            numbers = [d for d in str(n)]
+            n = sum([pow(int(number), 2) for number in numbers])
+            if n < 10 and pow(n, 2) > 1:
+                return False
+        return True
 
 
 solution = Solution()
-solution.test(solution.isHappy(19), True)
-solution.test(solution.isHappy(2), False)
+# solution.test(solution.isHappy(19), True)
+# solution.test(solution.isHappy(2), False)
+solution.test(solution.isHappy(1111111), True)
