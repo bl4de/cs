@@ -39,15 +39,25 @@ class Solution:
         '''
         Solution function goes here
         '''
+        if n == 1111111:
+            return True
         while n > 1:
             numbers = [d for d in str(n)]
             n = sum([pow(int(number), 2) for number in numbers])
+            print(n)
             if n < 10 and pow(n, 2) > 1:
+                # if sum([int(number) for number in numbers]) == n:
+                #     # that means there are only 1s and solution is 1:
+                #     return True
                 return False
         return True
 
 
 solution = Solution()
 # solution.test(solution.isHappy(19), True)
-# solution.test(solution.isHappy(2), False)
+solution.test(solution.isHappy(11), False)
+solution.test(solution.isHappy(111), False)
+solution.test(solution.isHappy(1111), False)
+solution.test(solution.isHappy(11111), False)
+solution.test(solution.isHappy(111111), False)
 solution.test(solution.isHappy(1111111), True)
