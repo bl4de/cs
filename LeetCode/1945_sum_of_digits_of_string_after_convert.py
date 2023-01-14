@@ -4,6 +4,7 @@
     LeetCode solution class
 '''
 from typing import List, Optional
+import string
 
 
 class Solution:
@@ -27,20 +28,25 @@ class Solution:
     FAIL = f"{colors['red']}[+] FAIL {endline}"
 
     def test(self, provided, expected) -> bool:
-        '''
+        """
         Compares provided result to expected
         Returns true if equal
-        '''
+        """
         print(f"\n output  : {provided}\n expected: {expected}")
         print(f" {self.PASS if provided == expected else self.FAIL}")
         return provided == expected
 
     def getLucky(self, s: str, k: int) -> int:
-        '''
+        """
         Solution function goes here
-        '''
-        s = 0
-        return s
+        """
+        result = 0
+        s = "".join([str(list(string.ascii_lowercase).index(letter) + 1) for letter in s])
+        while k > 0:
+            result = sum([int(d) for d in s])
+            s = str(result)
+            k -= 1
+        return result
 
 
 solution = Solution()

@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 # pylint: disable=invalid-name, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate
-'''
+"""
     LeetCode solution class
-'''
+"""
 from typing import List, Optional
-
+import string
 
 class Solution:
-    '''
+    """
     LeetCode solution class
-    '''
+    """
     colors = {
         "black": '\33[30m',
         "red": '\33[31m',
@@ -27,19 +27,18 @@ class Solution:
     FAIL = f"{colors['red']}[+] FAIL {endline}"
 
     def test(self, provided, expected) -> bool:
-        '''
+        """
         Compares provided result to expected
         Returns true if equal
-        '''
+        """
         print(f"\n output  : {provided}\n expected: {expected}")
         print(f" {self.PASS if provided == expected else self.FAIL}")
         return provided == expected
 
     def solutionFunction(self):
-        '''
+        """
         Solution function goes here
-        '''
-        pass
+        """
 
 
 solution = Solution()
