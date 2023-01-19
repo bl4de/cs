@@ -2,6 +2,11 @@
 
 Computer Science - data structures, algorithms, programming languages exercises/playground
 
+### Advent Of Code, LeetCode and Project Euler problems solutions
+
+Solutions to problems from LeetCode, AdventOfCode and Project Euler, moztly in Python, but also in PHP and JavaScript.
+Probably in other programming languages in the future as well (putting it now in case I will foget toi update this README when this actually will happen :) )
+
 ### Data Structures and Algorithms 
 
 My implementations of data structures and algorithms in differnet programming languages.
