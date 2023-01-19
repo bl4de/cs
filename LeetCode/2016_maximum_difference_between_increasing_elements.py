@@ -42,23 +42,20 @@ class Solution:
         """
         max_diff = -1
         current_max = -1
-        max_num = max(nums)
-        max_pos = nums.index(max_num)
-        min_num = min(nums)
-        min_pos = nums.index(min_num)
-        while len(nums) > 0:
+
+        while len(nums) > 2:
+            max_num = max(nums)
+            max_pos = nums.index(max_num)
+            min_num = min(nums)
+            min_pos = nums.index(min_num)
             if min_pos < max_pos:
                 current_max = max_num = min_num
                 max_diff = current_max if (
                     current_max > max_diff) else max_diff
             nums.remove(max_num)
             nums.remove(min_num)
-            if len(nums) > 2:
-                max_num = max(nums)
-                max_pos = nums.index(max_num)
-                min_num = min(nums)
-                min_pos = nums.index(min_num)
             print(current_max)
+
         return max_diff
 
 
