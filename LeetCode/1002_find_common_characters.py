@@ -40,13 +40,12 @@ class Solution:
         """
         Solution function goes here
         """
-        common_characters = []
-        i = 0
         spec = words.pop()
-        for w in words:
+        common_characters = list(spec)
+        for word in words:
             for c in spec:
-                if c in w:
-                    common_characters.append(c)
+                if c not in word and c in common_characters:
+                    common_characters.remove(c)
 
         return common_characters
 
