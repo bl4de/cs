@@ -8,3 +8,4 @@ input*.txt
 test_input*.txt
 
 .idea/
+ToDo.md
