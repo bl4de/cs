@@ -6,6 +6,7 @@
 from typing import List, Optional
 import string
 
+
 class Solution:
     """
     LeetCode solution class
@@ -40,15 +41,16 @@ class Solution:
         Solution function goes here
         """
         common_characters = []
-        for c in list(words[0]):
-            i = 0
-            for word in words:
-                if c in word:
-                    i += 1
-            if i == (len(words) - 1):
-                common_characters.append(c)
+        i = 0
+        spec = words.pop()
+        for w in words:
+            for c in spec:
+                if c in w:
+                    common_characters.append(c)
+
         return common_characters
 
+
 solution = Solution()
-solution.test(solution.commonChars(["bella","label","roller"]), ["e","l","l"])
-solution.test(solution.commonChars(["cool","lock","cook"]), ["c","o"])
+solution.test(solution.commonChars(["bella", "label", "roller"]), ["e", "l", "l"])
+solution.test(solution.commonChars(["cool", "lock", "cook"]), ["c", "o"])
