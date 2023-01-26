@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate
 """
     LeetCode solution class
+    https://leetcode.com/problems/check-if-all-as-appears-before-all-bs/description/
 """
 from typing import List, Optional
 import string
