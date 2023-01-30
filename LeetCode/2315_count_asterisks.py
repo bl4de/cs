@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate
 """
     LeetCode solution class
+    https://leetcode.com/problems/count-asterisks/
 """
 from typing import List, Optional
 import string
@@ -24,11 +25,21 @@ class Solution:
         print(f" {self.PASS if provided == expected else self.FAIL}")
         return provided == expected
 
-    def solutionFunction(self):
+    def countAsterisks(self, s: str) -> int:
         """
         Solution function goes here
         """
         result = 0
+        pair = False
+        for c in s:
+            if c == '|':
+                pair = not pair
+            if c == '*' and not pair:
+                result += 1
         return result
 
 solution = Solution()
+solution.test(solution.countAsterisks("l|*e*et|c**o|*de|"), 2)
+solution.test(solution.countAsterisks("iamprogrammer"), 0)
+solution.test(solution.countAsterisks("yo|uar|e**|b|e***au|tifu|l"), 5)
+
