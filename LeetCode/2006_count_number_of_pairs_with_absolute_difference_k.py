@@ -31,7 +31,11 @@ class Solution:
         Solution function goes here
         """
         result = 0
-
+        for n in nums:
+            if n + k in nums:
+                result += 1
+            if k - n in nums:
+                result += 1
         return result
 
 solution = Solution()
