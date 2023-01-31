@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate
 """
     LeetCode solution class
+    https://leetcode.com/problems/maximum-69-number/
 """
 from typing import List, Optional
 import string
@@ -29,8 +30,12 @@ class Solution:
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        num = list(str(num))
+        for index, digit in enumerate(num):
+            if digit == '6':
+                num[index] = '9'
+                return int("".join(num))
+        return int("".join(num))
 
 
 solution = Solution()
