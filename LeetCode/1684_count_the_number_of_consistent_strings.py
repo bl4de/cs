@@ -29,7 +29,15 @@ class Solution:
         """
         Solution function goes here
         """
-        result = 0
+        result = len(words)
+        not_allowed = list(string.ascii_lowercase)
+        for c in allowed:
+            not_allowed.remove(c)
+        for word in words:
+            for c in word:
+                if c in not_allowed:
+                    result -= 1
+                    continue
         return result
 
 solution = Solution()
