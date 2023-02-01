@@ -7,6 +7,7 @@
 from typing import List, Optional
 import string
 
+
 class Solution:
     """
     LeetCode solution class
@@ -29,18 +30,18 @@ class Solution:
         """
         Solution function goes here
         """
-        result = len(words)
-        not_allowed = list(string.ascii_lowercase)
-        for c in allowed:
-            not_allowed.remove(c)
+        result = 0
         for word in words:
+            current_word = 0
             for c in word:
-                if c in not_allowed:
-                    result -= 1
-                    continue
+                if c in allowed:
+                    current_word += 1
+            if current_word == len(word):
+                result += 1
         return result
 
+
 solution = Solution()
-solution.test(solution.countConsistentStrings("ab", ["ad","bd","aaab","baa","badab"]), 2)
-solution.test(solution.countConsistentStrings("abc", ["a","b","c","ab","ac","bc","abc"]), 7)
-solution.test(solution.countConsistentStrings("cad", ["cc","acd","b","ba","bac","bad","ac","d"]), 4)
+solution.test(solution.countConsistentStrings("fstqyienx",
+                                              ["n", "eeitfns", "eqqqsfs", "i", "feniqis", "lhoa", "yqyitei", "sqtn",
+                                               "kug", "z", "neqqis"]), 8)
