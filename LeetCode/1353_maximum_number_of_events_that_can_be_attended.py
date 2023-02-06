@@ -4,6 +4,7 @@
     LeetCode solution class
     https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/description/
 """
+from array import array
 from typing import List, Optional
 import string
 
@@ -31,6 +32,19 @@ class Solution:
         Solution function goes here
         """
         result = 0
+        end_day = 0
+        for event in events:
+            end_day = event[1] if event[1] > end_day else end_day
+        available_days = {i: True for i in range(1, end_day + 1)}
+        for event in events:
+            if available_days[event[0]]:
+                available_days[event[0]] = False
+            else:
+                if available_days[event[1]]:
+                    available_days[event[1]] = False
+        for d in available_days.values():
+            if d is False:
+                result += 1
         return result
 
 
