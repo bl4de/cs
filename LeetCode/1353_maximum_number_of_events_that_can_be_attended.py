@@ -37,11 +37,11 @@ class Solution:
             end_day = event[1] if event[1] > end_day else end_day
         available_days = {i: True for i in range(1, end_day + 1)}
         for event in events:
-            if available_days[event[0]]:
-                available_days[event[0]] = False
+            if available_days[event[1]]:
+                available_days[event[1]] = False
             else:
-                if available_days[event[1]]:
-                    available_days[event[1]] = False
+                if available_days[event[0]]:
+                    available_days[event[0]] = False
         for d in available_days.values():
             if d is False:
                 result += 1
@@ -51,3 +51,4 @@ class Solution:
 solution = Solution()
 solution.test(solution.maxEvents([[1, 2], [2, 3], [3, 4]]), 3)
 solution.test(solution.maxEvents([[1, 2], [2, 3], [3, 4], [1, 2]]), 4)
+solution.test(solution.maxEvents([[1, 2], [2, 2], [3, 3], [3, 4], [3, 4]]), 4)
