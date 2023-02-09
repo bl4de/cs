@@ -5,6 +5,8 @@
 """
 from typing import List, Optional
 import string
+import sys
+
 
 class Solution:
     """
@@ -31,4 +33,6 @@ class Solution:
         result = 0
         return result
 
+
+sys.setrecursionlimit(1000)
 solution = Solution()
