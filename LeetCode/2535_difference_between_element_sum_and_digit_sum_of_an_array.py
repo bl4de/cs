@@ -31,8 +31,7 @@ class Solution:
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        return abs(sum(nums) - sum([int(d) for number in nums for d in str(number)]))
 
 
 sys.setrecursionlimit(1000)
