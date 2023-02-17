@@ -16,7 +16,11 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         result = []
-        return []
+        while len(nums) > 0:
+            how_many = nums.pop(0)
+            number = nums.pop(0)
+            result.extend([number] * how_many)
+        return result
 
 
 sys.setrecursionlimit(1000)
