@@ -20,4 +20,3 @@ class Solution(AbstractSolution):
 
 sys.setrecursionlimit(1000)
 solution = Solution()
-solution.test(solution.solutionFunction(), False)
