@@ -16,6 +16,9 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         result = 0
+        for digit in [int(d) for d in str(num)]:
+            if num % digit == 0:
+                result += 1
         return result
 
 
