@@ -25,3 +25,12 @@ class AbstractSolution:
         print(f"\n output  : {provided}\n expected: {expected}")
         print(f" {self.PASS if provided == expected else self.FAIL}")
         return provided == expected
+
+    def convertNumberToCharactersArray(self, number: int, elementType='char') -> List:
+        """
+        convertNumberToCharactersArray(123, 'char') => ['1', '2', '3']
+        convertNumberToCharactersArray(123, 'int') => [1, 2, 3]
+        """
+        if elementType == 'int':
+            return [int(c) for c in str(number)]
+        return [c for c in str(number)]
