@@ -14,6 +14,17 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
+        character_map = {}
+        for index, c in enumerate(s):
+            if c not in character_map.keys() and t[index] not in character_map.values():
+                character_map[c] = t[index]
+
+            if c not in character_map.keys() and t[index] in character_map.values():
+                return False
+
+            if c in character_map.keys() and character_map[c] != t[index]:
+                return False
+
         return True
 
 
@@ -22,3 +33,5 @@ solution = Solution()
 solution.test(solution.isIsomorphic(s="egg", t="add"), True)
 solution.test(solution.isIsomorphic(s="foo", t="bar"), False)
 solution.test(solution.isIsomorphic(s="paper", t="title"), True)
+solution.test(solution.isIsomorphic(s="badc", t="baba"), False)
+solution.test(solution.isIsomorphic(s="foo", t="bar"), False)
