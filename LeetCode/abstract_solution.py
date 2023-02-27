@@ -2,6 +2,8 @@
 # pylint: disable=invalid-name, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate
 """
     LeetCode abstract solution class
+    Implements some common methods used to solve challenges in LeetCode,
+    ProjectEuler, Advent Of Code etc.
 """
 from typing import List, Optional
 import string
