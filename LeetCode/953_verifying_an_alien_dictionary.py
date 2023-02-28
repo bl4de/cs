@@ -15,11 +15,19 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = True
+        for iterator in range(1, len(words)):
+            character_index = 0
+            if order.index(words[iterator-1][character_index]) < order.index(words[iterator][character_index]):
+                return True
+            else:
+                max_length = len(words[iterator]) if len(words[iterator]) < len(
+                    words[iterator-1]) else len(words[iterator-1])
 
-        for word in words:
-
-        return result
+                while character_index < max_length:
+                    if order.index(words[iterator-1][character_index]) < order.index(words[iterator][character_index]):
+                        return True
+                    character_index += 1
+        return False
 
 
 sys.setrecursionlimit(1000)
