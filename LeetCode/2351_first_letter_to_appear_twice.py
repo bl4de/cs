@@ -15,9 +15,12 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = 0
-        return result
-
+        characters = []
+        for c in s:
+            if c in characters:
+                return c
+            characters.append(c)
+        return ''
 
 sys.setrecursionlimit(1000)
 solution = Solution()
