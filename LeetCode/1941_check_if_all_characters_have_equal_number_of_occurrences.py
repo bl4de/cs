@@ -15,8 +15,12 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        characters = {}
+        for c in s:
+            if c not in characters.keys():
+                characters[c] = 0
+            characters[c] += 1
+        return len(set(characters.values())) == 1
 
 
 sys.setrecursionlimit(1000)
