@@ -8,6 +8,7 @@
 from typing import List, Optional
 import string
 import sys
+import time
 
 
 class AbstractSolution:
@@ -19,6 +20,22 @@ class AbstractSolution:
     red = '\33[31m'
     PASS = f"{green}[+] PASS {endline}"
     FAIL = f"{red}[+] FAIL {endline}"
+
+    t_start = 0
+    t_stop = 0
+
+    def timer_start(self):
+        """
+        Starts the timer
+        """
+        self.t_start = time.time()
+
+    def timer_stop(self) -> int:
+        """
+        Stops the timer and prints the result
+        """
+        self.t_stop = time.time()
+        print(f"{((self.t_stop - self.t_start) * 1000):.6f}")
 
     def test(self, provided, expected) -> bool:
         """

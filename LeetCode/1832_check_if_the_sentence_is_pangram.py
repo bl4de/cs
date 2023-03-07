@@ -15,8 +15,6 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        if len(set(sentence)) < 26:
-            return False
         for c in string.ascii_lowercase:
             if c not in sentence:
                 return False
@@ -28,3 +26,9 @@ solution = Solution()
 solution.test(solution.checkIfPangram(
     sentence="thequickbrownfoxjumpsoverthelazydog"), True)
 solution.test(solution.checkIfPangram(sentence="leetcode"), False)
+
+solution.timer_start()
+for i in range(0, 1000000):
+    solution.checkIfPangram(sentence="thequickbrownfoxjumpsoverthelazydog")
+    solution.checkIfPangram(sentence="leetcode")
+solution.timer_stop()
