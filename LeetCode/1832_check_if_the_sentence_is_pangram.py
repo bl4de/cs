@@ -15,6 +15,8 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
+        if len(set(sentence)) < 26:
+            return False
         for c in string.ascii_lowercase:
             if c not in sentence:
                 return False
