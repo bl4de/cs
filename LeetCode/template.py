@@ -20,3 +20,9 @@ class Solution(AbstractSolution):
 
 sys.setrecursionlimit(1000)
 solution = Solution()
+
+
+# solution.timer_start()
+# for i in range(0, 1000000):
+#     pass
+# solution.timer_stop()
