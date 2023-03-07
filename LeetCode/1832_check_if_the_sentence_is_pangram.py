@@ -15,8 +15,10 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        for c in string.ascii_lowercase:
+            if c not in sentence:
+                return False
+        return True
 
 
 sys.setrecursionlimit(1000)
