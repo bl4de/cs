@@ -29,7 +29,9 @@ solution.test(solution.arrayStringsAreEqual(
     ["abc", "d", "defg"], word2=["abcddefg"]), True)
 
 
-# solution.timer_start()
-# for i in range(0, 1000000):
-#     pass
-# solution.timer_stop()
+solution.timer_start()
+for i in range(0, 1000000):
+    solution.arrayStringsAreEqual(word1=["ab", "c"], word2=["a", "bc"])
+    solution.arrayStringsAreEqual(word1=["a", "cb"], word2=["ab", "c"])
+    solution.arrayStringsAreEqual(["abc", "d", "defg"], word2=["abcddefg"])
+solution.timer_stop()
