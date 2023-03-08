@@ -15,8 +15,7 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = False
-        return result
+        return "".join(word1) == "".join(word2)
 
 
 sys.setrecursionlimit(1000)
