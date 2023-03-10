@@ -15,8 +15,11 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        result = []
+        for word in title.split(" "):
+            result.append(word.lower() if len(word) <=
+                          2 else word.lower().capitalize())
+        return " ".join(result)
 
 
 sys.setrecursionlimit(1000)
