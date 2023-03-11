@@ -15,8 +15,7 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        return word == word.upper() or word == word.lower() or word == word.lower().capitalize()
 
 
 sys.setrecursionlimit(1000)
