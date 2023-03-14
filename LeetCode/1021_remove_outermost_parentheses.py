@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/remove-outermost-parentheses/
 """
 from typing import List, Optional
 import string
@@ -10,7 +11,7 @@ from abstract_solution import AbstractSolution
 
 
 class Solution(AbstractSolution):
-    def solutionFunction(self):
+    def removeOuterParentheses(self, s: str) -> str:
         """
         Solution function goes here
         """
