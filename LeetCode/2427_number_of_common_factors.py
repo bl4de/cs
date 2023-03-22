@@ -16,6 +16,10 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         result = 0
+        counter = a if a < b else b
+        for i in range(1, counter+1):
+            if a % i == 0 and b % i == 0:
+                result += 1
         return result
 
 
