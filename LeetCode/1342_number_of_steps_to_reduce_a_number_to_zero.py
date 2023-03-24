@@ -15,8 +15,16 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
+        if num == 0:
+            return num
         result = 0
-        return result
+        while num > 1:
+            if num % 2 != 0:
+                num -= 1
+                result += 1
+            num = num / 2
+            result += 1
+        return result + 1
 
 
 sys.setrecursionlimit(1000)
