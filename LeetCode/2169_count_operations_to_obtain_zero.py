@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/count-operations-to-obtain-zero/description/
 """
 from typing import List, Optional
 import string
@@ -10,7 +11,7 @@ from abstract_solution import AbstractSolution
 
 
 class Solution(AbstractSolution):
-    def solutionFunction(self):
+    def countOperations(self, num1: int, num2: int) -> int:
         """
         Solution function goes here
         """
@@ -21,6 +22,8 @@ class Solution(AbstractSolution):
 sys.setrecursionlimit(1000)
 solution = Solution()
 
+solution.test(solution.countOperations(num1=2, num2=3), 3)
+solution.test(solution.countOperations(num1=10, num2=10), 1)
 
 # solution.timer_start()
 # for i in range(0, 1000000):
