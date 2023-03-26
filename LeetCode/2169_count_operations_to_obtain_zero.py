@@ -15,7 +15,7 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        if num1 + num2 == 0:
+        if num1 == 0 or num2 == 0:
             return 0
         result = 0
         while num1 != num2:
