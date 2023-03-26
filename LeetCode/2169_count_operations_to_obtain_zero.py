@@ -15,8 +15,16 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
+        if num1 + num2 == 0:
+            return 0
         result = 0
-        return result
+        while num1 != num2:
+            if num1 > num2:
+                num1 = num1 - num2
+            else:
+                num2 = num2 - num1
+            result += 1
+        return result + 1  # last operation: num1 - num2
 
 
 sys.setrecursionlimit(1000)
