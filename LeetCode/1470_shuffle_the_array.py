@@ -21,17 +21,19 @@ class Solution(AbstractSolution):
         for i in range(0, n):
             result.append(nums1[i])
             result.append(nums2[i])
-        return result        
+        return result
 
 
 sys.setrecursionlimit(1000)
 solution = Solution()
 
-solution.test(solution.shuffle(nums = [2,5,1,3,4,7], n = 3),  [2,3,5,4,1,7] )
-solution.test(solution.shuffle(nums = [1,2,3,4,4,3,2,1], n = 4), [1,4,2,3,3,2,4,1])
-solution.test(solution.shuffle(nums = [1,1,2,2], n = 2),  [1,2,1,2])
+# solution.test(solution.shuffle(nums = [2,5,1,3,4,7], n = 3),  [2,3,5,4,1,7] )
+# solution.test(solution.shuffle(nums = [1,2,3,4,4,3,2,1], n = 4), [1,4,2,3,3,2,4,1])
+# solution.test(solution.shuffle(nums = [1,1,2,2], n = 2),  [1,2,1,2])
 
-# solution.timer_start()
-# for i in range(0, 1000000):
-#     pass
-# solution.timer_stop()
+solution.timer_start()
+for i in range(0, 1000000):
+    solution.shuffle(nums=[2, 5, 1, 3, 4, 7], n=3)
+    solution.shuffle(nums=[1, 2, 3, 4, 4, 3, 2, 1], n=4)
+    solution.shuffle(nums=[1, 1, 2, 2], n=2)
+solution.timer_stop()

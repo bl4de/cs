@@ -35,7 +35,7 @@ class AbstractSolution:
         Stops the timer and prints the result
         """
         self.t_stop = time.time()
-        print(f"{((self.t_stop - self.t_start) * 1000):.6f}")
+        print(f"{((self.t_stop - self.t_start)):.4f}s")
 
     def test(self, provided, expected) -> bool:
         """
