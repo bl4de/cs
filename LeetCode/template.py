@@ -35,7 +35,7 @@ solution.timer_start()
 profiler.enable()
 for i in range(0, 1):
     profiler.run("solution.solve()")
-solution.timer_start()
+solution.timer_stop()
 
 profiler.print_stats()
 profiler.disable()

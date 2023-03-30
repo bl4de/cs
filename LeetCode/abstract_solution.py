@@ -18,6 +18,8 @@ class AbstractSolution:
     endline = '\33[0m'
     green = '\33[32m'
     red = '\33[31m'
+    GREEN = f"{green}"
+    ENDL = f"{endline}"
     PASS = f"{green}[+] PASS {endline}"
     FAIL = f"{red}[+] FAIL {endline}"
 
@@ -35,7 +37,7 @@ class AbstractSolution:
         Stops the timer and prints the result
         """
         self.t_stop = time.time()
-        print(f"{((self.t_stop - self.t_start)):.4f}s")
+        print(f"\n{self.GREEN} [+] Total execution time: {((self.t_stop - self.t_start)):.4f}s{self.ENDL}\n")
 
     def test(self, provided, expected) -> bool:
         """
