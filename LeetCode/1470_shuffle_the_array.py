@@ -16,7 +16,12 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         result = []
-        return result
+        nums1 = nums[0:n]
+        nums2 = nums[n:]
+        for i in range(0, n):
+            result.append(nums1[i])
+            result.append(nums2[i])
+        return result        
 
 
 sys.setrecursionlimit(1000)
