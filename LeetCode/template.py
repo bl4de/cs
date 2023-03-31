@@ -17,8 +17,7 @@ class Solution(AbstractSolution):
         Solution runner called from profiler
         """
         self.test(self.solution(), None)
-        
-        
+
     def solution(self):
         """
         Solution function goes here
