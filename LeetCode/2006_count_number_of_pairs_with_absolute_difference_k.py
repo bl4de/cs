@@ -26,6 +26,11 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         result = 0
+        l = len(nums)
+        for i in range(0, l):
+            for j in range(i, l):
+                if abs(nums[i] - nums[j]) == k:
+                    result += 1
         return result
 
 
