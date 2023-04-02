@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/sort-the-people/
 """
 from typing import List, Optional
 import string
@@ -16,9 +17,10 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(names = ["Mary","John","Emma"], heights = [180,165,170]), ["Mary","Emma","John"])
+        self.test(self.solution(["Alice","Bob","Bob"], heights = [155,185,150]), ["Bob","Alice","Bob"])
 
-    def solution(self):
+    def solution(self, names: List[str], heights: List[int]) -> List[str]:
         """
         Solution function goes here
         """

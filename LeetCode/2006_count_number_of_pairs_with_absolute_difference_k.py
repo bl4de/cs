@@ -40,7 +40,7 @@ solution = Solution()
 
 solution.timer_start()
 profiler.enable()
-for i in range(0, 1):
+for i in range(0, 10000):
     profiler.run("solution.solve()")
 solution.timer_stop()
 
