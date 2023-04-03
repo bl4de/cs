@@ -12,20 +12,23 @@ from abstract_solution import AbstractSolution
 
 
 class Solution(AbstractSolution):
-    
+
     def solve(self):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(names = ["Mary","John","Emma"], heights = [180,165,170]), ["Mary","Emma","John"])
-        self.test(self.solution(["Alice","Bob","Bob"], heights = [155,185,150]), ["Bob","Alice","Bob"])
+        self.test(self.solution(names=["Mary", "John", "Emma"], heights=[
+                  180, 165, 170]), ["Mary", "Emma", "John"])
+        self.test(self.solution(["Alice", "Bob", "Bob"], heights=[
+                  155, 185, 150]), ["Bob", "Alice", "Bob"])
 
     def solution(self, names: List[str], heights: List[int]) -> List[str]:
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        people = sorted(zip(names, heights), key=lambda p: p[1])
+        people.reverse()
+        return [name for name, _ in people]
 
 
 sys.setrecursionlimit(1000)
