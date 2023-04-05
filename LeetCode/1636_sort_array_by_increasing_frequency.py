@@ -26,7 +26,13 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = 0
+        occurences = {}
+        result = []
+        for i in nums:
+            if i not in occurences.keys():
+                occurences[i] = 1
+            occurences[i] += 1
+        print(occurences)
         return result
 
 
