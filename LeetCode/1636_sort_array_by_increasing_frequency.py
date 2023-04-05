@@ -26,15 +26,19 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        occurences = {}
         result = []
-        for i in nums:
-            if i not in occurences.keys():
-                occurences[i] = 1
-            occurences[i] += 1
-        print(occurences)
-        return result
-
+        for n in set(nums):
+            a = []
+            for j in nums:
+                if n == j:
+                    a.append(j)
+            result.append(a)
+        result = sorted(result, key=len)
+        res = []
+        for arr in result:
+            for n in arr:
+                res.append(n)
+        return res
 
 sys.setrecursionlimit(1000)
 profiler = cProfile.Profile()
