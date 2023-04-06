@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/flipping-an-image/
 """
 from typing import List, Optional
 import string
@@ -11,18 +12,21 @@ from abstract_solution import AbstractSolution
 
 
 class Solution(AbstractSolution):
-    
+
     def solve(self):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(image=[[1, 1, 0], [1, 0, 1], [0, 0, 0]]), [
+                  [1, 0, 0], [0, 1, 0], [1, 1, 1]])
+        self.test(self.solution(image=[[1, 1, 0, 0], [1, 0, 0, 1], [0, 1, 1, 1], [
+                  1, 0, 1, 0]]), [[1, 1, 0, 0], [0, 1, 1, 0], [0, 0, 0, 1], [1, 0, 1, 0]])
 
-    def solution(self):
+    def solution(self, image: List[List[int]]) -> List[List[int]]:
         """
         Solution function goes here
         """
-        result = 0
+        result = []
         return result
 
 
