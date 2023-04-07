@@ -27,6 +27,11 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         result = []
+        for row in image:
+            row.reverse()
+            for i in range(len(row)):
+                row[i] = 0 if row[i] == 1 else 1
+            result.append(row)
         return result
 
 
