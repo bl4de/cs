@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/two-sum/
 """
 from typing import List, Optional
 import string
@@ -11,18 +12,22 @@ from abstract_solution import AbstractSolution
 
 
 class Solution(AbstractSolution):
-    
+
     def solve(self):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(nums=[2, 7, 11, 15], target=9), [0, 1])
+        self.test(self.solution(nums=[3, 2, 4], target=6), [1, 2])
+        self.test(self.solution(nums=[3, 3], target=6), [0, 1])
 
-    def solution(self):
+    def solution(self, nums: List[int], target: int) -> List[int]:
         """
         Solution function goes here
         """
-        result = 0
+        result = []
+        if len(nums) == 2:
+            return [0,1]
         return result
 
 
