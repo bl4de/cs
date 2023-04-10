@@ -20,6 +20,7 @@ class Solution(AbstractSolution):
         self.test(self.solution(nums=[2, 7, 11, 15], target=9), [0, 1])
         self.test(self.solution(nums=[3, 2, 4], target=6), [1, 2])
         self.test(self.solution(nums=[3, 3], target=6), [0, 1])
+        self.test(self.solution(nums=[3, 2, 3], target=6), [0, 2])
 
     def solution(self, nums: List[int], target: int) -> List[int]:
         """
@@ -28,6 +29,9 @@ class Solution(AbstractSolution):
         result = []
         if len(nums) == 2:
             return [0,1]
+        for i in range(len(nums)):
+            if (target - nums[i]) in nums[i + 1:] or (target - nums[i]) in nums[:i]:
+                return [nums.index(nums[i]), nums.index(target - nums[i])]
         return result
 
 
