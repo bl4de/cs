@@ -30,7 +30,7 @@ class Solution(AbstractSolution):
         if len(nums) == 2:
             return [0,1]
         for i in range(len(nums)):
-            if (target - nums[i]) in nums[i + 1:] or (target - nums[i]) in nums[:i]:
+            if (target - nums[i]) in nums[i + 1:]:
                 return [nums.index(nums[i]), nums.index(target - nums[i])]
         return result
 
@@ -45,5 +45,5 @@ for i in range(0, 1):
     profiler.run("solution.solve()")
 solution.timer_stop()
 
-profiler.print_stats()
+# profiler.print_stats()
 profiler.disable()
