@@ -13,28 +13,28 @@ from abstract_solution import AbstractSolution
 
 
 class Solution(AbstractSolution):
-    
+
     def solve(self):
         """
         Solution runner called from profiler
         """
-        # self.test(self.solution(s = "babad"), "bab")
-        # self.test(self.solution(s = "cbbd"), "bb")
-        self.test(self.solution(s = "bb"), "bb")
+        self.test(self.solution(s="babad"), "bab")
+        self.test(self.solution(s="cbbd"), "bb")
+        self.test(self.solution(s="bb"), "bb")
 
     def isPalindrome(self, s: str) -> bool:
         if len(s) < 2:
             return True
         s = re.sub("[^a-z0-9]", "", s.lower())
         return s == s[::-1]
-    
+
     def solution(self, s: str) -> str:
         """
         Solution function goes here
         """
-        if len(s) == 1:
+        if self.isPalindrome(s):
             return s
-        
+
         result = ""
         tmp = ""
         for i in range(len(s)):
@@ -43,7 +43,7 @@ class Solution(AbstractSolution):
                 if self.isPalindrome(tmp) is True and len(tmp) > len(result):
                     result = tmp
                     tmp = ""
-            
+
         return result
 
 
@@ -57,5 +57,5 @@ for i in range(0, 1):
     profiler.run("solution.solve()")
 solution.timer_stop()
 
-# profiler.print_stats()
+profiler.print_stats(sort='calls')
 profiler.disable()

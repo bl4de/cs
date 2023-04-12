@@ -28,10 +28,11 @@ class Solution(AbstractSolution):
         """
         result = []
         if len(nums) == 2:
-            return [0,1]
-        for i in range(len(nums)):
-            if (target - nums[i]) in nums[i + 1:]:
-                return [nums.index(nums[i]), nums.index(target - nums[i])]
+            return [0, 1]
+        for i, x in enumerate(nums):
+            if (target - x) in nums and i != nums.index(target - x):
+                result = [i, nums.index(target - x)]
+        result.sort()
         return result
 
 
