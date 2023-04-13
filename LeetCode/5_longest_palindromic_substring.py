@@ -25,7 +25,6 @@ class Solution(AbstractSolution):
     def isPalindrome(self, s: str) -> bool:
         if len(s) < 2:
             return True
-        s = re.sub("[^a-z0-9]", "", s.lower())
         return s == s[::-1]
 
     def solution(self, s: str) -> str:
@@ -53,7 +52,7 @@ solution = Solution()
 
 solution.timer_start()
 profiler.enable()
-for i in range(0, 1):
+for i in range(0, 100):
     profiler.run("solution.solve()")
 solution.timer_stop()
 
