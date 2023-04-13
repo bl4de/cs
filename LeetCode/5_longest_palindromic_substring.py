@@ -23,17 +23,15 @@ class Solution(AbstractSolution):
         self.test(self.solution(s="bb"), "bb")
 
     def isPalindrome(self, s: str) -> bool:
-        if len(s) < 2:
-            return True
         return s == s[::-1]
 
     def solution(self, s: str) -> str:
-        """
-        Solution function goes here
-        """
-        if self.isPalindrome(s):
+        if len(s) < 2:
             return s
 
+        if self.isPalindrome(s):
+            return s
+        
         result = ""
         tmp = ""
         for i in range(len(s)):
@@ -42,7 +40,7 @@ class Solution(AbstractSolution):
                 if self.isPalindrome(tmp) is True and len(tmp) > len(result):
                     result = tmp
                     tmp = ""
-
+            
         return result
 
 
