@@ -22,14 +22,11 @@ class Solution(AbstractSolution):
         self.test(self.solution(s="cbbd"), "bb")
         self.test(self.solution(s="bb"), "bb")
 
-    def isPalindrome(self, s: str) -> bool:
-        return s == s[::-1]
-
     def solution(self, s: str) -> str:
         if len(s) < 2:
             return s
 
-        if self.isPalindrome(s):
+        if (s == s[::-1]) is True:
             return s
         
         result = ""
@@ -37,9 +34,10 @@ class Solution(AbstractSolution):
         for i in range(len(s)):
             for iterator in range(1, len(s)):
                 tmp = s[i:i+iterator]
-                if self.isPalindrome(tmp) is True and len(tmp) > len(result):
-                    result = tmp
-                    tmp = ""
+                if len(tmp) > len(result):
+                    if (tmp == tmp[::-1]) is True:
+                        result = tmp
+                        tmp = ""
             
         return result
 
@@ -50,7 +48,7 @@ solution = Solution()
 
 solution.timer_start()
 profiler.enable()
-for i in range(0, 100):
+for i in range(0, 1000):
     profiler.run("solution.solve()")
 solution.timer_stop()
 
