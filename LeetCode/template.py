@@ -26,6 +26,7 @@ class Solution(AbstractSolution):
         return result
 
 NUMS_OF_EXECUTION = 1
+SHOW_PROFILER_STATS = True
 
 sys.setrecursionlimit(1000)
 profiler = cProfile.Profile()
@@ -37,5 +38,6 @@ for i in range(0, NUMS_OF_EXECUTION):
     profiler.run("solution.solve()")
 solution.timer_stop()
 
-profiler.print_stats()
+if SHOW_PROFILER_STATS:
+    profiler.print_stats(sort='calls')
 profiler.disable()

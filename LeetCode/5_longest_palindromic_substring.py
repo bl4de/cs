@@ -18,10 +18,10 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        # self.test(self.solution(s="babad"), "bab")
+        self.test(self.solution(s="babad"), "bab")
         # self.test(self.solution(s="cbbd"), "bb")
         # self.test(self.solution(s="bb"), "bb")
-        self.test(self.solution(s="abb"), "bb")
+        # self.test(self.solution(s="abb"), "bb")
 
     def solution(self, s: str) -> str:
         if len(s) < 2:
@@ -35,6 +35,7 @@ class Solution(AbstractSolution):
         for i in range(len(s)):
             for iterator in range(i + 1, len(s)):
                 tmp = s[i:iterator]
+                print(tmp)
                 if len(tmp) > len(result):
                     if (tmp == tmp[::-1]) is True:
                         result = tmp
@@ -42,6 +43,7 @@ class Solution(AbstractSolution):
         return result
 
 NUMS_OF_EXECUTION = 1
+SHOW_PROFILER_STATS = True
 
 sys.setrecursionlimit(1000)
 profiler = cProfile.Profile()
@@ -53,5 +55,7 @@ for i in range(0, NUMS_OF_EXECUTION):
     profiler.run("solution.solve()")
 solution.timer_stop()
 
-profiler.print_stats(sort='calls')
+if SHOW_PROFILER_STATS:
+    profiler.print_stats(sort='calls')
+    
 profiler.disable()
