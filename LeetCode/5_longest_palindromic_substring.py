@@ -19,9 +19,9 @@ class Solution(AbstractSolution):
         Solution runner called from profiler
         """
         self.test(self.solution(s="babad"), "bab")
-        # self.test(self.solution(s="cbbd"), "bb")
-        # self.test(self.solution(s="bb"), "bb")
-        # self.test(self.solution(s="abb"), "bb")
+        self.test(self.solution(s="cbbd"), "bb")
+        self.test(self.solution(s="bb"), "bb")
+        self.test(self.solution(s="abb"), "bb")
 
     def solution(self, s: str) -> str:
         if len(s) < 2:
@@ -33,9 +33,8 @@ class Solution(AbstractSolution):
         result = ""
         tmp = ""
         for i in range(len(s)):
-            for iterator in range(i + 1, len(s)):
+            for iterator in range(i + 1, len(s) + 1):
                 tmp = s[i:iterator]
-                print(tmp)
                 if len(tmp) > len(result):
                     if (tmp == tmp[::-1]) is True:
                         result = tmp
