@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/zigzag-conversion/
 """
 from typing import List, Optional
 import string
@@ -16,9 +17,21 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(s = "PAYPALISHIRING", numRows = 3), "PAHNAPLSIIGYIR")
+        # P   A   H   N
+        # A P L S I I G
+        # Y   I   R
+        
+        self.test(self.solution(s = "PAYPALISHIRING", numRows = 4), "PINALSIGYAHRPI")
+        # P     I    N
+        # A   L S  I G
+        # Y A   H R
+        # P     I
+        
+        self.test(self.solution(s = "A", numRows = 1), "A")
+        # A
 
-    def solution(self):
+    def solution(self, s: str, numRows: int) -> str:
         """
         Solution function goes here
         """
