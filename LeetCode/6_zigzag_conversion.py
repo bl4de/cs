@@ -35,7 +35,9 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = 0
+        result = ""
+        
+        
         return result
 
 NUMS_OF_EXECUTION = 1
