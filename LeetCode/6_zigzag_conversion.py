@@ -17,8 +17,8 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(s="PAYPALISHIRING",
-                  numRows=3), "PAHNAPLSIIGYIR")
+        # self.test(self.solution(s="PAYPALISHIRING",
+        #           numRows=3), "PAHNAPLSIIGYIR")
         # P   A   H   N
         # A P L S I I G
         # Y   I   R
@@ -33,6 +33,8 @@ class Solution(AbstractSolution):
         # self.test(self.solution(s="A", numRows=1), "A")
         # # A
 
+        self.test(self.solution(s="AB", numRows=1), "AB")
+        
     def solution(self, s: str, numRows: int) -> str:
         """
         Solution function goes here
@@ -40,7 +42,7 @@ class Solution(AbstractSolution):
         result = ""
         rows = [None] * numRows
         for row in range(len(rows)):
-            rows[row] = [None] * (len(s) // numRows)
+            rows[row] = [None] * ((len(s) // 2) + 1)
 
         print(rows)
         c = 0
@@ -50,16 +52,16 @@ class Solution(AbstractSolution):
         for c in s:
             if direction == 'up':
                 col = col + 1
-
             rows[row][col] = c
-            print(rows)
-            if row == (numRows - 1):
-                row = row - 1
-                direction = 'up'
-            else:
-                row = row + 1
-                direction = 'down'
 
+            if row == (numRows - 1):
+                direction = 'up'
+            if row == 0:
+                direction = 'down'
+            row = row + 1 if direction == 'down' else row - 1
+
+        for r in rows:
+            result += "".join([c for c in r if c is not None])
         return result
 
 
