@@ -17,34 +17,26 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        # self.test(self.solution(s="PAYPALISHIRING",
-        #           numRows=3), "PAHNAPLSIIGYIR")
-        # P   A   H   N
-        # A P L S I I G
-        # Y   I   R
-
-        # self.test(self.solution(s="PAYPALISHIRING",
-        #           numRows=4), "PINALSIGYAHRPI")
-        # # P     I    N
-        # # A   L S  I G
-        # # Y A   H R
-        # # P     I
-
-        # self.test(self.solution(s="A", numRows=1), "A")
-        # # A
-
+        self.test(self.solution(s="PAYPALISHIRING",numRows=3), "PAHNAPLSIIGYIR")
+        self.test(self.solution(s="PAYPALISHIRING",numRows=4), "PINALSIGYAHRPI")
+        self.test(self.solution(s="A", numRows=1), "A")
         self.test(self.solution(s="AB", numRows=1), "AB")
+        self.test(self.solution(s="ABC", numRows=1), "ABC")
+        self.test(self.solution(s="ABCD", numRows=1), "ABCD")
+        self.test(self.solution(s="ABCDE", numRows=1), "ABCDE")
         
     def solution(self, s: str, numRows: int) -> str:
         """
         Solution function goes here
         """
         result = ""
+        if numRows == 1:
+            return s
+        
         rows = [None] * numRows
         for row in range(len(rows)):
-            rows[row] = [None] * ((len(s) // 2) + 1)
+            rows[row] = [None] * ((len(s) // 2) + 2)
 
-        print(rows)
         c = 0
         row = 0
         col = 0
@@ -52,8 +44,9 @@ class Solution(AbstractSolution):
         for c in s:
             if direction == 'up':
                 col = col + 1
+                
             rows[row][col] = c
-
+            
             if row == (numRows - 1):
                 direction = 'up'
             if row == 0:
