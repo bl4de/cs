@@ -28,6 +28,7 @@ class Solution(AbstractSolution):
         longest_substring = s[0]
         for iterator in range(1, len(s)):
             for length in range(2, len(s) - iterator):
+                print(s[iterator:length])
                 if (set(s[iterator:length])) == s[iterator:length]:
                     longest_substring = s[iterator:length]
         return len(longest_substring)
