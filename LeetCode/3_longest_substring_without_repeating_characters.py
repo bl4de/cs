@@ -25,8 +25,12 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        longest_substring = s[0]
+        for iterator in range(1, len(s)):
+            for length in range(2, len(s) - iterator):
+                if (set(s[iterator:length])) == s[iterator:length]:
+                    longest_substring = s[iterator:length]
+        return len(longest_substring)
 
 NUMS_OF_EXECUTION = 1
 SHOW_PROFILER_STATS = True
