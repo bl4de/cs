@@ -19,16 +19,21 @@ class Solution(AbstractSolution):
         """
         self.test(self.solution(s = "abcabcbb"), 3)
         self.test(self.solution(s = "bbbbb"), 1)
+        self.test(self.solution(s = "au"), 2)
+        self.test(self.solution(s = "aab"), 2)
         self.test(self.solution(s = "pwwkew"), 3)
 
     def solution(self, s: str) -> int:
         """
         Solution function goes here
         """
+        if len(s) < 2:
+            return len(s)
+        if len(set(s)) == len(s):
+            return len(s)
         longest_substring = s[0]
         iterator = 1
-        for length in range(2, len(s) - iterator):
-            print(set(s[iterator:length]), len(set(s[iterator:length])),  s[iterator:length], len(s[iterator:length]))
+        for length in range(0, len(s)):
             if (len(set(s[iterator:length]))) == len(s[iterator:length]):
                 longest_substring = s[iterator:length] if len(s[iterator:length]) > len(longest_substring) else longest_substring
             else:
