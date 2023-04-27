@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/median-of-two-sorted-arrays/
 """
 from typing import List, Optional
 import string
@@ -16,13 +17,14 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(nums1 = [1,3], nums2 = [2]), 2.00000)
+        self.test(self.solution(nums1 = [1,2], nums2 = [3,4]), 2.50000)
 
-    def solution(self):
+    def solution(self, nums1: List[int], nums2: List[int]) -> float:
         """
         Solution function goes here
         """
-        result = 0
+        result = 0.0
         return result
 
 NUMS_OF_EXECUTION = 1
