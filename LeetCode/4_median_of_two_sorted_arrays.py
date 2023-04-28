@@ -24,8 +24,25 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = 0.0
-        return result
+        merged = []
+        iterations = len(nums2) if len(nums2) < len(nums1) else len(nums1)
+        for i in range(iterations):
+            if nums1[i] > nums2[i]:
+                merged.append(nums2[i])
+                merged.append(nums1[i])
+            else:
+                merged.append(nums1[i])
+                merged.append(nums2[i])
+        if len(nums1) > len(nums2):
+            merged = merged + nums1[iterations:]
+        if len(nums2) > len(nums1):
+            merged = merged + nums2[iterations:]
+        print(merged)
+        if len(merged) % 2 != 0:
+            mean = merged[len(merged) // 2]
+        else:
+            mean = (merged[len(merged) // 2] + merged[(len(merged) // 2) - 1]) / 2
+        return float(mean)
 
 NUMS_OF_EXECUTION = 1
 SHOW_PROFILER_STATS = True
