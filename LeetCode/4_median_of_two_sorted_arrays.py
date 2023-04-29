@@ -27,16 +27,24 @@ class Solution(AbstractSolution):
         """
         merged = []
         
-        if len(nums1) > len(nums2):
+        if len(nums1) > len(nums2) and len(nums2) > 0:
             for i in nums2:
                 nums1.append(i)
                 merged = nums1
                 merged.sort()
-        else:
+            
+        if len(nums2) >= len(nums1) and len(nums1) > 0:
             for i in nums1:
                 nums2.append(i)
                 merged = nums2
                 merged.sort()
+            
+        if len(nums2) == 0:
+            merged = nums1
+        
+        if len(nums1) == 0:
+            merged = nums2
+            
         if len(merged) == 1:
             return merged[0]
         
