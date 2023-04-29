@@ -19,31 +19,27 @@ class Solution(AbstractSolution):
         """
         self.test(self.solution(nums1 = [1,3], nums2 = [2]), 2.00000)
         self.test(self.solution(nums1 = [1,2], nums2 = [3,4]), 2.50000)
+        self.test(self.solution(nums1 = [], nums2 = [1]), 1.00000)
 
     def solution(self, nums1: List[int], nums2: List[int]) -> float:
         """
         Solution function goes here
         """
         merged = []
-        iterations = len(nums2) if len(nums2) < len(nums1) else len(nums1)
-        
-        # TODO:
-        # merge two sorted arrays:
-        for i in range(iterations):
-            if nums1[i] > nums2[i]:
-                merged.append(nums2[i])
-                merged.append(nums1[i])
-            else:
-                merged.append(nums1[i])
-                merged.append(nums2[i])
-        
-        
         
         if len(nums1) > len(nums2):
-            merged = merged + nums1[iterations:]
-        if len(nums2) > len(nums1):
-            merged = merged + nums2[iterations:]
-        print(merged)
+            for i in nums2:
+                nums1.append(i)
+                merged = nums1
+                merged.sort()
+        else:
+            for i in nums1:
+                nums2.append(i)
+                merged = nums2
+                merged.sort()
+        if len(merged) == 1:
+            return merged[0]
+        
         if len(merged) % 2 != 0:
             mean = merged[len(merged) // 2]
         else:
