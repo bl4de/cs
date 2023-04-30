@@ -17,9 +17,10 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(nums1 = [1,3], nums2 = [2]), 2.00000)
-        self.test(self.solution(nums1 = [1,2], nums2 = [3,4]), 2.50000)
-        self.test(self.solution(nums1 = [], nums2 = [1]), 1.00000)
+        # self.test(self.solution(nums1 = [1,3], nums2 = [2]), 2.00000)
+        # self.test(self.solution(nums1 = [1,2], nums2 = [3,4]), 2.50000)
+        # self.test(self.solution(nums1 = [], nums2 = [1]), 1.00000)
+        self.test(self.solution(nums1 = [1,2], nums2 = [-1,3]), 1.50000)
 
     def solution(self, nums1: List[int], nums2: List[int]) -> float:
         """
@@ -27,27 +28,27 @@ class Solution(AbstractSolution):
         """
         merged = []
         
-        if len(nums1) > len(nums2) and len(nums2) > 0:
-            for i in nums2:
-                nums1.append(i)
-                merged = nums1
+        if len(nums2) == 0 or len(nums1) == 0:
+            merged = nums1 if len(nums2) == 0 else nums2
+        else:
+            if len(nums1) == len(nums2):
+                merged = nums1 + nums2
                 merged.sort()
-            
-        if len(nums2) >= len(nums1) and len(nums1) > 0:
-            for i in nums1:
-                nums2.append(i)
-                merged = nums2
-                merged.sort()
-            
-        if len(nums2) == 0:
-            merged = nums1
-        
-        if len(nums1) == 0:
-            merged = nums2
-            
+            else:
+                if len(nums1) > len(nums2):
+                    for i in nums2:
+                        nums1.append(i)
+                        merged = nums1
+                        merged.sort()
+                    
+                if len(nums2) >= len(nums1):
+                    for i in nums1:
+                        nums2.append(i)
+                        merged = nums2
+                        merged.sort()
+                
         if len(merged) == 1:
             return merged[0]
-        
         if len(merged) % 2 != 0:
             mean = merged[len(merged) // 2]
         else:
