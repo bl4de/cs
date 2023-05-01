@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/string-to-integer-atoi/
 """
 from typing import List, Optional
 import string
@@ -16,9 +17,12 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(s = "42"), 42)
+        self.test(self.solution(s = "   -42"), 42)
+        self.test(self.solution(s = "4193 with words"), 4193)
+        
 
-    def solution(self):
+    def solution(self, s: str) -> int:
         """
         Solution function goes here
         """
