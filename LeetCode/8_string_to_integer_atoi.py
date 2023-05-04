@@ -37,6 +37,7 @@ class Solution(AbstractSolution):
         result = int("".join(result))
         return result if is_negative is False else result * -1
 
+
 NUMS_OF_EXECUTION = 1
 SHOW_PROFILER_STATS = True
 
