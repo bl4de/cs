@@ -20,6 +20,8 @@ class Solution(AbstractSolution):
         self.test(self.solution(s = "42"), 42)
         self.test(self.solution(s = "   -42"), -42)
         self.test(self.solution(s = "4193 with words"), 4193)
+        self.test(self.solution(s = "words and 987"), 0)
+        self.test(self.solution(s = "-91283472332"), -2147483648)
         
 
     def solution(self, s: str) -> int:
@@ -28,13 +30,21 @@ class Solution(AbstractSolution):
         """
         result = []
         is_negative = False
-        for c in s:
-            if c not in string.digits:
-                if c == '-':
-                    is_negative = True
-                continue
-            result.append(c)
-        result = int("".join(result))
+        s = s.replace(' ', '')
+        if s[0] == '-':
+            is_negative = True
+            start = 1
+        else:
+            start = 0
+        for iterator in range(start, len(s)):
+            if s[iterator] in string.digits:
+                result.append(s[iterator])
+            else:
+                break
+        if len(result) > 0:
+            result = int("".join(result))
+        else:
+            result = 0
         return result if is_negative is False else result * -1
 
 
