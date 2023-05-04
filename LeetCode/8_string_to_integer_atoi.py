@@ -18,7 +18,7 @@ class Solution(AbstractSolution):
         Solution runner called from profiler
         """
         self.test(self.solution(s = "42"), 42)
-        self.test(self.solution(s = "   -42"), 42)
+        self.test(self.solution(s = "   -42"), -42)
         self.test(self.solution(s = "4193 with words"), 4193)
         
 
@@ -26,8 +26,16 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        result = []
+        is_negative = False
+        for c in s:
+            if c not in string.digits:
+                if c == '-':
+                    is_negative = True
+                continue
+            result.append(c)
+        result = int("".join(result))
+        return result if is_negative is False else result * -1
 
 NUMS_OF_EXECUTION = 1
 SHOW_PROFILER_STATS = True
