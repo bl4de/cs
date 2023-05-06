@@ -25,7 +25,28 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = False
+        # edge cases
+        if p == ".*" and len(s) > 0:
+            return True
+        if p == "." and len(s) == 1:
+            return True
+        
+        result = True
+        prev_c = ''
+        iterator = 0
+        while result:
+            # take the character from the string
+            c = s[iterator]
+
+            # determine current condition for regex:
+            # 1. character - exact match
+            # 2. . - match
+            # 3. * -  check if previous character was c or .
+            # 4. save c as prev_c for next iteration
+            
+            # check if character matches the condition
+            prev_c = c
+            
         return result
 
 
