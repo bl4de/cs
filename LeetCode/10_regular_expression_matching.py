@@ -34,7 +34,7 @@ class Solution(AbstractSolution):
         result = True
         prev_c = ''
         iterator = 0
-        while result:
+        while iterator < len(s):
             # take the character from the string
             c = s[iterator]
 
@@ -46,7 +46,7 @@ class Solution(AbstractSolution):
             
             # check if character matches the condition
             prev_c = c
-            
+            iterator += 1
         return result
 
 
