@@ -40,8 +40,13 @@ class Solution(AbstractSolution):
 
             # determine current condition for regex:
             # 1. character - exact match
+            if iterator <= len(p):
+                if p[iterator] != c and p[iterator] != '.':
+                    return False
             # 2. . - match
+            
             # 3. * -  check if previous character was c or .
+            if  == '*' and prev_c == c
             # 4. save c as prev_c for next iteration
             
             # check if character matches the condition
