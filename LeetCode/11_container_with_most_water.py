@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/container-with-most-water/
 """
 from typing import List, Optional
 import string
@@ -16,9 +17,10 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(height = [1,8,6,2,5,4,8,3,7]), 49)
+        self.test(self.solution(height = [1,1]), 1)
 
-    def solution(self):
+    def solution(self, height: List[int]) -> int:
         """
         Solution function goes here
         """
