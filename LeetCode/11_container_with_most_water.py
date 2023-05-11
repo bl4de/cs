@@ -27,10 +27,9 @@ class Solution(AbstractSolution):
         """
         sums = {}
         l = len(height)
+        j = l - 1
         for i in range(0, l):
-            for j in range(i, l):
-                if i < j:
-                    sums[(height[i], height[j], j-i)] = height[i] * (j - i) if height[i] < height[j] else height[j] * (j - i)
+            sums[(height[i], height[j], j-i)] = height[i] * (j - i) if height[i] < height[j] else height[j] * (j - i)
         return max(sums.values())
 
 
