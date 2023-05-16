@@ -33,7 +33,10 @@ class Solution(AbstractSolution):
                 for k in range(0, l):
                     if i != j and j != k and k != i:
                         if nums[i] + nums[j] + nums[k] == 0:
-                            result.append([nums[i], nums[j], nums[k]])
+                            r = [nums[i], nums[j], nums[k]]
+                            r.sort()
+                            if r not in result:
+                                result.append(r)
         return result
 
 
