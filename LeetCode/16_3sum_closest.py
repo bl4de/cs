@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/3sum-closest/
 """
 from typing import List, Optional
 import string
@@ -16,9 +17,10 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(nums = [-1,2,1,-4], target = 1), 2)
+        self.test(self.solution(nums = [0,0,0], target = 1), 0)
 
-    def solution(self):
+    def solution(self, nums: List[int], target: int) -> int:
         """
         Solution function goes here
         """
