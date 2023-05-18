@@ -25,6 +25,10 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         result = 0
+        smallest_sum = nums[0] + nums[1] + nums[2]
+        # for iterator in range(0, len(nums)):
+            
+            
         return result
 
 NUMS_OF_EXECUTION = 1
