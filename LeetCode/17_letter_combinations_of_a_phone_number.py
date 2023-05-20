@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/letter-combinations-of-a-phone-number/
 """
 from typing import List, Optional
 import string
@@ -16,13 +17,15 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(digits = "23"), ["ad","ae","af","bd","be","bf","cd","ce","cf"])
+        self.test(self.solution(digits = ""), [])
+        self.test(self.solution(digits = "2"), [["a","b","c"]])
 
-    def solution(self):
+    def solution(self, digits: str) -> List[str]:
         """
         Solution function goes here
         """
-        result = 0
+        result = []
         return result
 
 NUMS_OF_EXECUTION = 1
