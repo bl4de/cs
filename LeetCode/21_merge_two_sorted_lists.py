@@ -1,38 +1,43 @@
+#!/usr/bin/env python3
+# pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
+"""
+    LeetCode solution class
+"""
 from typing import List, Optional
-
-# Definition for singly-linked list.
-
-
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+import string
+import sys
+import cProfile
+from abstract_solution import AbstractSolution
 
 
-class Solution:
-    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        l1 = list1
-        l2 = list2
-        sorted = ListNode()
+class Solution(AbstractSolution):
+    
+    def solve(self):
+        """
+        Solution runner called from profiler
+        """
+        self.test(self.solution(), None)
 
-        while l1 != None and l2 != None:
-            if l1.val <= l2.val:
-                sorted.next = ListNode(l1.val)
-                sorted = sorted.next
-                l1 = l1.next
-            else:
-                sorted.next = ListNode(l2.val)
-                sorted = sorted.next
-                l2 = l2.next
+    def solution(self):
+        """
+        Solution function goes here
+        """
+        result = 0
+        return result
 
-        while(l2):
-            sorted.next = ListNode(l2.val)
-            sorted = sorted.next
-            l2 = l2.next
+NUMS_OF_EXECUTION = 1
+SHOW_PROFILER_STATS = True
 
-        while(l1):
-            sorted.next = ListNode(l1.val)
-            sorted = sorted.next
-            l1 = l1.next
+sys.setrecursionlimit(1000)
+profiler = cProfile.Profile()
+solution = Solution()
 
-        return sorted.next
+solution.timer_start()
+profiler.enable()
+for i in range(0, NUMS_OF_EXECUTION):
+    profiler.run("solution.solve()")
+solution.timer_stop()
+
+if SHOW_PROFILER_STATS:
+    profiler.print_stats(sort='calls')
+profiler.disable()
