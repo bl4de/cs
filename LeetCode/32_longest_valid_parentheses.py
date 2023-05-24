@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/longest-valid-parentheses/
 """
 from typing import List, Optional
 import string
@@ -11,19 +12,25 @@ from abstract_solution import AbstractSolution
 
 
 class Solution(AbstractSolution):
-    
+
     def solve(self):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(s="(()"), 2)
+        self.test(self.solution(s=")()())"), 4)
+        self.test(self.solution(s=""), 0)
 
-    def solution(self):
+    def solution(self, s: str) -> int:
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        left_bracket = s.count("(")
+        right_bracket = s.count(")")
+        if left_bracket == 0 or right_bracket == 0:
+            return 0
+        return left_bracket if left_bracket > right_bracket else right_bracket
+
 
 NUMS_OF_EXECUTION = 1
 SHOW_PROFILER_STATS = True
