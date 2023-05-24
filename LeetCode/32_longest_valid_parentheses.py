@@ -18,6 +18,7 @@ class Solution(AbstractSolution):
         Solution runner called from profiler
         """
         self.test(self.solution(s="(()"), 2)
+        self.test(self.solution(s=")("), 0)
         self.test(self.solution(s=")()())"), 4)
         self.test(self.solution(s=""), 0)
 
@@ -25,11 +26,32 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        left_bracket = s.count("(")
-        right_bracket = s.count(")")
-        if left_bracket == 0 or right_bracket == 0:
+        if len(s) < 2:
             return 0
-        return left_bracket if left_bracket > right_bracket else right_bracket
+
+        result = longest = 0
+
+        _next = "("
+
+        for pos in range(1, len(s)):
+            if _next == "(":
+                if s[pos] == "(":
+                    result += 1
+                    _next = ")"
+                else:
+                    _next = "("
+                continue
+            if _next == ")":
+                if s[pos] == ")":
+                    result += 1
+                    _next = "("
+                else:
+                    _next = ")"
+                continue
+            if (_next == ")" and s[pos] == "(") or (_next == "(" and s[pos] == ")"):
+                longest = result if result > longest else longest
+
+        return longest
 
 
 NUMS_OF_EXECUTION = 1
