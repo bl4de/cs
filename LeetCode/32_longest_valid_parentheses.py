@@ -21,6 +21,7 @@ class Solution(AbstractSolution):
         self.test(self.solution(s=")("), 0)
         self.test(self.solution(s=")()())"), 4)
         self.test(self.solution(s=""), 0)
+        self.test(self.solution("()(())"), 6)
 
     def solution(self, s: str) -> int:
         """
@@ -38,8 +39,9 @@ class Solution(AbstractSolution):
                 current += 2
                 iterator += 2
             else:
-                longest = current if current >= longest else longest
                 iterator += 1
+                current = 0
+            longest = current if current >= longest else longest
         return longest
 
 
