@@ -26,31 +26,20 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        if len(s) < 2:
+        if len(s) < 2 or (len(s) == 2 and s[0] == ")"):
             return 0
 
-        result = longest = 0
+        current = 0
+        longest = current
 
-        _next = "("
-
-        for pos in range(1, len(s)):
-            if _next == "(":
-                if s[pos] == "(":
-                    result += 1
-                    _next = ")"
-                else:
-                    _next = "("
-                continue
-            if _next == ")":
-                if s[pos] == ")":
-                    result += 1
-                    _next = "("
-                else:
-                    _next = ")"
-                continue
-            if (_next == ")" and s[pos] == "(") or (_next == "(" and s[pos] == ")"):
-                longest = result if result > longest else longest
-
+        iterator = 0
+        while iterator < len(s):
+            if s[iterator] == "(" and s[iterator + 1] == ")":
+                current += 2
+                iterator += 2
+            else:
+                longest = current if current > longest else longest
+                iterator += 1
         return longest
 
 
