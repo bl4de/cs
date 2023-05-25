@@ -38,7 +38,7 @@ class Solution(AbstractSolution):
                 current += 2
                 iterator += 2
             else:
-                longest = current if current > longest else longest
+                longest = current if current >= longest else longest
                 iterator += 1
         return longest
 
