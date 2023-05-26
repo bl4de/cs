@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/nim-game/
 """
 from typing import List, Optional
 import string
@@ -11,19 +12,22 @@ from abstract_solution import AbstractSolution
 
 
 class Solution(AbstractSolution):
-    
+
     def solve(self):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(4), False)
+        self.test(self.solution(1), True)
+        self.test(self.solution(12), True)
 
-    def solution(self):
+    def solution(self, n: int) -> bool:
         """
         Solution function goes here
         """
-        result = 0
+        result = False
         return result
+
 
 NUMS_OF_EXECUTION = 1
 SHOW_PROFILER_STATS = True
