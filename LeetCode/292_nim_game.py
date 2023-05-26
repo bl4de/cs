@@ -18,14 +18,19 @@ class Solution(AbstractSolution):
         Solution runner called from profiler
         """
         self.test(self.solution(4), False)
+        self.test(self.solution(5), True)
         self.test(self.solution(1), True)
-        self.test(self.solution(12), True)
+        self.test(self.solution(2), True)
 
     def solution(self, n: int) -> bool:
         """
         Solution function goes here
         """
         result = False
+        if n < 4:
+            return True
+        if n % 3 > 0:
+            return False
         return result
 
 
