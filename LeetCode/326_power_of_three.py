@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/power-of-three/
 """
 from typing import List, Optional
 import string
@@ -16,13 +17,20 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(27), True)
+        self.test(self.solution(0), False)
+        self.test(self.solution(9), True)
+        self.test(self.solution(-1), False)
+        self.test(self.solution(1), True)
+        self.test(self.solution(3), True)
+        
+        
 
-    def solution(self):
+    def solution(self, n: int) -> bool:
         """
         Solution function goes here
         """
-        result = 0
+        result = False
         return result
 
 NUMS_OF_EXECUTION = 1
