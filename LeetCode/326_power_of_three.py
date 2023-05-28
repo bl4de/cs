@@ -30,8 +30,12 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = False
-        return result
+        p = 0
+        while p < 31:
+            if pow(3, p) == n:
+                return True
+            p += 1
+        return False
 
 NUMS_OF_EXECUTION = 1
 SHOW_PROFILER_STATS = True
