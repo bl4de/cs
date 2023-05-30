@@ -27,6 +27,7 @@ class Solution(AbstractSolution):
         """
         if n < 1:
             return False
+        # if n is power of 2, there can be only single bit set:
         return bin(n).count('1') == 1
 
 
