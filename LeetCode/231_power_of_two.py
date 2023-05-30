@@ -25,7 +25,9 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        return False
+        if n < 1:
+            return False
+        return bin(n).count('1') == 1
 
 
 NUMS_OF_EXECUTION = 1
