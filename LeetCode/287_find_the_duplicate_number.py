@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/find-the-duplicate-number/description/
 """
 from typing import List, Optional
 import string
@@ -16,14 +17,17 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(nums = [1,3,4,2,2]), 2)
+        self.test(self.solution(nums = [3,1,3,4,2]), 3)
 
-    def solution(self):
+    def solution(self, nums: List[int]) -> int:
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        for i in nums:
+            if nums.count(i) > 1:
+                return i
+        return 0
 
 NUMS_OF_EXECUTION = 1
 SHOW_PROFILER_STATS = True

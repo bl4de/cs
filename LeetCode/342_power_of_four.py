@@ -43,7 +43,6 @@ class Solution(AbstractSolution):
             "00010000000000000000000000000000",
             "01000000000000000000000000000000"
         ]
-        print('{:032b}'.format(n))
         return ('{:032b}'.format(n) in powersOfFour)
 
 NUMS_OF_EXECUTION = 1
