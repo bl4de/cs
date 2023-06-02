@@ -24,9 +24,11 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
+        n = {}
         for i in nums:
-            if nums.count(i) > 1:
+            if i in n.keys():
                 return i
+            n[i] = i
         return 0
 
 NUMS_OF_EXECUTION = 1
