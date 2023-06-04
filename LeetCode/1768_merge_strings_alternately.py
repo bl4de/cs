@@ -26,7 +26,7 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         result = ""
-        l = word2 if len(word1) > len(word2) else word1
+        l = len(word2) if len(word1) > len(word2) else len(word1)
         for i in range(0, l):
             result += word1[i]
             result += word2[i]
