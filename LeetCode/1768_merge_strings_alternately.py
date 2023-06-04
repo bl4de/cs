@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/merge-strings-alternately/
 """
 from typing import List, Optional
 import string
@@ -16,13 +17,23 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(word1 = "abc", word2 = "pqr"), "apbqcr")
+        self.test(self.solution(word1 = "ab", word2 = "pqrs"), "apbqrs")
+        self.test(self.solution(word1 = "abcd", word2 = "pq"), "apbqcd")
 
-    def solution(self):
+    def solution(self, word1: str, word2: str) -> str:
         """
         Solution function goes here
         """
-        result = 0
+        result = ""
+        l = word2 if len(word1) > len(word2) else word1
+        for i in range(0, l):
+            result += word1[i]
+            result += word2[i]
+        if len(word1) > len(word2):
+            result += word1[l:]
+        else:
+            result += word2[l:]
         return result
 
 NUMS_OF_EXECUTION = 1
