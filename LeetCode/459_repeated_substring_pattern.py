@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/repeated-substring-pattern/description/
 """
 from typing import List, Optional
 import string
@@ -16,14 +17,15 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(s = "abab"), True)
+        self.test(self.solution(s = "aba"), False)
+        self.test(self.solution(s = "abcabcabcabc"), True)
 
-    def solution(self):
+    def solution(self, s: str) -> bool:
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        return False
 
 NUMS_OF_EXECUTION = 1
 SHOW_PROFILER_STATS = True
