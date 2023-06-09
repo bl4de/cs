@@ -8,7 +8,6 @@ var isEmpty = function (obj) {
     } else {
         return Object.keys(obj).length === 0;
     }
-    return true;
 };
 
 console.log(isEmpty({}));

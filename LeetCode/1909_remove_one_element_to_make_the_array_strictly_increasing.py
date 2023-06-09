@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/remove-one-element-to-make-the-array-strictly-increasing/
 """
 from typing import List, Optional
 import string
@@ -16,13 +17,15 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution([1,2,10,5,7]), True)
+        self.test(self.solution([2,3,1,2]), False)
+        self.test(self.solution([1,1,1]), False)
 
-    def solution(self):
+    def solution(self, nums: List[int]) -> bool:
         """
         Solution function goes here
         """
-        result = 0
+        result = False
         return result
 
 NUMS_OF_EXECUTION = 1
