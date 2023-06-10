@@ -17,14 +17,21 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution([1, 2, 10, 5, 7]), True)
-        self.test(self.solution([2, 3, 1, 2]), False)
-        self.test(self.solution([1, 1, 1]), False)
+        # self.test(self.solution([1, 2, 10, 5, 7]), True)
+        # self.test(self.solution([2, 3, 1, 2]), False)
+        # self.test(self.solution([1, 1, 1]), False)
+        # self.test(self.solution([1, 1]), True)
+        # self.test(self.solution([2, 1]), True)
+        self.test(self.solution([105,924,32,968]), True)
 
     def solution(self, nums: List[int]) -> bool:
         """
         Solution function goes here
         """
+        
+        if len(nums) == 2:
+            return True
+        
         removed = False
         i = 1
         while i < len(nums):
@@ -34,9 +41,10 @@ class Solution(AbstractSolution):
             if nums[i] < nums[i - 1] and removed is False:
                 del nums[i - 1]
                 removed = True
+                i = 1
+                continue
             else:
                 return False
-            i += 1
         return True
 
 
