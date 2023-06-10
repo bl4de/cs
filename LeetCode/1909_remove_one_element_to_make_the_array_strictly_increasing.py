@@ -12,21 +12,33 @@ from abstract_solution import AbstractSolution
 
 
 class Solution(AbstractSolution):
-    
+
     def solve(self):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution([1,2,10,5,7]), True)
-        self.test(self.solution([2,3,1,2]), False)
-        self.test(self.solution([1,1,1]), False)
+        self.test(self.solution([1, 2, 10, 5, 7]), True)
+        self.test(self.solution([2, 3, 1, 2]), False)
+        self.test(self.solution([1, 1, 1]), False)
 
     def solution(self, nums: List[int]) -> bool:
         """
         Solution function goes here
         """
-        result = False
-        return result
+        removed = False
+        i = 1
+        while i < len(nums):
+            if nums[i] > nums[i - 1]:
+                i += 1
+                continue
+            if nums[i] < nums[i - 1] and removed is False:
+                del nums[i - 1]
+                removed = True
+            else:
+                return False
+            i += 1
+        return True
+
 
 NUMS_OF_EXECUTION = 1
 SHOW_PROFILER_STATS = True
