@@ -17,11 +17,11 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        # self.test(self.solution([1, 2, 10, 5, 7]), True)
-        # self.test(self.solution([2, 3, 1, 2]), False)
-        # self.test(self.solution([1, 1, 1]), False)
-        # self.test(self.solution([1, 1]), True)
-        # self.test(self.solution([2, 1]), True)
+        self.test(self.solution([1, 2, 10, 5, 7]), True)
+        self.test(self.solution([2, 3, 1, 2]), False)
+        self.test(self.solution([1, 1, 1]), False)
+        self.test(self.solution([1, 1]), True)
+        self.test(self.solution([2, 1]), True)
         self.test(self.solution([105,924,32,968]), True)
 
     def solution(self, nums: List[int]) -> bool:
