@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/reverse-string/
 """
 from typing import List, Optional
 import string
@@ -11,19 +12,23 @@ from abstract_solution import AbstractSolution
 
 
 class Solution(AbstractSolution):
-    
+
     def solve(self):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(s=["h", "e", "l", "l", "o"]), [
+                  "o", "l", "l", "e", "h"])
+        self.test(self.solution(s=["H", "a", "n", "n", "a", "h"]), [
+                  "h", "a", "n", "n", "a", "H"])
 
-    def solution(self):
+    def solution(self, s: List[str]) -> None:
         """
         Solution function goes here
         """
-        result = 0
+        result = []
         return result
+
 
 NUMS_OF_EXECUTION = 1
 SHOW_PROFILER_STATS = True
