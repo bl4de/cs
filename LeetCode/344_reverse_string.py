@@ -26,8 +26,15 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = []
-        return result
+        l = len(s) - 1
+        i = 0
+        while i < l:
+            tmp = s[i]
+            s[i] = s[l]
+            s[l] = tmp
+            l -= 1
+            i += 1
+        return s
 
 
 NUMS_OF_EXECUTION = 1
