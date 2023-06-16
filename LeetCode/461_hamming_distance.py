@@ -24,10 +24,7 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = 0
-        hd = x ^ y
-        print(bin(hd))
-        return result
+        return str(bin(x ^ y)).count('1')
 
 
 NUMS_OF_EXECUTION = 1
