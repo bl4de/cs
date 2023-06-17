@@ -25,6 +25,9 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         result = 0
+        for i in range(0, len(nums)):
+            for j in range(i, len(nums)):
+                result += str(bin(nums[i] ^ nums[j])).count('1')
         return result
 
 
