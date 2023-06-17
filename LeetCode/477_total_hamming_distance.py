@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/total-hamming-distance/description/
 """
 from typing import List, Optional
 import string
@@ -11,19 +12,21 @@ from abstract_solution import AbstractSolution
 
 
 class Solution(AbstractSolution):
-    
+
     def solve(self):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(nums=[4, 14, 2]), 6)
+        self.test(self.solution(nums=[4, 14, 4]), 4)
 
-    def solution(self):
+    def solution(self, nums: List[int]) -> int:
         """
         Solution function goes here
         """
         result = 0
         return result
+
 
 NUMS_OF_EXECUTION = 1
 SHOW_PROFILER_STATS = True
