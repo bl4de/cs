@@ -27,6 +27,22 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         result = False
+        cols = [[], [], [], [], [], [], [], [], []]
+        cols_index = 0
+        # check each row
+        for row in board:
+            cols[cols_index].append(row[cols_index])
+
+            r = [n for n in row if n != "."]
+            # if r != set(r):
+            #     return False
+            cols_index += 1
+
+        print(cols)
+        # check each column
+
+        # check each 3x3
+
         return result
 
 
