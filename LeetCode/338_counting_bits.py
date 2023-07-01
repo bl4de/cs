@@ -24,7 +24,16 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = 0
+        bits = {}
+        for i in range(1, n + 1):
+            iterator = 0
+            for bit in bin(i)[::-1]:
+                if str(iterator) not in bits.keys():
+                    bits[str(iterator)] = 0
+                bits[str(iterator)] = bits[str(iterator)] + 1 if bit == '1' else bits[str(iterator)]
+                iterator += 1
+        result =  list(bits.values())
+        result.reverse()
         return result
 
 
