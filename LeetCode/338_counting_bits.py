@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/counting-bits/
 """
 from typing import List, Optional
 import string
@@ -11,19 +12,20 @@ from abstract_solution import AbstractSolution
 
 
 class Solution(AbstractSolution):
-    
+
     def solve(self):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(n=2), [0, 1, 1])
+        self.test(self.solution(n=5), [0, 1, 1, 2, 1, 2])
 
-    def solution(self):
+    def solution(self, n: int) -> List[int]:
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        return [bin(i).count('1') for i in range(0, n + 1)]
+
 
 NUMS_OF_EXECUTION = 1
 SHOW_PROFILER_STATS = True
