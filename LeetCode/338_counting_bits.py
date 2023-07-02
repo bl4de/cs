@@ -2,7 +2,6 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
-    https://leetcode.com/problems/counting-bits/
 """
 from typing import List, Optional
 import string
@@ -12,30 +11,19 @@ from abstract_solution import AbstractSolution
 
 
 class Solution(AbstractSolution):
-
+    
     def solve(self):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(n=2), [0, 1, 1])
-        self.test(self.solution(n=5), [0, 1, 1, 2, 1, 2])
+        self.test(self.solution(), None)
 
-    def solution(self, n: int) -> List[int]:
+    def solution(self):
         """
         Solution function goes here
         """
-        bits = {}
-        for i in range(1, n + 1):
-            iterator = 0
-            for bit in bin(i)[::-1]:
-                if str(iterator) not in bits.keys():
-                    bits[str(iterator)] = 0
-                bits[str(iterator)] = bits[str(iterator)] + 1 if bit == '1' else bits[str(iterator)]
-                iterator += 1
-        result =  list(bits.values())
-        result.reverse()
+        result = 0
         return result
-
 
 NUMS_OF_EXECUTION = 1
 SHOW_PROFILER_STATS = True
