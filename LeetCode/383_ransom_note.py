@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/ransom-note/
 """
 from typing import List, Optional
 import string
@@ -11,19 +12,22 @@ from abstract_solution import AbstractSolution
 
 
 class Solution(AbstractSolution):
-    
+
     def solve(self):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(ransomNote="a", magazine="b"), False)
+        self.test(self.solution(ransomNote="aa", magazine="ab"), False)
+        self.test(self.solution(ransomNote="aa", magazine="aab"), True)
 
-    def solution(self):
+    def solution(self, ransomNote: str, magazine: str) -> bool:
         """
         Solution function goes here
         """
         result = 0
         return result
+
 
 NUMS_OF_EXECUTION = 1
 SHOW_PROFILER_STATS = True
