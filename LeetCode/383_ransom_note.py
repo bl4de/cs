@@ -25,8 +25,10 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        for c in set(ransomNote):
+            if magazine.count(c) < ransomNote.count(c):
+                return False
+        return True
 
 
 NUMS_OF_EXECUTION = 1
