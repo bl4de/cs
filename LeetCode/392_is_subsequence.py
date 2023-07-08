@@ -24,6 +24,9 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
+        pos = 0
+        for c in s:
+            print(c)        
         return False
 
 
