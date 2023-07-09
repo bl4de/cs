@@ -19,15 +19,26 @@ class Solution(AbstractSolution):
         """
         self.test(self.solution(s="abc", t="ahbgdc"), True)
         self.test(self.solution(s="axc", t="ahbgdc"), False)
+        self.test(self.solution(s="acb", t="ahbgdc"), False)
 
     def solution(self, s: str, t: str) -> bool:
         """
         Solution function goes here
         """
-        pos = 0
-        for c in s:
-            print(c)        
-        return False
+        s_arr = list(s)
+        t_arr = list(t)
+        
+        t_len = len(t)
+        s_len = len(s)
+        
+        result = []
+        
+        for j in range(0, s_len):
+            for i in range(j, t_len):
+                if s_arr[j] == t_arr[i]:
+                    result.append(s_arr[j])
+                    continue
+        return "".join(result) == s
 
 
 NUMS_OF_EXECUTION = 1
