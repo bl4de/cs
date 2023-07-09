@@ -27,12 +27,12 @@ class Solution(AbstractSolution):
         """
         s_arr = list(s)
         t_arr = list(t)
-        
+
         t_len = len(t)
         s_len = len(s)
-        
+
         result = []
-        
+
         for j in range(0, s_len):
             for i in range(j, t_len):
                 if s_arr[j] == t_arr[i]:
