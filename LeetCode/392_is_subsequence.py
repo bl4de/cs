@@ -25,19 +25,13 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        s_arr = list(s)
-        t_arr = list(t)
-
-        t_len = len(t)
-        s_len = len(s)
-
+        current_pos = 0
         result = []
-
-        for j in range(0, s_len):
-            for i in range(j, t_len):
-                if s_arr[j] == t_arr[i]:
-                    result.append(s_arr[j])
-                    continue
+        while current_pos < len(t):
+            for i in range(0, len(s)):
+                if s[i] == t[current_pos]:
+                    result.append(s[i])
+                current_pos += 1
         return "".join(result) == s
 
 
