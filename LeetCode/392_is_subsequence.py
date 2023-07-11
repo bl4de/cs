@@ -29,9 +29,10 @@ class Solution(AbstractSolution):
         result = []
         while current_pos < len(t):
             for i in range(0, len(s)):
-                if s[i] == t[current_pos]:
-                    result.append(s[i])
-                current_pos += 1
+                for current_pos in range(i, len(t)):
+                    if s[i] == t[current_pos]:
+                        result.append(s[i])
+                    current_pos += 1
         return "".join(result) == s
 
 
