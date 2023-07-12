@@ -31,6 +31,8 @@ class Solution(AbstractSolution):
         while current_pos < len(t):
             if s[i] == t[current_pos]:
                 result.append(s[i])
+                if i == len(s) - 1:
+                    return "".join(result) == s
                 current_pos += 1
                 i += 1
                 continue
