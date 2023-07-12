@@ -18,6 +18,7 @@ class Solution(AbstractSolution):
         Solution runner called from profiler
         """
         self.test(self.solution(s="abc", t="ahbgdc"), True)
+        self.test(self.solution(s="", t="ahbgdc"), True)
         self.test(self.solution(s="axc", t="ahbgdc"), False)
         self.test(self.solution(s="acb", t="ahbgdc"), False)
 
@@ -25,6 +26,13 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
+        if s == t:
+            return True
+        if len(t) == 0:
+            return False
+        if len(s) == 0:
+            return True
+        
         current_pos = 0
         i = 0
         result = []
