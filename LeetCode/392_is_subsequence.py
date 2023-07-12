@@ -32,6 +32,7 @@ class Solution(AbstractSolution):
             if s[i] == t[current_pos]:
                 result.append(s[i])
                 current_pos += 1
+                i += 1
                 continue
             else:
                 current_pos += 1
