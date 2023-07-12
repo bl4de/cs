@@ -26,13 +26,16 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         current_pos = 0
+        i = 0
         result = []
         while current_pos < len(t):
-            for i in range(0, len(s)):
-                for current_pos in range(i, len(t)):
-                    if s[i] == t[current_pos]:
-                        result.append(s[i])
-                    current_pos += 1
+            if s[i] == t[current_pos]:
+                result.append(s[i])
+                current_pos += 1
+                continue
+            else:
+                current_pos += 1
+            
         return "".join(result) == s
 
 
