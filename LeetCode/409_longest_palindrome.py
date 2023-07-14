@@ -19,12 +19,31 @@ class Solution(AbstractSolution):
         """
         self.test(self.solution(s="abccccdd"), 7)
         self.test(self.solution(s="a"), 1)
+        self.test(self.solution(s="ccc"), 3)
+        self.test(self.solution(s="bananas"), 5)
 
     def solution(self, s: str) -> int:
         """
         Solution function goes here
         """
         result = 0
+        single = False
+        characters_set = set(s)
+        
+        # if s contains only single character, it's always a palindrome
+        if len(characters_set) == 1:
+            return len(s)
+        
+        for c in set(s):
+            character_counter = s.count(c)
+            if character_counter % 2 != 0 and single is False:
+                result += character_counter
+                single = True # can be only one single character in palindrome
+            else:
+                if character_counter % 2 == 0:
+                    result += character_counter
+                else:
+                    result += character_counter - 1
         return result
 
 
