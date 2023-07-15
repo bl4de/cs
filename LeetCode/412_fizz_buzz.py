@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/fizz-buzz/
 """
 from typing import List, Optional
 import string
@@ -11,19 +12,23 @@ from abstract_solution import AbstractSolution
 
 
 class Solution(AbstractSolution):
-    
+
     def solve(self):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(n=3), ["1", "2", "Fizz"])
+        self.test(self.solution(n=5), ["1", "2", "Fizz", "4", "Buzz"])
+        self.test(self.solution(n=15), ["1", "2", "Fizz", "4", "Buzz", "Fizz",
+                  "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"])
 
-    def solution(self):
+    def solution(self, n: int) -> List[str]:
         """
         Solution function goes here
         """
-        result = 0
+        result = []
         return result
+
 
 NUMS_OF_EXECUTION = 1
 SHOW_PROFILER_STATS = True
