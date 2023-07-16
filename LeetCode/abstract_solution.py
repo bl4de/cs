@@ -26,6 +26,8 @@ class AbstractSolution:
     t_start = 0
     t_stop = 0
 
+    SHOW_OUTPUT = True
+
     def timer_start(self):
         """
         Starts the timer
@@ -37,14 +39,20 @@ class AbstractSolution:
         Stops the timer and prints the result
         """
         self.t_stop = time.time()
-        print(f"\n{self.GREEN} [+] Total execution time: {((self.t_stop - self.t_start)):.4f}s{self.ENDL}\n")
+        print(
+            f"\n{self.GREEN} [+] Total execution time: {((self.t_stop - self.t_start)):.4f}s{self.ENDL}\n")
 
     def test(self, provided, expected) -> bool:
         """
         Compares provided result to expected
         """
-        print(f"\n output  : {provided}\n expected: {expected}")
-        print(f" {self.PASS if provided == expected else self.FAIL}")
+        if provided != expected:
+            print(f"\n output  : {provided}\n expected: {expected}")
+            print(f" {self.PASS if provided == expected else self.FAIL}")
+            sys.exit(1)
+        if self.SHOW_OUTPUT:
+            print(f"\n output  : {provided}\n expected: {expected}")
+            print(f" {self.PASS if provided == expected else self.FAIL}")
         return provided == expected
 
     def convertNumberToCharactersArray(self, number: int, elementType='char') -> List:

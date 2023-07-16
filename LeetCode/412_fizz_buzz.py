@@ -13,6 +13,10 @@ from abstract_solution import AbstractSolution
 
 class Solution(AbstractSolution):
 
+    def __init__(self, show_output=True) -> None:
+        self.SHOW_OUTPUT = show_output
+        super().__init__()
+
     def solve(self):
         """
         Solution runner called from profiler
@@ -27,18 +31,37 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         result = []
+        for num in range(1, n + 1):
+            if num % 3 != 0 and num % 5 != 0:
+                result.append(str(num))
+                continue
+
+            if num % 3 == 0 and num % 5 == 0:
+                result.append("FizzBuzz")
+                continue
+
+            if num % 3 == 0:
+                result.append("Fizz")
+                continue
+
+            if num % 5 == 0:
+                result.append("Buzz")
+
         return result
 
 
+SHOW_OUTPUT = True
 NUMS_OF_EXECUTION = 1
 SHOW_PROFILER_STATS = True
 
 sys.setrecursionlimit(1000)
 profiler = cProfile.Profile()
-solution = Solution()
+solution = Solution(SHOW_OUTPUT)
 
 solution.timer_start()
 profiler.enable()
+print(f"\nRUNNING:\t{NUMS_OF_EXECUTION} iterations")
+print(f"OUTPUT:\t\t{'disabled' if SHOW_OUTPUT is False else 'enabled'}")
 for i in range(0, NUMS_OF_EXECUTION):
     profiler.run("solution.solve()")
 solution.timer_stop()
