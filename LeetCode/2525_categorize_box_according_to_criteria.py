@@ -21,15 +21,30 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(length = 1000, width = 35, height = 700, mass = 300), "Heavy")
-        self.test(self.solution(length = 200, width = 50, height = 800, mass = 50), "Neither")
+        self.test(self.solution(length=1000, width=35,
+                  height=700, mass=300), "Heavy")
+        self.test(self.solution(length=200, width=50,
+                  height=800, mass=50), "Neither")
 
     def solution(self, length: int, width: int, height: int, mass: int) -> str:
         """
         Solution function goes here
         """
-        result = ""
-        return result
+        bulky = False
+        heavy = False
+        bulky_size = 10000
+        bulky_volume = pow(10, 9)
+        if (length >= bulky_size or width >= bulky_size or height >= bulky_size) or (length * width * height) >= bulky_volume:
+            bulky = True
+        if mass >= 100:
+            heavy = True
+        if heavy and bulky:
+            return "Both"
+        if not heavy and not bulky:
+            return "Neither"
+        if heavy and not bulky:
+            return "Heavy"
+        return "Bulky"
 
 
 SHOW_OUTPUT = True
