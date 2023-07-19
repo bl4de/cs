@@ -46,13 +46,14 @@ class AbstractSolution:
         """
         Compares provided result to expected
         """
-        if provided != expected:
-            print(f"\n output  : {provided}\n expected: {expected}")
-            print(f" {self.PASS if provided == expected else self.FAIL}")
-            sys.exit(1)
         if self.SHOW_OUTPUT:
             print(f"\n output  : {provided}\n expected: {expected}")
             print(f" {self.PASS if provided == expected else self.FAIL}")
+        else:
+            if provided != expected:
+                print(f"\n output  : {provided}\n expected: {expected}")
+                print(f" {self.PASS if provided == expected else self.FAIL}")
+                sys.exit(1)
         return provided == expected
 
     def convertNumberToCharactersArray(self, number: int, elementType='char') -> List:
