@@ -29,8 +29,10 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        for i in range(1, max(nums) + 2):
+            if i not in nums:
+                return i
+        return 1
 
 
 SHOW_OUTPUT = True
