@@ -21,13 +21,15 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(nums=[1, 2, 3, 1], k=3), True)
+        self.test(self.solution(nums=[1, 0, 1, 1], k=1), True)
+        self.test(self.solution(nums=[1, 2, 3, 1, 2, 3], k=2), False)
 
-    def solution(self):
+    def solution(self, nums: List[int], k: int) -> bool:
         """
         Solution function goes here
         """
-        result = 0
+        result = False
         return result
 
 
