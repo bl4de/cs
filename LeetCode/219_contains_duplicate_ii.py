@@ -29,8 +29,11 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = False
-        return result
+        for i in range(0, len(nums)):
+            for j in range(i, len(nums)):
+                if nums[i] == nums[j] and abs(nums[i] - nums[j] <= k):
+                    return True
+        return False
 
 
 SHOW_OUTPUT = True
