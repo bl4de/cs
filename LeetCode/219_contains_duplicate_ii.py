@@ -30,8 +30,8 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         for i in range(0, len(nums)):
-            for j in range(i, len(nums)):
-                if nums[i] == nums[j] and (abs(nums[i] - nums[j]) <= k):
+            for j in range(i + 1, len(nums)):
+                if nums[i] == nums[j] and (abs(i - j) <= k):
                     return True
         return False
 
