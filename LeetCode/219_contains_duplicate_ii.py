@@ -29,10 +29,19 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        for i in range(0, len(nums)):
-            for j in range(i + 1, len(nums)):
-                if nums[i] == nums[j] and (abs(i - j) <= k):
-                    return True
+        d = {}
+        for index, n in enumerate(nums):
+            if n not in d:
+                d[n] = [index]
+            else:
+                d[n].append(index)
+
+        for n in d:
+            if len(d[n]) > 1:
+                for x in d[n]:
+                    for y in d[n]:
+                        if abs(d[n][x] - d[n][y]) <= k:
+                            return True
         return False
 
 
