@@ -21,8 +21,8 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        # self.test(self.solution(nums=[1, 2, 3, 1], k=3), True)
-        # self.test(self.solution(nums=[1, 0, 1, 1], k=1), True)
+        self.test(self.solution(nums=[1, 2, 3, 1], k=3), True)
+        self.test(self.solution(nums=[1, 0, 1, 1], k=1), True)
         self.test(self.solution(nums=[1, 2, 3, 1, 2, 3], k=2), False)
 
     def solution(self, nums: List[int], k: int) -> bool:
@@ -38,9 +38,9 @@ class Solution(AbstractSolution):
 
         for n in d:
             if len(d[n]) > 1:
-                for x in d[n]:
-                    for y in d[n]:
-                        if abs(d[n][x] - d[n][y]) <= k:
+                for x, a in enumerate(d[n]):
+                    for y, b in enumerate(d[n]):
+                        if x != y and a == b and abs(x - y) <= k:
                             return True
         return False
 
