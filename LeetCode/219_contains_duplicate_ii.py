@@ -36,11 +36,11 @@ class Solution(AbstractSolution):
             else:
                 d[n].append(index)
 
-        for n in d:
-            if len(d[n]) > 1:
-                for x, a in enumerate(d[n]):
-                    for y, b in enumerate(d[n]):
-                        if x != y and a == b and abs(x - y) <= k:
+        for n in d.items():
+            if len(n[1]) > 1:
+                for _i, x in enumerate(n[1]):
+                    for _j, y in enumerate(n[1]):
+                        if x != y and nums[x] == nums[y] and abs(x - y) <= k:
                             return True
         return False
 
