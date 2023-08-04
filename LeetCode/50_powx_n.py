@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/powx-n/
 """
 from typing import List, Optional
 import string
@@ -20,13 +21,15 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(x=2.00000, n=10), 1024.00000)
+        self.test(self.solution(x=2.10000, n=3), 9.26100)
+        self.test(self.solution(x=2.00000, n=-2), 0.25000)
 
-    def solution(self):
+    def solution(self, x: float, n: int) -> float:
         """
         Solution function goes here
         """
-        result = 0
+        result = 0.0
         return result
 
 
