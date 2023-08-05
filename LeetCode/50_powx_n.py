@@ -29,8 +29,10 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = 0.0
-        return result
+        result = x
+        for i in range(0, n - 1):
+            result = result * x
+        return float(f"{result:0.8f}")
 
 
 SHOW_OUTPUT = True
