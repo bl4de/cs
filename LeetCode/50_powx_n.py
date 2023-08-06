@@ -29,6 +29,8 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
+        if n < 0:
+            x = 1/x
         result = x
         for i in range(0, n - 1):
             result = result * x
