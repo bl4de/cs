@@ -24,16 +24,21 @@ class Solution(AbstractSolution):
         self.test(self.solution(x=2.00000, n=10), 1024.00000)
         self.test(self.solution(x=2.10000, n=3), 9.26100)
         self.test(self.solution(x=2.00000, n=-2), 0.25000)
+        self.test(self.solution(x=0.44528, n=-0), 1)
 
     def solution(self, x: float, n: int) -> float:
         """
         Solution function goes here
         """
+        if n == 0:
+            return 1
         if n < 0:
             x = 1/x
         result = x
-        for i in range(0, n - 1):
+        
+        for i in range(0, abs(n - 1) if n > 0 else abs(n + 1)):
             result = result * x
+        
         return float(f"{result:0.8f}")
 
 
