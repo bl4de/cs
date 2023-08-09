@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/number-of-segments-in-a-string/
 """
 from typing import List, Optional
 import string
@@ -20,14 +21,18 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(s="Hello, my name is John"), 5)
+        self.test(self.solution(s="Hello"), 1)
+        self.test(self.solution(s=""), 0)
+        self.test(self.solution(s="                "), 0)
 
-    def solution(self):
+    def solution(self, s: str) -> int:
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        if len(s) == 0:
+            return 0
+        return len(s.split(" "))
 
 
 SHOW_OUTPUT = True
