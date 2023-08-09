@@ -23,13 +23,15 @@ class Solution(AbstractSolution):
         """
         self.test(self.solution(s="Hello, my name is John"), 5)
         self.test(self.solution(s="Hello"), 1)
+        self.test(self.solution(s=""), 0)
 
     def solution(self, s: str) -> int:
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        if len(s) == 0:
+            return 0
+        return len(s.split(" "))
 
 
 SHOW_OUTPUT = True
