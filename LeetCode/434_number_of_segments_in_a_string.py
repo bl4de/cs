@@ -24,6 +24,7 @@ class Solution(AbstractSolution):
         self.test(self.solution(s="Hello, my name is John"), 5)
         self.test(self.solution(s="Hello"), 1)
         self.test(self.solution(s=""), 0)
+        self.test(self.solution(s="                "), 0)
 
     def solution(self, s: str) -> int:
         """
