@@ -30,10 +30,15 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        if len(s) == 0:
-            return 0
-        s = s.replace("  ", " ")
-        return len(s.split(" "))
+        result = 0
+        nonspace = False
+        for c in s:
+            if c is not " " and nonspace is False:
+                result += 1
+                nonspace = True
+            else:
+                nonspace = False
+        return result
 
 
 SHOW_OUTPUT = True
