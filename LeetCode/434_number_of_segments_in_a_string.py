@@ -32,6 +32,7 @@ class Solution(AbstractSolution):
         """
         if len(s) == 0:
             return 0
+        s = s.replace("  ", " ")
         return len(s.split(" "))
 
 
