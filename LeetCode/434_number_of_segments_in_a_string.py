@@ -31,7 +31,7 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         result = 0
-        nonspace = False
+        nonspace = True
         for c in s:
             if c is not " " and nonspace is False:
                 result += 1
