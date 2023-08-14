@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/arranging-coins/
 """
 from typing import List, Optional
 import string
@@ -20,9 +21,10 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(5), 2)
+        self.test(self.solution(8), 3)
 
-    def solution(self):
+    def solution(self, n: int) -> int:
         """
         Solution function goes here
         """
