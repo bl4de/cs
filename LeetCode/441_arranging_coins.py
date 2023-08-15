@@ -30,15 +30,14 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        if n == 1:
-            return n
         rows = 0
-        step = 1
+        step = 0
         while n > 0:
-            rows += 1
             n = n - step
             step += 1
-        return rows - 1 if step > n else rows
+            if n >= step:
+                rows += 1
+        return rows
 
 
 SHOW_OUTPUT = True
