@@ -23,13 +23,22 @@ class Solution(AbstractSolution):
         """
         self.test(self.solution(5), 2)
         self.test(self.solution(8), 3)
+        self.test(self.solution(1), 1)
+        self.test(self.solution(3), 2)
 
     def solution(self, n: int) -> int:
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        if n == 1:
+            return n
+        rows = 0
+        step = 1
+        while n > 0:
+            rows += 1
+            n = n - step
+            step += 1
+        return rows - 1 if step > n else rows
 
 
 SHOW_OUTPUT = True
