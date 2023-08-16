@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/avoid-flood-in-the-city/description/
 """
 from typing import List, Optional
 import string
@@ -20,13 +21,16 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(rains=[1, 2, 3, 4]), [-1, -1, -1, -1])
+        self.test(self.solution(
+            rains=[1, 2, 0, 0, 2, 1]), [-1, -1, 2, 1, -1, -1])
+        self.test(self.solution(rains=[1, 2, 0, 1, 2]), [])
 
-    def solution(self):
+    def solution(self, rains: List[int]) -> List[int]:
         """
         Solution function goes here
         """
-        result = 0
+        result = []
         return result
 
 
