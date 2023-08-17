@@ -28,8 +28,10 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        result = ""
+        for b in bin(num)[2:]:
+            result += "0" if b == "1" else "1"
+        return int(result, 2)
 
 
 SHOW_OUTPUT = True
