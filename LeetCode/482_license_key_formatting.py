@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/license-key-formatting/
 """
 from typing import List, Optional
 import string
@@ -20,13 +21,14 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(s = "5F3Z-2e-9-w", k = 4), "5F3Z-2E9W")
+        self.test(self.solution(s = "2-5g-3-J", k = 2), "2-5G-3J")
 
-    def solution(self):
+    def solution(self, s: str, k: int) -> str:
         """
         Solution function goes here
         """
-        result = 0
+        result = ""
         return result
 
 
