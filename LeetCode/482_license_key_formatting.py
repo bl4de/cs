@@ -29,6 +29,15 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         result = ""
+        s_arr = s.split("-")
+        result += s_arr[0] + "-"
+        current_segment = 0
+        for c in s_arr:
+            current_segment += len(c)
+            if current_segment >= k:
+                result += "-"
+                current_segment = 0
+            result += c
         return result
 
 
