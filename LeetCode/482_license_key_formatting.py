@@ -23,22 +23,23 @@ class Solution(AbstractSolution):
         """
         self.test(self.solution(s = "5F3Z-2e-9-w", k = 4), "5F3Z-2E9W")
         self.test(self.solution(s = "2-5g-3-J", k = 2), "2-5G-3J")
+        self.test(self.solution(s = "2-4A0r7-4k", k = 4), "24A0-R74K")
 
     def solution(self, s: str, k: int) -> str:
         """
         Solution function goes here
         """
-        result = ""
         s_arr = s.split("-")
-        result += s_arr[0] + "-"
-        current_segment = 0
-        for c in s_arr:
-            current_segment += len(c)
-            if current_segment >= k:
+        result = s_arr[0] + "-"
+        l = 0
+        for part in s_arr[1:]:
+            l += len(part)
+            if l > k:
                 result += "-"
-                current_segment = 0
-            result += c
+                l = 0
+            result += part.upper()
         return result
+        
 
 
 SHOW_OUTPUT = True
