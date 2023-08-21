@@ -29,18 +29,20 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        s_arr = s.split("-")
-        result = s_arr[0] + "-"
-        l = 0
-        for part in s_arr[1:]:
-            l += len(part)
-            if l > k:
-                result += "-"
-                l = 0
-            result += part.upper()
-        return result
+        result = s.split("-")[0] + "-"
+        start = s.index("-") + 1
         
-
+        counter = 0
+        for i in range(start, len(s)):
+            counter += 1
+            
+            if s[i] != "-":
+                result += s[i]
+                
+            if counter == k:
+                result += "-"
+                counter = 0
+        return result
 
 SHOW_OUTPUT = True
 NUMS_OF_EXECUTION = 1
