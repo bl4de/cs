@@ -29,8 +29,14 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        s = s.replace("-", "")
         result = ""
+        # check first segment
+        first = s.split("-")[0]
+        if len(first) <= k:
+            result += first + "-"
+            s = s[s.index("-"):]
+            
+        s = s.replace("-", "")
         for i in range(0, len(s)):
             if i > 0 and i % k == 0:
                 result += "-"
