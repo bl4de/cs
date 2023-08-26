@@ -29,9 +29,11 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         result = []
-        for i in range(1, len(nums) + 1):
+        i = 1
+        while i <= len(nums):
             if i not in nums:
                 result.append(i)
+            i += 1
         return result
 
 
