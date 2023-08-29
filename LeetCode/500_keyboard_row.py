@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/keyboard-row/
 """
 from typing import List, Optional
 import string
@@ -20,13 +21,21 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
+        self.test(self.solution(
+            words=["Hello", "Alaska", "Dad", "Peace"]), ["Alaska", "Dad"])
+        self.test(self.solution(words=["omk"]), [])
+        self.test(self.solution(words=["adsdf", "sfd"]), ["adsdf", "sfd"])
 
-    def solution(self):
+    def solution(self, words: List[str]) -> List[str]:
         """
         Solution function goes here
         """
-        result = 0
+        keyboard = [
+            "qwertyuiop",
+            "asdfghjkl",
+            "zxcvbnm"
+        ]
+        result = []
         return result
 
 
