@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/valid-mountain-array/description/
 """
 from typing import List, Optional
 import string
@@ -20,15 +21,15 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
+        self.test(self.solution(arr=[2, 1]), False)
+        self.test(self.solution(arr=[3, 5, 5]), False)
+        self.test(self.solution(arr=[0, 3, 2, 1]), True)
 
-    def solution(self):
+    def solution(self, arr: List[int]) -> bool:
         """
         Solution function goes here
         """
-        result = 0
+        result = False
         return result
 
 
