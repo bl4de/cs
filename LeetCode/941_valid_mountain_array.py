@@ -25,6 +25,7 @@ class Solution(AbstractSolution):
         self.test(self.solution(arr=[3, 5, 5]), False)
         self.test(self.solution(arr=[0, 3, 2, 1]), True)
         self.test(self.solution(arr=[0,1,2,1,2]), False)
+        self.test(self.solution(arr=[0,1,2,4,2,1]), True)
 
     def solution(self, arr: List[int]) -> bool:
         """
@@ -38,13 +39,9 @@ class Solution(AbstractSolution):
             
             if arr[i] < current and (len(trend) == 1 and 'down' not in trend and trend[0] == 'up'):
                 trend.append('down')
-            else:
-                if arr[i] > current and 'up' not in trend:
-                    trend.append('up')
-                else:
-                    return False
+            if arr[i] > current and 'down' not in trend:
+                trend.append('up')
             current = arr[i]
-        print(trend)
         return len(trend) == 2 and trend == ['up', 'down']
 
 
