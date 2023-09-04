@@ -31,19 +31,23 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        trend = []
+        trend = ""
         current = arr[0]
         for i in range(1, len(arr)):
-            if arr[i] == current:
+            if current == arr[i]:
                 return False
             
-            if arr[i] < current and (len(trend) == 1 and 'down' not in trend and trend[0] == 'up'):
-                trend.append('down')
-            if arr[i] > current and 'down' not in trend:
-                trend.append('up')
-            current = arr[i]
-        return len(trend) == 2 and trend == ['up', 'down']
-
+            if current > arr[i]:
+                if trend == "":
+                    trend = "up"
+                else:
+                    if trend == "down":
+                        return False
+            if current < arr[i]:
+                if trend == "":
+                    return False
+                trend = "down"
+        return False
 
 SHOW_OUTPUT = True
 NUMS_OF_EXECUTION = 1
