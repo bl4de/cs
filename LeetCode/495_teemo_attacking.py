@@ -28,8 +28,13 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        time = 0
+        poisoned = 0
+        for attack in timeSeries:
+            if attack > poisoned:
+                poisoned = 0
+            poisoned = attack
+        return poisoned
 
 
 SHOW_OUTPUT = True
