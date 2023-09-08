@@ -29,12 +29,12 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         poisoned = 0
-        prev_attack = timeSeries[0]
-        for attack in timeSeries[1:]:
-            if attack - prev_attack <= duration:
-                poisoned = 0
-            poisoned = poisoned + duration
-            prev_attack = attack
+        for attack in timeSeries:
+            if timeSeries.index(attack) + 1 < len(timeSeries):
+                if attack + duration < timeSeries[timeSeries.index(attack) + 1]:
+                    poisoned += duration
+            else:
+                poisoned += duration
         return poisoned
 
 
