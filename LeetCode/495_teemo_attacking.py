@@ -28,14 +28,14 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = 0
         poisoned = 0
-        for attack in timeSeries:
-            if attack < poisoned:
+        prev_attack = timeSeries[0]
+        for attack in timeSeries[1:]:
+            if attack - prev_attack <= duration:
                 poisoned = 0
-            poisoned = (attack + duration) - 1
-            result += poisoned
-        return result
+            poisoned = poisoned + duration
+            prev_attack = attack
+        return poisoned
 
 
 SHOW_OUTPUT = True
