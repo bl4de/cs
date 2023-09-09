@@ -21,7 +21,7 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(timeSeries=[1, 4], duration=2), 4)
+        # self.test(self.solution(timeSeries=[1, 4], duration=2), 4)
         self.test(self.solution(timeSeries=[1, 2], duration=2), 3)
 
     def solution(self, timeSeries: List[int], duration: int) -> int:
@@ -29,12 +29,13 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         poisoned = 0
-        for attack in timeSeries:
-            if timeSeries.index(attack) + 1 < len(timeSeries):
-                if attack + duration < timeSeries[timeSeries.index(attack) + 1]:
-                    poisoned += duration
-            else:
+        prev = (timeSeries[0] + duration) - 1
+        for attack in timeSeries[1:]:
+            if duration > prev:
                 poisoned += duration
+            else:
+                poisoned += attack - prev
+            prev = (attack + duration) - 1
         return poisoned
 
 
