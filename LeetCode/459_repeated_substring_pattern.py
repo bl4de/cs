@@ -25,7 +25,12 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        return False
+        result = False
+        # can't create repeated string from substring if string len is odd:
+        if len(s) % 2 != 0:
+            return False
+            
+        return result
 
 NUMS_OF_EXECUTION = 1
 SHOW_PROFILER_STATS = True
