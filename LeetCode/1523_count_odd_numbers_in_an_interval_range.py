@@ -2,7 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
-    https://leetcode.com/problems/count-odd-numbers-in-an-interval-range/?envType=study-plan-v2&envId=programming-skills
+    https://leetcode.com/problems/count-odd-numbers-in-an-interval-range
 """
 from typing import List, Optional
 import string
@@ -29,6 +29,9 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         result = 0
+        result = (high - low) // 2
+        if low % 2 != 0 or high % 2 != 0:
+            result += 1
         return result
 
 
