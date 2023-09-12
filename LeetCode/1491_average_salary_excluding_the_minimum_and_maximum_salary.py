@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/average-salary-excluding-the-minimum-and-maximum-salary
 """
 from typing import List, Optional
 import string
@@ -20,16 +21,15 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
+        self.test(self.solution(salary=[4000, 3000, 1000, 2000]), 2500.00000)
+        self.test(self.solution([1000, 2000, 3000]), 2000.00000)
 
-    def solution(self):
+    def solution(self, salary: List[int]) -> float:
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        salary.sort()        
+        return sum(salary[1:-1]) / len(salary[1:-1])
 
 
 SHOW_OUTPUT = True
