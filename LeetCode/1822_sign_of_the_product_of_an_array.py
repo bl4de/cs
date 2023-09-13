@@ -29,9 +29,14 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = 0
-        return result
-
+        product = nums[0]
+        for i in nums[1:]:
+            product *= i
+        if product == 0:
+            return 0
+        if product < 0:
+            return -1
+        return 1
 
 SHOW_OUTPUT = True
 NUMS_OF_EXECUTION = 1
