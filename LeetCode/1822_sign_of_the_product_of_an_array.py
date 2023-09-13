@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/sign-of-the-product-of-an-array
 """
 from typing import List, Optional
 import string
@@ -20,11 +21,11 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
+        self.test(self.solution(nums=[-1, -2, -3, -4, 3, 2, 1]), 1)
+        self.test(self.solution(nums=[1, 5, 0, 2, -3]), 0)
+        self.test(self.solution(nums=[-1, 1, -1, 1, -1]), -1)
 
-    def solution(self):
+    def solution(self, nums: List[int]) -> int:
         """
         Solution function goes here
         """
