@@ -2,7 +2,6 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
-    https://leetcode.com/problems/check-if-it-is-a-straight-line
 """
 from typing import List, Optional
 import string
@@ -21,16 +20,15 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(coordinates=[[1, 2], [2, 3], [
-                  3, 4], [4, 5], [5, 6], [6, 7]]), True)
-        self.test(self.solution(coordinates=[[1, 1], [2, 2], [
-                  3, 4], [4, 5], [5, 6], [7, 7]]), False)
+        self.test(self.solution(), None)
+        self.test(self.solution(), None)
+        self.test(self.solution(), None)
 
-    def solution(self, coordinates: List[List[int]]) -> bool:
+    def solution(self):
         """
         Solution function goes here
         """
-        result = False
+        result = 0
         return result
 
 
