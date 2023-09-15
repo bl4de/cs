@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/monotonic-array
 """
 from typing import List, Optional
 import string
@@ -20,15 +21,30 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
+        self.test(self.solution(nums=[1, 2, 2, 3]), True)
+        self.test(self.solution(nums=[6, 5, 4, 4]), True)
+        self.test(self.solution(nums=[1, 3, 2]), False)
 
-    def solution(self):
+    def solution(self, nums: List[int]) -> bool:
         """
         Solution function goes here
         """
-        result = 0
+        result = True
+        up = False
+        down = False
+        current = nums[0]
+        for n in nums[1:]:
+            if n >= current and down is False:
+                up = True
+            else:
+                result = False
+            
+            if n <= current and up is False:
+                down = True
+            else:
+                result = False
+                
+            current = n
         return result
 
 
