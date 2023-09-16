@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/number-of-employees-who-met-the-target/
 """
 from typing import List, Optional
 import string
@@ -20,15 +21,17 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
+        self.test(self.solution(hours=[0, 1, 2, 3, 4], target=2), 3)
+        self.test(self.solution(hours=[5, 1, 4, 2, 2], target=6), 0)
 
-    def solution(self):
+    def solution(self, hours: List[int], target: int) -> int:
         """
         Solution function goes here
         """
         result = 0
+        for i in hours:
+            if i >= target:
+                result += 1
         return result
 
 
