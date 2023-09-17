@@ -4,16 +4,21 @@ import re
 import shutil
 from git import Repo
 
+LANGS = ['py', 'php', 'js', 'sql']
+LANG = 'py'
+
 if len(sys.argv) < 2:
     exit("[-] Uh oh, problem name is missing")
 problem = sys.argv[1]
 
-lang = 'py' if len(sys.argv) == 2 else sys.argv[2]
+if len(sys.argv) == 3 and sys.argv[2] in LANGS:
+    LANG = sys.argv[2]
+
 repo = Repo('../.git/')
 
 problem_filename = re.sub(
-    r"[^a-z0-9\s]", "", problem.lower()).replace(" ", "_") + "." + lang
-shutil.copy(f"./template.{lang}", problem_filename)
+    r"[^a-z0-9\s]", "", problem.lower()).replace(" ", "_") + "." + LANG
+shutil.copy(f"./template.{LANG}", problem_filename)
 print(f"[+] {problem_filename} created!")
 
 repo.index.add(f"/Users/bl4de/playground/cs/LeetCode/{problem_filename}")
