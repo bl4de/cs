@@ -2,7 +2,6 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
-    https://leetcode.com/problems/find-the-maximum-achievable-number/
 """
 from typing import List, Optional
 import string
@@ -21,10 +20,11 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(num=4, t=1), 6)
-        self.test(self.solution(num=3, t=2), 7)
+        self.test(self.solution(), None)
+        self.test(self.solution(), None)
+        self.test(self.solution(), None)
 
-    def solution(self, num: int, t: int) -> int:
+    def solution(self):
         """
         Solution function goes here
         """
