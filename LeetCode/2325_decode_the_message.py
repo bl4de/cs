@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/decode-the-message/
 """
 from typing import List, Optional
 import string
@@ -20,15 +21,16 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
+        self.test(self.solution(key="the quick brown fox jumps over the lazy dog",
+                  message="vkbs bs t suepuv"),  "this is a secret")
+        self.test(self.solution(key="eljuxhpwnyrdgtqkviszcfmabo",
+                  message="zwx hnfx lqantp mnoeius ycgk vcnjrdb"), "the five boxing wizards jump quickly")
 
-    def solution(self):
+    def solution(self, key: str, message: str) -> str:
         """
         Solution function goes here
         """
-        result = 0
+        result = ""
         return result
 
 
