@@ -1,49 +1,53 @@
 #!/usr/bin/env python3
-# pylint: disable=invalid-name, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate
-'''
+# pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
+"""
     LeetCode solution class
-'''
+"""
 from typing import List, Optional
+import string
+import sys
+import cProfile
+from abstract_solution import AbstractSolution
 
 
-class Solution:
-    '''
-    LeetCode solution class
-    '''
-    colors = {
-        "black": '\33[30m',
-        "red": '\33[31m',
-        "green": '\33[32m',
-        "yellow": '\33[33m',
-        "blue": '\33[34m',
-        "magenta": '\33[35m',
-        "cyan": '\33[36m',
-        "white": '\33[37m',
-        "grey": '\33[90m',
-        "lightblue": '\33[94m'
-    }
-    endline = '\33[0m'
-    PASS = f"{colors['green']}[+] PASS {endline}"
-    FAIL = f"{colors['red']}[+] FAIL {endline}"
+class Solution(AbstractSolution):
 
-    def test(self, provided, expected) -> bool:
-        '''
-        Compares provided result to expected
-        Returns true if equal
-        '''
-        print(f"\n output  : {provided}\n expected: {expected}")
-        print(f" {self.PASS if provided == expected else self.FAIL}")
-        return provided == expected
+    def __init__(self, show_output=True) -> None:
+        self.SHOW_OUTPUT = show_output
+        super().__init__()
 
-    def decodeMessage(self, key: str, message: str) -> str:
-        decoded = ''
+    def solve(self):
+        """
+        Solution runner called from profiler
+        """
+        self.test(self.solution(), None)
+        self.test(self.solution(), None)
+        self.test(self.solution(), None)
 
-        return decoded
+    def solution(self):
+        """
+        Solution function goes here
+        """
+        result = 0
+        return result
 
 
-solution = Solution()
-solution.test(solution.decodeMessage(
-    "the quick brown fox jumps over the lazy dog", "vkbs bs t suepuv"), "this is a secret")
+SHOW_OUTPUT = True
+NUMS_OF_EXECUTION = 1
+SHOW_PROFILER_STATS = True
 
-solution.test(solution.decodeMessage("eljuxhpwnyrdgtqkviszcfmabo",
-              "zwx hnfx lqantp mnoeius ycgk vcnjrdb"), "the five boxing wizards jump quickly")
+sys.setrecursionlimit(1000)
+profiler = cProfile.Profile()
+solution = Solution(SHOW_OUTPUT)
+
+solution.timer_start()
+profiler.enable()
+print(f"\nRUNNING:\t{NUMS_OF_EXECUTION} iterations")
+print(f"OUTPUT:\t\t{'disabled' if SHOW_OUTPUT is False else 'enabled'}")
+for i in range(0, NUMS_OF_EXECUTION):
+    profiler.run("solution.solve()")
+solution.timer_stop()
+
+if SHOW_PROFILER_STATS:
+    profiler.print_stats(sort='calls')
+profiler.disable()
