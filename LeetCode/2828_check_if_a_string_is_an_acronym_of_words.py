@@ -31,8 +31,7 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = False
-        return result
+        return "".join([w[0] for w in words]) == s
 
 
 SHOW_OUTPUT = True
