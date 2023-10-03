@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/check-if-a-string-is-an-acronym-of-words/
 """
 from typing import List, Optional
 import string
@@ -20,15 +21,17 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
+        self.test(self.solution(
+            words=["alice", "bob", "charlie"], s="abc"), True)
+        self.test(self.solution(words=["an", "apple"], s="a"), False)
+        self.test(self.solution(
+            ["never", "gonna", "give", "up", "on", "you"], s="ngguoy"), True)
 
-    def solution(self):
+    def solution(self, words: List[str], s: str) -> bool:
         """
         Solution function goes here
         """
-        result = 0
+        result = False
         return result
 
 
