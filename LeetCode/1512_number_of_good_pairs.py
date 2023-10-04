@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/number-of-good-pairs/
 """
 from typing import List, Optional
 import string
@@ -20,11 +21,11 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
+        self.test(self.solution(nums=[1, 2, 3, 1, 1, 3]), 4)
+        self.test(self.solution(nums=[1, 1, 1, 1]), 6)
+        self.test(self.solution(nums=[1, 2, 3]), 0)
 
-    def solution(self):
+    def solution(self, nums: List[int]) -> int:
         """
         Solution function goes here
         """
