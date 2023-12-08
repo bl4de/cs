@@ -12,7 +12,6 @@ import pathlib
 import functools
 import time
 import sys
-import string
 from typing import List
 
 
@@ -31,13 +30,22 @@ def timer(func):
     return _wrapper
 
 
-def convert_word_to_numbers(word: str) -> str:
+def extract_cubes(game: str) -> dict:
     '''
-    converts word to number representation
+    extracts max cubes and returns list of color:qty
     '''
-    word = word.lower().replace('one', '1').replace('two', '2').replace('three', '3').replace('four', '4').replace(
-        'five', '5').replace('six', '6').replace('seven', '7').replace('eight', '8').replace('nine', '9').replace('zero', '0')
-    return word
+    blue = 0
+    red = 0
+    green = 0
+    for g in game.split(';'):
+        for color in g.split(','):
+            print(color)
+
+    return {
+        'blue': blue,
+        'red': red,
+        'green': green
+    }
 
 
 @timer
@@ -49,18 +57,9 @@ def part_one_solution(data) -> int:
     result = 0
 
     # process data here...
-    for c in data:
-        first = 0
-        second = 0
-        for i in c:
-            if i.isdigit():
-                first = i
-                break
-        for i in c[::-1]:
-            if i.isdigit():
-                second = i
-                break
-        result += int(f"{first}{second}")
+    for game in data:
+        game = game.split(':')
+        extract_cubes(game=game[1])
     return result
 
 
@@ -73,28 +72,15 @@ def part_two_solution(data) -> int:
     result = 0
 
     # process data here...
-    # process data here...
-    for c in data:
-        first = 0
-        second = 0
-        c = convert_word_to_numbers(c)
-        for i in c:
-            if i.isdigit():
-                first = i
-                break
-        for i in c[::-1]:
-            if i.isdigit():
-                second = i
-                break
-        result += int(f"{first}{second}")
+
     return result
 
 
-DAY = 1
-DEBUG = True  # if len(sys.argv) > 1 and sys.argv[1] else False
+DAY = 2
+DEBUG = True if len(sys.argv) > 1 and sys.argv[1] else False
 
 # read challenge input data
-INPUT_PATH = f"/Users/bl4de/playground/cs/AdventOfCode/2023/test_input{DAY}.txt" if DEBUG is True else f"/Users/bl4de/playground/cs/AdventOfCode/2023/input{DAY}.txt"
+INPUT_PATH = f"test_input{DAY}.txt" if DEBUG is True else f"input{DAY}.txt"
 daily_input = pathlib.Path(INPUT_PATH).read_text('utf_8').strip()
 
 # Part 1. solution
