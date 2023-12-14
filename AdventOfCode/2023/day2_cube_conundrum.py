@@ -2,10 +2,7 @@
 # pylint: disable=invalid-name, too-few-public-methods, no-self-use
 '''
 AdventOfCode Challenge Template
-
-https://adventofcode.com/events
-
-https://www.reddit.com/r/adventofcode/wiki/solution_megathreads/
+https://adventofcode.com/2023/day/2
 '''
 
 import pathlib
@@ -73,6 +70,13 @@ def check_game(game) -> bool:
     return True
 
 
+def multiply_cubes(cubes: dict) -> int:
+    '''
+    Multiply cubes
+    '''
+    return cubes['red'] * cubes['blue'] * cubes['green']
+
+
 @timer
 def part_one_solution(data) -> int:
     '''
@@ -99,7 +103,10 @@ def part_two_solution(data) -> int:
     result = 0
 
     # process data here...
-
+    for game in data:
+        game = game.split(':')
+        cubes = extract_cubes(game=game[1])
+        result += multiply_cubes(cubes=cubes)
     return result
 
 
