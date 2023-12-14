@@ -104,9 +104,7 @@ def part_two_solution(data) -> int:
 
     # process data here...
     for game in data:
-        game = game.split(':')
-        cubes = extract_cubes(game=game[1])
-        result += multiply_cubes(cubes=cubes)
+        result += multiply_cubes(cubes=extract_cubes(game=game.split(':')[1]))
     return result
 
 
