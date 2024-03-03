@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/remove-element/description/
 """
 from typing import List, Optional
 import string
@@ -20,15 +21,19 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
+        self.test(self.solution(nums = [3,2,2,3], val = 3), 2)
+        self.test(self.solution(nums = [0,1,2,2,3,0,4,2], val = 2), 5)
 
-    def solution(self):
+    def solution(self, nums: List[int], val: int) -> int:
         """
         Solution function goes here
         """
-        result = 0
+        result = len(nums)
+        for i in nums:
+            if i == val:
+                del nums[nums.index(i)]
+                result -= 1
+                print(nums)
         return result
 
 
