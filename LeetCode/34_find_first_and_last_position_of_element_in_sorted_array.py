@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/
 """
 from typing import List, Optional
 import string
@@ -20,15 +21,16 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
+        self.test(self.solution(nums = [5,7,7,8,8,10], target = 8), [3,4])
+        self.test(self.solution(nums = [5,7,7,8,8,10], target = 6), [-1, -1])
+        self.test(self.solution([], 0), [-1, -1])
 
-    def solution(self):
+    def solution(self,  nums: List[int], target: int) -> List[int]:
         """
         Solution function goes here
         """
-        result = 0
+        result = [-1, -1]
+
         return result
 
 
