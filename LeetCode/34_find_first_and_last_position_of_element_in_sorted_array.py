@@ -24,6 +24,7 @@ class Solution(AbstractSolution):
         self.test(self.solution(nums = [5,7,7,8,8,10], target = 8), [3,4])
         self.test(self.solution(nums = [5,7,7,8,8,10], target = 6), [-1, -1])
         self.test(self.solution([], 0), [-1, -1])
+        self.test(self.solution([1], 1), [0, 0])
 
     def solution(self,  nums: List[int], target: int) -> List[int]:
         """
@@ -31,8 +32,10 @@ class Solution(AbstractSolution):
         """
         result = [-1, -1]
         # edge cases: target not in nums or nums has less than 2 elements:
-        if target not in nums or len(nums) <= 2:
+        if target not in nums or len(nums) == 0:
             return result
+        if len(nums) == 1:
+            return [0,0]
         for i in nums:
             if i < target:
                 continue
