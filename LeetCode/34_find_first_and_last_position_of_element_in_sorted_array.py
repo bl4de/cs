@@ -36,9 +36,11 @@ class Solution(AbstractSolution):
         if target not in nums or len(nums) == 0:
             return [-1, -1]
         if len(nums) == 1:
-            return [0,0]
+            return [0, 0]
         if len(nums) == 2 and nums[0] == nums[1]:
             return [0, 1]
+        if len(nums) == 2 and nums[0] != nums[1]:
+            return [0, 0]
             
         for index, element in enumerate(nums):
             if element < target:
