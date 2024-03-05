@@ -47,8 +47,9 @@ class Solution(AbstractSolution):
         if len(result) == 1:
             result.append(result[0])
 
+        if len(result) > 2:
+            result = [result[0], result[len(result) - 1]]
         return result
-
 
 SHOW_OUTPUT = True
 NUMS_OF_EXECUTION = 1
