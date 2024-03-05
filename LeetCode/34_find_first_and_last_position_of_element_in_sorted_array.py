@@ -30,7 +30,18 @@ class Solution(AbstractSolution):
         Solution function goes here
         """
         result = [-1, -1]
-
+        # edge cases: target not in nums or nums has less than 2 elements:
+        if target not in nums or len(nums) <= 2:
+            return result
+        for i in nums:
+            if i < target:
+                continue
+            if i == target:
+                result[0] = nums.index(i)
+                for index, j in enumerate(nums):
+                    if j > target:
+                        result[1] = index - 1
+                        break
         return result
 
 
