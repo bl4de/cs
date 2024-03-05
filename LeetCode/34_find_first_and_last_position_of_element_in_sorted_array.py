@@ -30,21 +30,21 @@ class Solution(AbstractSolution):
         """
         Solution function goes here
         """
-        result = [-1, -1]
-        # edge cases: target not in nums or nums has less than 2 elements:
+        result = []
+
+        # edge cases:
         if target not in nums or len(nums) == 0:
-            return result
+            return [-1, -1]
         if len(nums) == 1:
             return [0,0]
-        for i in nums:
-            if i < target:
+        if len(nums) == 2 and nums[0] == nums[1]:
+            retunr [0, 1]
+            
+        for index, element in enumerate(nums):
+            if element < target:
                 continue
-            if i == target:
-                result[0] = nums.index(i)
-                for index, j in enumerate(nums):
-                    if j > target:
-                        result[1] = index - 1
-                        break
+            if element == target:
+                result.append(index)
         return result
 
 
