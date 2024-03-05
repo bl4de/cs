@@ -38,7 +38,7 @@ class Solution(AbstractSolution):
         if len(nums) == 1:
             return [0,0]
         if len(nums) == 2 and nums[0] == nums[1]:
-            retunr [0, 1]
+            return [0, 1]
             
         for index, element in enumerate(nums):
             if element < target:
