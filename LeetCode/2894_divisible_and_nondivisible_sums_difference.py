@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/divisible-and-non-divisible-sums-difference/description/
 """
 from typing import List, Optional
 import string
@@ -20,16 +21,22 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
+        self.test(self.solution(n=10, m=3), 19)
+        self.test(self.solution(n=5, m=6), 15)
+        self.test(self.solution(n=5, m=1), -15)
 
-    def solution(self):
+    def solution(self, n: int, m: int) -> int:
         """
         Solution function goes here
         """
-        result = 0
-        return result
+        divisible = 0
+        non_divisible = 0
+        for num in range(1, n + 1):
+            if num % m == 0:
+                divisible += num
+            else:
+                non_divisible += num
+        return non_divisible - divisible
 
 
 SHOW_OUTPUT = True
