@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/find-words-containing-character/description/
 """
 from typing import List, Optional
 import string
@@ -20,15 +21,18 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
+        self.test(self.solution(words=["leet", "code"], x="e"), [0, 1])
+        self.test(self.solution(words=["abc", "bcd", "aaaa", "cbc"], x="a"), [0, 2])
+        self.test(self.solution(words=["abc", "bcd", "aaaa", "cbc"], x="z"), [])
 
-    def solution(self):
+    def solution(self, words: List[str], x: str) -> List[int]:
         """
         Solution function goes here
         """
-        result = 0
+        result = []
+        for index, w in enumerate(words):
+            if x in w:
+                result.append(index)
         return result
 
 
