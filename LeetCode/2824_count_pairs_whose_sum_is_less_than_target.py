@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/count-pairs-whose-sum-is-less-than-target/description/
 """
 from typing import List, Optional
 import string
@@ -20,15 +21,18 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
+        self.test(self.solution(nums=[-1, 1, 2, 3, 1], target=2), 3)
+        self.test(self.solution(nums=[-6, 2, 5, -2, -7, -1, 3], target=-2), 10)
 
-    def solution(self):
+    def solution(self, nums: List[int], target: int) -> int:
         """
         Solution function goes here
         """
         result = 0
+        for i, n in enumerate(nums):
+            for j, m in enumerate(nums[i + 1:]):
+                if n + m < target:
+                    result += 1
         return result
 
 
