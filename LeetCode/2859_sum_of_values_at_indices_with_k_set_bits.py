@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name, missing-class-docstring, import-error, too-few-public-methods, unused-import, no-self-use,missing-function-docstring,consider-using-enumerate,consider-iterating-dictionary
 """
     LeetCode solution class
+    https://leetcode.com/problems/sum-of-values-at-indices-with-k-set-bits/description/
 """
 from typing import List, Optional
 import string
@@ -20,15 +21,17 @@ class Solution(AbstractSolution):
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
+        self.test(self.solution(nums=[5, 10, 1, 5, 2], k=1), 13)
+        self.test(self.solution(nums=[4, 3, 2, 1], k=2), 1)
 
-    def solution(self):
+    def solution(self, nums: List[int], k: int) -> int:
         """
         Solution function goes here
         """
         result = 0
+        for index, n in enumerate(nums):
+            if str(bin(index)).count('1') == k:
+                result += n
         return result
 
 
