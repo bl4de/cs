@@ -31,23 +31,32 @@ class Solution(AbstractSolution):
         result = 0
         return result
 
-
 SHOW_OUTPUT = True
 NUMS_OF_EXECUTION = 1
+USE_PROFILER = False
 SHOW_PROFILER_STATS = True
 
+profiler = None
 sys.setrecursionlimit(1000)
-profiler = cProfile.Profile()
+
+if USE_PROFILER:
+    profiler = cProfile.Profile()
 solution = Solution(SHOW_OUTPUT)
 
 solution.timer_start()
-profiler.enable()
+if USE_PROFILER:
+    profiler.enable()
 print(f"\nRUNNING:\t{NUMS_OF_EXECUTION} iterations")
 print(f"OUTPUT:\t\t{'disabled' if SHOW_OUTPUT is False else 'enabled'}")
+
 for i in range(0, NUMS_OF_EXECUTION):
-    profiler.run("solution.solve()")
+    if USE_PROFILER:
+        profiler.run("solution.solve()")
+    else:
+        solution.solve()
 solution.timer_stop()
 
-if SHOW_PROFILER_STATS:
-    profiler.print_stats(sort='calls')
-profiler.disable()
+if USE_PROFILER:
+    if SHOW_PROFILER_STATS:
+        profiler.print_stats(sort='calls')
+    profiler.disable()
