@@ -31,24 +31,24 @@ def timer(func):
     return _wrapper
 
 
-@timer
-def part_one_solution(data) -> int:
-    '''
-    Solution for Part 1.
-    '''
+def prepare_arrays(data) -> ():
     data = data.split('\n')
-    result = 0
-
     left = []
     right = []
     for p in data:
         pair = p.split('  ')
         left.append(int(pair[0]))
         right.append(int(pair[1]))
+    return (left, right)
 
-    result = sum([abs(i - j) for i, j in zip(sorted(left), sorted(right))])
 
-    return result  # 3714264
+@timer
+def part_one_solution(data) -> int:
+    '''
+    Solution for Part 1.
+    '''
+    (left, right) = prepare_arrays(data)
+    return sum([abs(i - j) for i, j in zip(sorted(left), sorted(right))])  # 3714264
 
 
 @timer
@@ -56,13 +56,8 @@ def part_two_solution(data) -> int:
     '''
     Solution for Part 2.
     '''
-    data = data.split('\n')
-    result = 0
-
-    # process data here...
-
-    return result
-
+    (left, right) = prepare_arrays(data)
+    return sum([i * right.count(i) for i in left])
 
 DAY = 1
 DEBUG = True if len(sys.argv) > 1 and sys.argv[1] else False
