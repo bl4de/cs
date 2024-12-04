@@ -3,10 +3,10 @@
 """
     LeetCode solution class
 """
-from typing import List, Optional
-import string
-import sys
 import cProfile
+import sys
+from typing import List
+
 from abstract_solution import AbstractSolution
 
 
@@ -16,13 +16,13 @@ class Solution(AbstractSolution):
         self.SHOW_OUTPUT = show_output
         super().__init__()
 
-    def solve(self):
+    def solve(self, nums: List[int]) -> List[int]:
         """
         Solution runner called from profiler
         """
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
-        self.test(self.solution(), None)
+        self.test(self.solution(nums=[4, 3, 2, 7, 8, 2, 3, 1]), [2, 3])
+        self.test(self.solution(nums=[1, 1, 2]), [1])
+        self.test(self.solution([1]), [])
 
     def solution(self):
         """
@@ -30,6 +30,7 @@ class Solution(AbstractSolution):
         """
         result = 0
         return result
+
 
 SHOW_OUTPUT = True
 NUMS_OF_EXECUTION = 1

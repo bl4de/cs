@@ -39,9 +39,16 @@ def part_one_solution(data) -> int:
     data = data.split('\n')
     result = 0
 
-    # process data here...
+    left = []
+    right = []
+    for p in data:
+        pair = p.split('  ')
+        left.append(int(pair[0]))
+        right.append(int(pair[1]))
 
-    return result
+    result = sum([abs(i - j) for i, j in zip(sorted(left), sorted(right))])
+
+    return result  # 3714264
 
 
 @timer
