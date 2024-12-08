@@ -30,12 +30,28 @@ def timer(func):
 
     return _wrapper
 
+
 def prepare_data(data) -> []:
     data = data.split('\n')
     reports = []
     for l in data:
         reports.append([int(i) for i in l.split(' ')])
     return reports
+
+
+def analyse_report(report) -> bool:
+    safe = True
+    up = True if report[1] > report[0] else False
+    for i in range(1, len(report)):
+        curr = report[i]
+        prev = report[i - 1]
+        if 1 <= abs(curr - prev) <= 3 and (curr > prev) == up:
+            safe = True
+        else:
+            safe = False
+            break
+    return safe
+
 
 @timer
 def part_one_solution(data) -> int:
@@ -45,17 +61,7 @@ def part_one_solution(data) -> int:
     result = 0
     reports = prepare_data(data)
     for report in reports:
-        safe = True
-        up = True if report[1] > report[0] else False
-        for i in range(1, len(report)):
-            curr = report[i]
-            prev = report[i - 1]
-            if 1 <= abs(curr - prev) <= 3 and (curr > prev) == up:
-                safe = True
-            else:
-                safe = False
-                break
-        result = result + 1 if safe == True else result
+        result = result + 1 if analyse_report(report) == True else result
     return result
 
 
@@ -64,11 +70,15 @@ def part_two_solution(data) -> int:
     '''
     Solution for Part 2.
     '''
-    data = data.split('\n')
     result = 0
-
-    # process data here...
-
+    reports = prepare_data(data)
+    for report in reports:
+        for i in range(0, len(report)):
+            fixed_report = report[:]
+            fixed_report.pop(i)
+            if analyse_report(fixed_report):
+                result = result + 1
+                break
     return result
 
 
